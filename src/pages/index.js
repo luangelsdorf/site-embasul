@@ -25,19 +25,19 @@ export default function Home() {
       </Head>
 
       <main>
-        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top0', objectFit: 'cover' }} src={banner} />
-        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top0', objectFit: 'cover' }} src={carrossel} />
-        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top0', objectFit: 'cover' }} src={prod} />
-        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top0', objectFit: 'cover' }} src={composition} />
-        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top0', objectFit: 'cover' }} src={flex} />
-        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top0', objectFit: 'cover' }} src={digital} />
-        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top0', objectFit: 'cover' }} src={ai} />
-        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top0', objectFit: 'cover' }} src={tech} />
-        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top0', objectFit: 'cover' }} src={cert} />
-        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top0', objectFit: 'cover' }} src={sust} />
-        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top0', objectFit: 'cover' }} src={diversity} />
-        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top0', objectFit: 'cover' }} src={people} />
-        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top0', objectFit: 'cover' }} src={footer} />
+        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={banner} />
+        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={carrossel} />
+        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={prod} />
+        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={composition} />
+        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={flex} />
+        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={digital} />
+        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={ai} />
+        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={tech} />
+        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={cert} />
+        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={sust} />
+        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={diversity} />
+        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={people} />
+        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={footer} />
       </main>
     </>
   )

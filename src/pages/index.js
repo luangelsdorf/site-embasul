@@ -1,9 +1,19 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import Head from 'next/head';
+import Image from 'next/image';
 
-const inter = Inter({ subsets: ['latin'] })
+import banner from 'public/images/gambi/home/1. Banner.jpg';
+import carrossel from 'public/images/gambi/home/2. Carrossel de Produtos.jpg';
+import prod from 'public/images/gambi/home/3. Produção e Entrega Ágeis.jpg';
+import composition from 'public/images/gambi/home/4. Composições Customizadas.jpg';
+import flex from 'public/images/gambi/home/5. Impressão Flexográfica.jpg';
+import digital from 'public/images/gambi/home/6. Impressão Digital.jpg';
+import ai from 'public/images/gambi/home/7. Inteligência Artificial.jpg';
+import tech from 'public/images/gambi/home/8. Tecnologia.jpg';
+import cert from 'public/images/gambi/home/9. Certificações.jpg';
+import sust from 'public/images/gambi/home/10. Sustentabilidade.jpg';
+import diversity from 'public/images/gambi/home/11. Diversidade.jpg';
+import people from 'public/images/gambi/home/12. Pessoas.jpg';
+import footer from 'public/images/gambi/home/13. Footer.jpg';
 
 export default function Home() {
   return (
@@ -14,8 +24,21 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${styles.main} ${inter.className}`}>
-        
+
+      <main>
+        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top0', objectFit: 'cover' }} src={banner} />
+        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top0', objectFit: 'cover' }} src={carrossel} />
+        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top0', objectFit: 'cover' }} src={prod} />
+        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top0', objectFit: 'cover' }} src={composition} />
+        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top0', objectFit: 'cover' }} src={flex} />
+        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top0', objectFit: 'cover' }} src={digital} />
+        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top0', objectFit: 'cover' }} src={ai} />
+        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top0', objectFit: 'cover' }} src={tech} />
+        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top0', objectFit: 'cover' }} src={cert} />
+        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top0', objectFit: 'cover' }} src={sust} />
+        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top0', objectFit: 'cover' }} src={diversity} />
+        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top0', objectFit: 'cover' }} src={people} />
+        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top0', objectFit: 'cover' }} src={footer} />
       </main>
     </>
   )

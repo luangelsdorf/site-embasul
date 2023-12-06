@@ -53,6 +53,7 @@ body {
 
 img {
   vertical-align: middle;
+  pointer-events: none;
 }
 
 a {

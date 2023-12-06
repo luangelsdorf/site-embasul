@@ -1,10 +1,12 @@
 import Head from 'next/head';
-
 import Header from 'public/images/header.svg';
 import Banner from 'public/images/banner.svg';
+import Footer from 'public/images/footer.svg';
+import home from 'public/images/Home.png';
 import { useEffect } from 'react';
+import Image from 'next/image';
 
-export default function Home() {
+export default function HomePage() {
 
   useEffect(() => {
     window.onscroll = e => {
@@ -39,7 +41,12 @@ export default function Home() {
         }}
           id="headerfixed"
         />
-        <Banner style={{ width: '100%', height: 'auto', marginBottom: '2000px' }} />
+
+        <Banner style={{ width: '100%', height: 'auto', }} />
+
+        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={home} />
+
+        <Footer style={{ width: '100%', height: 'auto', }} />
       </main>
     </>
   )

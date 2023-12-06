@@ -1,0 +1,53 @@
+/* @use "../../../../styles/scss/mixins"; */
+
+.section {
+  position: relative;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & > div:first-child :global(.row) {
+    width: calc(100vw + 24px);
+  }
+
+  /* @include mixins.lg {
+    flex-direction: column;
+    gap: 80px;
+    
+    img {
+      border-radius: 8px;
+    }
+  } */
+
+  img {
+    height: 540px;
+
+    /* @include mixins.md {
+      height: 640px;
+    } */
+  }
+
+  :global(.container) {
+    position: absolute;
+
+    /* @include mixins.lg {
+      position: relative;
+    } */
+  }
+}
+
+.first,
+.last {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.last {
+  h2 {
+    font: var(--heading-sans-small);
+    margin-bottom: 56px;
+  }
+}

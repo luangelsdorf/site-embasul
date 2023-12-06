@@ -1,21 +1,24 @@
 import Head from 'next/head';
-import Image from 'next/image';
 
-import banner from 'public/images/gambi/home/1. Banner.jpg';
-import carrossel from 'public/images/gambi/home/2. Carrossel de Produtos.jpg';
-import prod from 'public/images/gambi/home/3. Produção e Entrega Ágeis.jpg';
-import composition from 'public/images/gambi/home/4. Composições Customizadas.jpg';
-import flex from 'public/images/gambi/home/5. Impressão Flexográfica.jpg';
-import digital from 'public/images/gambi/home/6. Impressão Digital.jpg';
-import ai from 'public/images/gambi/home/7. Inteligência Artificial.jpg';
-import tech from 'public/images/gambi/home/8. Tecnologia.jpg';
-import cert from 'public/images/gambi/home/9. Certificações.jpg';
-import sust from 'public/images/gambi/home/10. Sustentabilidade.jpg';
-import diversity from 'public/images/gambi/home/11. Diversidade.jpg';
-import people from 'public/images/gambi/home/12. Pessoas.jpg';
-import footer from 'public/images/gambi/home/13. Footer.jpg';
+import Header from 'public/images/header.svg';
+import Banner from 'public/images/banner.svg';
+import { useEffect } from 'react';
 
 export default function Home() {
+
+  useEffect(() => {
+    window.onscroll = e => {
+      console.log(window.scrollY);
+      if (window.scrollY > 60) {
+        document.getElementById('headerfixed').style.transform = 'translateY(0)';
+      } else {
+        document.getElementById('headerfixed').style.transform = 'translateY(-100%)';
+      }
+    }
+
+    return () => window.onscroll = null;
+  }, []);
+
   return (
     <>
       <Head>
@@ -25,19 +28,18 @@ export default function Home() {
       </Head>
 
       <main>
-        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={banner} />
-        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={carrossel} />
-        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={prod} />
-        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={composition} />
-        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={flex} />
-        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={digital} />
-        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={ai} />
-        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={tech} />
-        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={cert} />
-        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={sust} />
-        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={diversity} />
-        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={people} />
-        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={footer} />
+        <Header style={{
+          width: 'calc(100vw + 12px)',
+          height: 'auto',
+          position: 'fixed',
+          left: '-12px',
+          top: '-12px',
+          transform: 'translateY(-100%)',
+          transition: '400ms',
+        }}
+          id="headerfixed"
+        />
+        <Banner style={{ width: '100%', height: 'auto', marginBottom: '2000px' }} />
       </main>
     </>
   )

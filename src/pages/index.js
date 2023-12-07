@@ -68,7 +68,6 @@ export default function HomePage() {
         />
 
         <Banner style={{ width: '100%', height: 'auto', }} />
-        <Asd style={{ width: '100%', height: 'auto' }} />
 
         <section style={{ paddingTop: '64px', paddingBottom: '80px' }}>
           <div className="container">

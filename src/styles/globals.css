@@ -13,6 +13,7 @@ body {
 img {
   vertical-align: middle;
   pointer-events: none;
+  object-fit: cover;
 }
 
 a {

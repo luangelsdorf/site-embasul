@@ -1,23 +1,11 @@
 import Head from 'next/head';
 import Header from 'public/images/header.svg';
 import Banner from 'public/images/banner.svg';
-import Cases from 'public/images/svg/projetos.svg';
+import Cases from 'public/images/svg/Portfolio.svg';
 import Sustainability from 'public/images/svg/sust.svg';
 import Certifications from 'public/images/svg/cert.svg';
 import Footer from 'public/images/footer.svg';
-
-import service1 from 'public/images/services/image-2.jpg';
-import service2 from 'public/images/services/image-4.jpg';
-import service3 from 'public/images/services/image-5.jpg';
-import service4 from 'public/images/services/image-6.jpg';
-import service5 from 'public/images/services/image-7.jpg';
-import service6 from 'public/images/services/image-10.jpg';
-
-import case1 from 'public/images/cases/1.png';
-import case2 from 'public/images/cases/2.png';
-import case3 from 'public/images/cases/3.png';
 import cases from 'public/images/cases.png';
-import Asd from 'public/images/svg/3.svg';
 
 import Delivery from 'public/images/svg/blocks/delivery.svg';
 import Highlight from 'public/images/svg/blocks/lots.svg';
@@ -69,46 +57,7 @@ export default function HomePage() {
 
         <Banner style={{ width: '100%', height: 'auto', }} />
 
-        <section style={{ paddingTop: '64px', paddingBottom: '80px' }}>
-          <div className="container">
-            <Cases style={{ width: '100%', height: 'auto', marginBottom: '32px' }} />
-          </div>
-          <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'center', objectFit: 'cover' }} src={cases} />
-          {/* <Slider slidesToShow={3} autoplay autoplaySpeed={2000} centerMode>
-            <div>
-              <div style={{ margin: '0 24px' }}>
-                <Image src={case1} width={500} height={400} />
-              </div>
-            </div>
-            <div>
-              <div style={{ margin: '0 24px' }}>
-                <Image src={case2} width={500} height={400} />
-              </div>
-            </div>
-            <div>
-              <div style={{ margin: '0 24px' }}>
-                <Image src={case3} width={500} height={400} />
-              </div>
-            </div>
-            <div>
-              <div style={{ margin: '0 24px' }}>
-                <Image src={case1} width={500} height={400} />
-              </div>
-            </div>
-            <div>
-              <div style={{ margin: '0 24px' }}>
-                <Image src={case2} width={500} height={400} />
-              </div>
-            </div>
-            <div>
-              <div style={{ margin: '0 24px' }}>
-                <Image src={case3} width={500} height={400} />
-              </div>
-            </div>
-          </Slider> */}
-        </section>
-
-
+        <Cases style={{ width: '100%', height: 'auto', }} />
 
         <Delivery style={{ width: '100%', height: 'auto' }} />
 

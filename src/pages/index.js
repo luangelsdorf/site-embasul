@@ -17,13 +17,14 @@ import case1 from 'public/images/cases/1.png';
 import case2 from 'public/images/cases/2.png';
 import case3 from 'public/images/cases/3.png';
 import cases from 'public/images/cases.png';
+import Asd from 'public/images/svg/3.svg';
 
-import Delivery from 'public/images/services/svg/entregas.svg';
-import Highlight from 'public/images/services/svg/destaque.svg';
-import Lots from 'public/images/services/svg/lotes.svg';
-import People from 'public/images/services/svg/pessoas.svg';
-import Products from 'public/images/services/svg/produtos.svg';
-import WorkWithUs from 'public/images/services/svg/trabalhe-conosco.svg';
+import Delivery from 'public/images/svg/blocks/delivery.svg';
+import Highlight from 'public/images/svg/blocks/lots.svg';
+import Lots from 'public/images/svg/blocks/products-1.svg';
+import People from 'public/images/svg/blocks/products-2.svg';
+import Products from 'public/images/svg/blocks/people.svg';
+import WorkWithUs from 'public/images/svg/blocks/work.svg';
 
 import { useEffect } from 'react';
 import Image from 'next/image';
@@ -67,6 +68,7 @@ export default function HomePage() {
         />
 
         <Banner style={{ width: '100%', height: 'auto', }} />
+        <Asd style={{ width: '100%', height: 'auto' }} />
 
         <section style={{ paddingTop: '64px', paddingBottom: '80px' }}>
           <div className="container">
@@ -107,47 +109,19 @@ export default function HomePage() {
           </Slider> */}
         </section>
 
-        <section>
-          <PictureAndText flipped>
-            <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'center', objectFit: 'cover' }} src={service1} />
-            <Delivery style={{ width: '100%', height: 'auto' }} />
-          </PictureAndText>
-        </section>
 
-        <section>
-          <PictureAndText>
-            <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'center', objectFit: 'cover' }} src={service3} />
-            <Lots style={{ width: '100%', height: 'auto' }} />
-          </PictureAndText>
-        </section>
 
-        <section>
-          <PictureAndText flipped>
-            <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'center', objectFit: 'cover' }} src={service5} />
-            <Highlight style={{ width: '100%', height: 'auto' }} />
-          </PictureAndText>
-        </section>
+        <Delivery style={{ width: '100%', height: 'auto' }} />
 
-        <section>
-          <PictureAndText>
-            <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'center', objectFit: 'cover' }} src={service2} />
-            <Products style={{ width: '100%', height: 'auto' }} />
-          </PictureAndText>
-        </section>
+        <Highlight style={{ width: '100%', height: 'auto' }} />
 
-        <section>
-          <PictureAndText flipped>
-            <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'center', objectFit: 'cover' }} src={service6} />
-            <People style={{ width: '100%', height: 'auto' }} />
-          </PictureAndText>
-        </section>
+        <Lots style={{ width: '100%', height: 'auto' }} />
 
-        <section>
-          <PictureAndText>
-            <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'center', objectFit: 'cover' }} src={service4} />
-            <WorkWithUs style={{ width: '100%', height: 'auto' }} />
-          </PictureAndText>
-        </section>
+        <People style={{ width: '100%', height: 'auto' }} />
+
+        <Products style={{ width: '100%', height: 'auto' }} />
+
+        <WorkWithUs style={{ width: '100%', height: 'auto' }} />
 
         <section>
           <Sustainability style={{ width: '100%', height: 'auto', }} />

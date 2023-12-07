@@ -1,15 +1,38 @@
 import Head from 'next/head';
 import Header from 'public/images/header.svg';
 import Banner from 'public/images/banner.svg';
+import Cases from 'public/images/svg/projetos.svg';
+import Sustainability from 'public/images/svg/sust.svg';
+import Certifications from 'public/images/svg/cert.svg';
 import Footer from 'public/images/footer.svg';
-import home from 'public/images/Home.png';
+
+import service1 from 'public/images/services/image-2.jpg';
+import service2 from 'public/images/services/image-4.jpg';
+import service3 from 'public/images/services/image-5.jpg';
+import service4 from 'public/images/services/image-6.jpg';
+import service5 from 'public/images/services/image-7.jpg';
+import service6 from 'public/images/services/image-10.jpg';
+
+import case1 from 'public/images/cases/1.png';
+import case2 from 'public/images/cases/2.png';
+import case3 from 'public/images/cases/3.png';
+
+import Delivery from 'public/images/services/svg/entregas.svg';
+import Highlight from 'public/images/services/svg/destaque.svg';
+import Lots from 'public/images/services/svg/lotes.svg';
+import People from 'public/images/services/svg/pessoas.svg';
+import Products from 'public/images/services/svg/produtos.svg';
+import WorkWithUs from 'public/images/services/svg/trabalhe-conosco.svg';
+
 import { useEffect } from 'react';
 import Image from 'next/image';
+import PictureAndText from '@/components/PictureAndText';
+import Slider from 'react-slick';
 
 export default function HomePage() {
 
   useEffect(() => {
-    window.onscroll = e => {
+    /* window.onscroll = e => {
       console.log(window.scrollY);
       if (window.scrollY > 60) {
         document.getElementById('headerfixed').style.transform = 'translateY(0)';
@@ -18,7 +41,7 @@ export default function HomePage() {
       }
     }
 
-    return () => window.onscroll = null;
+    return () => window.onscroll = null; */
   }, []);
 
   return (
@@ -44,7 +67,93 @@ export default function HomePage() {
 
         <Banner style={{ width: '100%', height: 'auto', }} />
 
-        <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={home} />
+        <section style={{padding: '140px 0'}}>
+          <div className="container">
+            <Cases style={{ width: '100%', height: 'auto', marginBottom: '72px' }} />
+          </div>
+          <Slider slidesToShow={3} autoplay autoplaySpeed={2000} centerMode>
+            <div>
+              <div style={{ margin: '0 24px' }}>
+                <Image src={case1} width={500} height={400} />
+              </div>
+            </div>
+            <div>
+              <div style={{ margin: '0 24px' }}>
+                <Image src={case2} width={500} height={400} />
+              </div>
+            </div>
+            <div>
+              <div style={{ margin: '0 24px' }}>
+                <Image src={case3} width={500} height={400} />
+              </div>
+            </div>
+            <div>
+              <div style={{ margin: '0 24px' }}>
+                <Image src={case1} width={500} height={400} />
+              </div>
+            </div>
+            <div>
+              <div style={{ margin: '0 24px' }}>
+                <Image src={case2} width={500} height={400} />
+              </div>
+            </div>
+            <div>
+              <div style={{ margin: '0 24px' }}>
+                <Image src={case3} width={500} height={400} />
+              </div>
+            </div>
+          </Slider>
+        </section>
+
+        <section>
+          <PictureAndText flipped>
+            <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'center', objectFit: 'cover' }} src={service1} />
+            <Delivery />
+          </PictureAndText>
+        </section>
+
+        <section>
+          <PictureAndText>
+            <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'center', objectFit: 'cover' }} src={service2} />
+            <Lots />
+          </PictureAndText>
+        </section>
+
+        <section>
+          <PictureAndText flipped>
+            <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'center', objectFit: 'cover' }} src={service3} />
+            <Highlight />
+          </PictureAndText>
+        </section>
+
+        <section>
+          <PictureAndText>
+            <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'center', objectFit: 'cover' }} src={service4} />
+            <Products />
+          </PictureAndText>
+        </section>
+
+        <section>
+          <PictureAndText flipped>
+            <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'center', objectFit: 'cover' }} src={service5} />
+            <People />
+          </PictureAndText>
+        </section>
+
+        <section>
+          <PictureAndText>
+            <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'center', objectFit: 'cover' }} src={service6} />
+            <WorkWithUs />
+          </PictureAndText>
+        </section>
+
+        <section>
+          <Sustainability style={{ width: '100%', height: 'auto', }} />
+        </section>
+
+        <section>
+          <Certifications style={{ width: '100%', height: 'auto', }} />
+        </section>
 
         <Footer style={{ width: '100%', height: 'auto', }} />
       </main>

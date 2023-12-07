@@ -46,8 +46,21 @@
 }
 
 .last {
+  max-width: 450px;
+  p:first-of-type {
+    color: #235cf2;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+
   h2 {
-    font: var(--heading-sans-small);
-    margin-bottom: 56px;
+    font-size: 44px;
+    margin-bottom: 24px;
+    color: #000B28;
+  }
+
+  p:last-of-type {
+    color: #757575;
   }
 }

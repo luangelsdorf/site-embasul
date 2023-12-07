@@ -16,6 +16,7 @@ import service6 from 'public/images/services/image-10.jpg';
 import case1 from 'public/images/cases/1.png';
 import case2 from 'public/images/cases/2.png';
 import case3 from 'public/images/cases/3.png';
+import cases from 'public/images/cases.png';
 
 import Delivery from 'public/images/services/svg/entregas.svg';
 import Highlight from 'public/images/services/svg/destaque.svg';
@@ -67,11 +68,12 @@ export default function HomePage() {
 
         <Banner style={{ width: '100%', height: 'auto', }} />
 
-        <section style={{padding: '140px 0'}}>
+        <section style={{ paddingTop: '64px', paddingBottom: '80px' }}>
           <div className="container">
-            <Cases style={{ width: '100%', height: 'auto', marginBottom: '72px' }} />
+            <Cases style={{ width: '100%', height: 'auto', marginBottom: '32px' }} />
           </div>
-          <Slider slidesToShow={3} autoplay autoplaySpeed={2000} centerMode>
+          <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'center', objectFit: 'cover' }} src={cases} />
+          {/* <Slider slidesToShow={3} autoplay autoplaySpeed={2000} centerMode>
             <div>
               <div style={{ margin: '0 24px' }}>
                 <Image src={case1} width={500} height={400} />
@@ -102,48 +104,48 @@ export default function HomePage() {
                 <Image src={case3} width={500} height={400} />
               </div>
             </div>
-          </Slider>
+          </Slider> */}
         </section>
 
         <section>
           <PictureAndText flipped>
             <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'center', objectFit: 'cover' }} src={service1} />
-            <Delivery />
+            <Delivery style={{ width: '100%', height: 'auto' }} />
           </PictureAndText>
         </section>
 
         <section>
           <PictureAndText>
-            <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'center', objectFit: 'cover' }} src={service2} />
-            <Lots />
-          </PictureAndText>
-        </section>
-
-        <section>
-          <PictureAndText flipped>
             <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'center', objectFit: 'cover' }} src={service3} />
-            <Highlight />
-          </PictureAndText>
-        </section>
-
-        <section>
-          <PictureAndText>
-            <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'center', objectFit: 'cover' }} src={service4} />
-            <Products />
+            <Lots style={{ width: '100%', height: 'auto' }} />
           </PictureAndText>
         </section>
 
         <section>
           <PictureAndText flipped>
             <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'center', objectFit: 'cover' }} src={service5} />
-            <People />
+            <Highlight style={{ width: '100%', height: 'auto' }} />
           </PictureAndText>
         </section>
 
         <section>
           <PictureAndText>
+            <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'center', objectFit: 'cover' }} src={service2} />
+            <Products style={{ width: '100%', height: 'auto' }} />
+          </PictureAndText>
+        </section>
+
+        <section>
+          <PictureAndText flipped>
             <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'center', objectFit: 'cover' }} src={service6} />
-            <WorkWithUs />
+            <People style={{ width: '100%', height: 'auto' }} />
+          </PictureAndText>
+        </section>
+
+        <section>
+          <PictureAndText>
+            <Image quality={100} style={{ width: '100%', height: 'auto', objectPosition: 'center', objectFit: 'cover' }} src={service4} />
+            <WorkWithUs style={{ width: '100%', height: 'auto' }} />
           </PictureAndText>
         </section>
 

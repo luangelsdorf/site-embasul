@@ -21,7 +21,7 @@
   } */
 
   img {
-    height: 540px;
+    height: auto !important;
 
     /* @include mixins.md {
       height: 640px;
@@ -47,6 +47,8 @@
 
 .last {
   max-width: 450px;
+  padding: 0 24px;
+  
   p:first-of-type {
     color: #235cf2;
     text-transform: uppercase;

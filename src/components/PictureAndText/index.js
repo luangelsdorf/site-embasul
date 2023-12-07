@@ -5,8 +5,8 @@ export default function PictureAndText({ title, flipped, children }) {
   return (
     <div className={`${styles.section}${flipped ? ' ' + styles.flipped : ''}`}>
       <div>
-        <div className={`row justify-content-${flipped ? 'end' : 'start'}`}>
-          <div className="col-12 col-lg-6 p-0">
+        <div className={`row flex-nowrap justify-content-${flipped ? 'end' : 'start'}`}>
+          <div className="col-6 p-0">
             <div className={styles.first}>
               {first}
             </div>
@@ -14,8 +14,8 @@ export default function PictureAndText({ title, flipped, children }) {
         </div>
       </div>
       <div className="container">
-        <div className={`row justify-content-${flipped ? 'start' : 'end'}`}>
-          <div className="col-12 col-lg-5 p-0">
+        <div className={`row flex-nowrap justify-content-${flipped ? 'start' : 'end'}`}>
+          <div className="col-6 p-0 d-flex justify-content-center">
             <div className={styles.last}>
               {rest}
             </div>

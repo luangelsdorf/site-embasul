@@ -1,7 +1,7 @@
 export default function People() {
   return (
     <div>
-      <h1>Pessoas</h1>
+      <h1></h1>
     </div>
   )
 }

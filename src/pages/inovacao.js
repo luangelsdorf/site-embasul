@@ -1,7 +1,7 @@
 export default function Innovation() {
   return (
     <div>
-      <h1>Inovação</h1>
+      <h1></h1>
     </div>
   )
 }

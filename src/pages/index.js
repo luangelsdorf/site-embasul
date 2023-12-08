@@ -23,18 +23,6 @@ import Slider from 'react-slick';
 
 export default function HomePage() {
 
-  useEffect(() => {
-    window.onscroll = e => {
-      if (window.scrollY > 60) {
-        document.getElementById('headerfixed').classList.remove('top');
-      } else {
-        document.getElementById('headerfixed').classList.add('top');
-      }
-    }
-
-    return () => window.onscroll = null;
-  }, []);
-
   return (
     <>
       <Head>
@@ -44,17 +32,6 @@ export default function HomePage() {
       </Head>
 
       <main>
-        <Header style={{
-          width: 'calc(100vw + 32px)',
-          height: 'auto',
-          position: 'fixed',
-          left: '-24px',
-          top: '-12px',
-          /* transform: 'translateY(-100%)', */
-          transition: '400ms',
-        }}
-          id="headerfixed"
-        />
 
         <Banner style={{ width: '100%', height: 'auto', }} />
 

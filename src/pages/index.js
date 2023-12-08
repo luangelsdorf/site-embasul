@@ -57,7 +57,7 @@ export default function HomePage() {
           <Certifications style={{ width: '100%', height: 'auto', }} />
         </section>
 
-        <Footer style={{ width: '100%', height: 'auto', }} />
+        {/* <Footer style={{ width: '100%', height: 'auto', }} /> */}
       </main>
     </>
   )

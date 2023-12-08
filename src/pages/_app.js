@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '@/styles/globals.css';
 import Header from 'public/images/svg/Heading.svg';
 import { useEffect } from 'react';
+import Footer from 'public/images/footer.svg';
 
 export default function App({ Component, pageProps }) {
 
@@ -33,7 +34,10 @@ export default function App({ Component, pageProps }) {
         id="headerfixed"
         className="top"
       />
+      
       <Component {...pageProps} />
+
+      <Footer style={{ width: '100%', height: 'auto', }} />
     </>
   )
 }

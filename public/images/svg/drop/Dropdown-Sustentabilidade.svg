@@ -1,0 +1,39 @@
+<svg width="328" height="354" viewBox="0 0 328 354" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Dropdown | Sustentabilidade" filter="url(#filter0_d_688_857)">
+<path d="M20 14H308V320C308 324.418 304.418 328 300 328H28C23.5817 328 20 324.418 20 320V14Z" fill="#FCFCFC" shape-rendering="crispEdges"/>
+<path d="M21 15H307V320C307 323.866 303.866 327 300 327H28C24.134 327 21 323.866 21 320V15Z" stroke="#F2F2F2" stroke-width="2" shape-rendering="crispEdges"/>
+<g id="Link">
+<path d="M276 87H52V89H276V87Z" fill="#CCCCCC" mask="url(#path-3-inside-1_688_857)"/>
+<text id="Certificado FSC" fill="#00182E" xml:space="preserve" style="white-space: pre" font-family="Onest" font-size="16" letter-spacing="0em"><tspan x="52" y="68.32">Certificado FSC</tspan></text>
+</g>
+<g id="Link_2">
+<path d="M276 137H52V139H276V137Z" fill="#CCCCCC" mask="url(#path-6-inside-2_688_857)"/>
+<text id="Selo Origem Sustent&#195;&#161;vel" fill="#00182E" xml:space="preserve" style="white-space: pre" font-family="Onest" font-size="16" letter-spacing="0em"><tspan x="52" y="118.32">Selo Origem Sustent&#xe1;vel</tspan></text>
+</g>
+<g id="Link_3">
+<path d="M276 187H52V189H276V187Z" fill="#CCCCCC" mask="url(#path-9-inside-3_688_857)"/>
+<text id="Parceria Pegada Neutra" fill="#00182E" xml:space="preserve" style="white-space: pre" font-family="Onest" font-size="16" letter-spacing="0em"><tspan x="52" y="168.32">Parceria Pegada Neutra</tspan></text>
+</g>
+<g id="Link_4">
+<path d="M276 237H52V239H276V237Z" fill="#CCCCCC" mask="url(#path-12-inside-4_688_857)"/>
+<text id="Parceria CTS Ambiental" fill="#00182E" xml:space="preserve" style="white-space: pre" font-family="Onest" font-size="16" letter-spacing="0em"><tspan x="52" y="218.32">Parceria CTS Ambiental</tspan></text>
+</g>
+<g id="Link_5">
+<path d="M276 287H52V289H276V287Z" fill="#CCCCCC" mask="url(#path-15-inside-5_688_857)"/>
+<text id="Pol&#195;&#173;tica de Sustentabilidade" fill="#00182E" xml:space="preserve" style="white-space: pre" font-family="Onest" font-size="16" letter-spacing="0em"><tspan x="52" y="268.32">Pol&#xed;tica de Sustentabilidade</tspan></text>
+</g>
+<line id="Line 8" x1="20" y1="15" x2="116" y2="15" stroke="#006CCC" stroke-width="2"/>
+</g>
+<defs>
+<filter id="filter0_d_688_857" x="0" y="0" width="328" height="354" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="6"/>
+<feGaussianBlur stdDeviation="10"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.0784314 0 0 0 0 0.0784314 0 0 0 0 0.168627 0 0 0 0.06 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_688_857"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_688_857" result="shape"/>
+</filter>
+</defs>
+</svg>

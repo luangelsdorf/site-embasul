@@ -1,11 +1,13 @@
 import Head from 'next/head';
-import Header from 'public/images/header.svg';
+import Header from 'public/images/svg/Heading.svg';
 import Banner from 'public/images/banner.svg';
 import Cases from 'public/images/svg/Portfolio.svg';
 import Sustainability from 'public/images/svg/sust.svg';
 import Certifications from 'public/images/svg/cert.svg';
 import Footer from 'public/images/footer.svg';
-import cases from 'public/images/cases.png';
+/* import cases from 'public/images/cases.png'; */
+
+
 
 import Delivery from 'public/images/svg/blocks/delivery.svg';
 import Highlight from 'public/images/svg/blocks/lots.svg';
@@ -22,7 +24,7 @@ import Slider from 'react-slick';
 export default function HomePage() {
 
   useEffect(() => {
-    /* window.onscroll = e => {
+    window.onscroll = e => {
       console.log(window.scrollY);
       if (window.scrollY > 60) {
         document.getElementById('headerfixed').style.transform = 'translateY(0)';
@@ -31,7 +33,7 @@ export default function HomePage() {
       }
     }
 
-    return () => window.onscroll = null; */
+    return () => window.onscroll = null;
   }, []);
 
   return (

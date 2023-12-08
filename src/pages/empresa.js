@@ -1,59 +1,16 @@
 import Slider from "react-slick";
+import Structure from 'public/images/svg/Estrutura.svg';
 
 export default function Company() {
 
-  let settings = {
-    speed: 300,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    slide: 'article',
-    centerMode: true,
-
-    responsive: [
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 1,
-          centerMode: false,
-        },
-      },
-    ],
-  };
-
   return (
-    <div className="container">
-      <Slider {...settings}>
-        <article>
-          <div style={{ margin: '0 12px' }}>
-            <h3 style={{ height: '500px', backgroundColor: 'grey' }}>1</h3>
-          </div>
-        </article>
-        <article>
-          <div style={{ margin: '0 12px' }}>
-            <h3 style={{ height: '500px', backgroundColor: 'red' }}>2</h3>
-          </div>
-        </article>
-        <article>
-          <div style={{ margin: '0 12px' }}>
-            <h3 style={{ height: '500px', backgroundColor: 'blue' }}>3</h3>
-          </div>
-        </article>
-        <article>
-          <div style={{ margin: '0 12px' }}>
-            <h3 style={{ height: '500px', backgroundColor: 'green' }}>4</h3>
-          </div>
-        </article>
-        <article>
-          <div style={{ margin: '0 12px' }}>
-            <h3 style={{ height: '500px', backgroundColor: 'tomato' }}>5</h3>
-          </div>
-        </article>
-        <article>
-          <div style={{ margin: '0 12px' }}>
-            <h3 style={{ height: '500px', backgroundColor: 'purple' }}>6</h3>
-          </div>
-        </article>
-      </Slider>
-    </div>
+    <>
+      <Head>
+        <title>Empresa - Embasul</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+
+      <Structure style={{ width: '100%', height: 'auto', }} />
+    </>
   );
 }

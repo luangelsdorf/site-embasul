@@ -1,0 +1,27 @@
+<svg width="281" height="204" viewBox="0 0 281 204" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Dropdown | Inova&#195;&#167;&#195;&#163;o" filter="url(#filter0_d_688_883)">
+<path d="M20 14H261V170C261 174.418 257.418 178 253 178H28C23.5817 178 20 174.418 20 170V14Z" fill="#FCFCFC" shape-rendering="crispEdges"/>
+<path d="M21 15H260V170C260 173.866 256.866 177 253 177H28C24.134 177 21 173.866 21 170V15Z" stroke="#F2F2F2" stroke-width="2" shape-rendering="crispEdges"/>
+<g id="Link">
+<path d="M229 87H52V89H229V87Z" fill="#CCCCCC" mask="url(#path-3-inside-1_688_883)"/>
+<text id="Design com AI" fill="#00182E" xml:space="preserve" style="white-space: pre" font-family="Onest" font-size="16" letter-spacing="0em"><tspan x="52" y="68.32">Design com AI</tspan></text>
+</g>
+<g id="Link_2">
+<path d="M229 137H52V139H229V137Z" fill="#CCCCCC" mask="url(#path-6-inside-2_688_883)"/>
+<text id="Processos ISO9001" fill="#00182E" xml:space="preserve" style="white-space: pre" font-family="Onest" font-size="16" letter-spacing="0em"><tspan x="52" y="118.32">Processos ISO9001</tspan></text>
+</g>
+<line id="Line 8" x1="20" y1="15" x2="116" y2="15" stroke="#006CCC" stroke-width="2"/>
+</g>
+<defs>
+<filter id="filter0_d_688_883" x="0" y="0" width="281" height="204" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="6"/>
+<feGaussianBlur stdDeviation="10"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.0784314 0 0 0 0 0.0784314 0 0 0 0 0.168627 0 0 0 0.06 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_688_883"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_688_883" result="shape"/>
+</filter>
+</defs>
+</svg>

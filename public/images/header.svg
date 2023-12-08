@@ -16,7 +16,9 @@
 </g>
 <g id="Links">
 <g id="Frame 8" font-weight="500">
-<text id="Empresa" fill="#040404" xml:space="preserve" style="white-space: pre" font-family="Onest" font-size="16" letter-spacing="0.05em"><tspan x="472" y="64.32">EMPRESA</tspan></text>
+<a href="/empresa">
+  <text id="Empresa" fill="#040404" xml:space="preserve" style="white-space: pre" font-family="Onest" font-size="16" letter-spacing="0.05em"><tspan x="472" y="64.32">EMPRESA</tspan></text>
+</a>
 <text id="Produtos" fill="#040404" xml:space="preserve" style="white-space: pre" font-family="Onest" font-size="16" letter-spacing="0.05em"><tspan x="577" y="64.32">PRODUTOS</tspan></text>
 <text id="Sustentabilidade" fill="#040404" xml:space="preserve" style="white-space: pre" font-family="Onest" font-size="16" letter-spacing="0.05em"><tspan x="696" y="64.32">SUSTENTABILIDADE</tspan></text>
 <text id="Inova&#195;&#167;&#195;&#163;o" fill="#040404" xml:space="preserve" style="white-space: pre" font-family="Onest" font-size="16" letter-spacing="0.05em"><tspan x="888" y="64.32">INOVA&#xc7;&#xc3;O</tspan></text>

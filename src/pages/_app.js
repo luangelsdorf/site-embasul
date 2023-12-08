@@ -31,6 +31,7 @@ export default function App({ Component, pageProps }) {
         transition: '400ms',
       }}
         id="headerfixed"
+        className="top"
       />
       <Component {...pageProps} />
     </>

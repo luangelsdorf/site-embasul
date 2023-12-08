@@ -42,3 +42,20 @@ a {
 .dd-trigger>g:hover {
   pointer-events: all;
 }
+
+
+#headerfixed #Heading > rect {
+  transition: 300ms;
+}
+
+#headerfixed.top #Heading > rect {
+  fill: transparent;
+}
+
+#headerfixed.top #Logo > path:nth-last-child(-n+7) {
+  fill: white;
+}
+
+#headerfixed.top #Heading > g > a text {
+  fill: white
+}

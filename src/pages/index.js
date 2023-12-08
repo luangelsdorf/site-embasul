@@ -25,11 +25,10 @@ export default function HomePage() {
 
   useEffect(() => {
     window.onscroll = e => {
-      console.log(window.scrollY);
       if (window.scrollY > 60) {
-        document.getElementById('headerfixed').style.transform = 'translateY(0)';
+        document.getElementById('headerfixed').classList.remove('top');
       } else {
-        document.getElementById('headerfixed').style.transform = 'translateY(-100%)';
+        document.getElementById('headerfixed').classList.add('top');
       }
     }
 
@@ -46,12 +45,12 @@ export default function HomePage() {
 
       <main>
         <Header style={{
-          width: 'calc(100vw + 12px)',
+          width: 'calc(100vw + 32px)',
           height: 'auto',
           position: 'fixed',
-          left: '-12px',
+          left: '-24px',
           top: '-12px',
-          transform: 'translateY(-100%)',
+          /* transform: 'translateY(-100%)', */
           transition: '400ms',
         }}
           id="headerfixed"

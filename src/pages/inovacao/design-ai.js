@@ -6,7 +6,7 @@ export default function Design() {
   return (
     <div>
       <Head>
-        <title>Design AI | Embasul</title>
+        <title>Design com AI | Embasul</title>
       </Head>
 
       <Image id="page" style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={page} />

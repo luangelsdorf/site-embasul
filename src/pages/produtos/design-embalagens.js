@@ -1,7 +1,15 @@
-export default function PackagingDesign() {
+import Head from "next/head";
+import Image from "next/image";
+import customizadas from 'public/images/gambi/products/customizadas.png';
+
+export default function FlexoDigital() {
   return (
     <div>
-      <h1>Design De Embalagens</h1>
+      <Head>
+        <title>Flexo-Digital | Embasul</title>
+      </Head>
+
+      <Image id="customizadas" style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={customizadas} />
     </div>
   )
 }

@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Projects from 'public/images/gambi/products/projects/page.svg';
 
-export default function Projects() {
+export default function Portfolio() {
   return (
     <div>
       <Head>

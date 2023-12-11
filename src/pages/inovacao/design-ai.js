@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import page from 'public/images/gambi/design/page.png';
+import Page from 'public/images/gambi/design/page.svg';
 
 export default function Design() {
   return (
@@ -9,7 +9,7 @@ export default function Design() {
         <title>Design com AI | Embasul</title>
       </Head>
 
-      <Image id="page" style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={page} />
+      <Page id="page" style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} />
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import customizadas from 'public/images/gambi/products/customizadas.png';
+import Customizadas from 'public/images/gambi/products/customizadas.svg';
 
 export default function FlexoDigital() {
   return (
@@ -9,7 +9,7 @@ export default function FlexoDigital() {
         <title>Flexo-Digital | Embasul</title>
       </Head>
 
-      <Image id="customizadas" style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={customizadas} />
+      <Customizadas id="customizadas" style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={customizadas} />
     </div>
   )
 }

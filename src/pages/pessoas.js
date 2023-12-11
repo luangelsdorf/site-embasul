@@ -1,7 +1,7 @@
-import trabalhe from 'public/images/gambi/people/trabalhe-conosco.png';
-import pessoas from 'public/images/gambi/people/pessoas.png';
-import canal from 'public/images/gambi/people/canal-etica.png';
-import codigo from 'public/images/gambi/people/codigo-etica.png';
+import Trabalhe from 'public/images/gambi/people/trabalhe-conosco.svg';
+import Pessoas from 'public/images/gambi/people/pessoas.svg';
+import Canal from 'public/images/gambi/people/canal-etica.svg';
+import Codigo from 'public/images/gambi/people/codigo-etica.svg';
 import Head from 'next/head';
 import Image from 'next/image';
 
@@ -12,10 +12,10 @@ export default function People() {
         <title>Pessoas | Embasul</title>
       </Head>
 
-      <Image id="trabalhe-conosco" style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={trabalhe} />
-      <Image id="pessoas" style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={pessoas} />
-      <Image id="canal-etica" style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={canal} />
-      <Image id="codigo-etica" style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} src={codigo} />
+      <Trabalhe style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} />
+      <Pessoas style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} />
+      <Canal style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} />
+      <Codigo style={{ width: '100%', height: 'auto', objectPosition: 'top', objectFit: 'cover' }} />
     </div>
   )
 }

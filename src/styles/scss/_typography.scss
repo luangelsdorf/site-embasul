@@ -1,0 +1,103 @@
+@use "mixins";
+
+body {
+  font-family: Onest, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.667em;
+}
+
+// -- Headings -- //
+h1 {
+  font-size: 54px;
+  font-weight: 500;
+  line-height: 1.222em;
+}
+
+h2 {
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 1.316em;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.417em;
+}
+
+h4 {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.273em;
+}
+
+h5 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.333em;
+}
+
+h6 {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.375em;
+}
+
+@include mixins.lg {
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+}
+
+@include mixins.md {
+  body {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 35px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
+
+  h4 {
+    font-size: 20px;
+  }
+
+  h5 {
+    font-size: 16px;
+  }
+
+  h6 {
+    font-size: 14px;
+  }
+}
+
+@include mixins.sm {
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  h4 {
+    font-size: 18px;
+  }
+}

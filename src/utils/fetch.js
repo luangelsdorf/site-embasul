@@ -8,11 +8,7 @@ export default async function fetchAPI(endpoint = '', parameters = { populate: '
   let endpointUSP = new URLSearchParams(endpointParams);
   let resource = decodeURIComponent(`${url}?${endpointUSP.toString() ? (endpointUSP + '&') : ''}${params}`);
 
-  const response = await fetch(`${resource}`, {
-    headers: {
-      Authorization: `bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
-    }
-  });
+  const response = await fetch(`${resource}`);
   result = await response.json();
 
   if (dataOnly) {

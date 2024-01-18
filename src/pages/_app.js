@@ -1,4 +1,5 @@
 import '@/styles/cargotemplate.css';
+import 'bootstrap/dist/css/bootstrap-grid.min.css';
 import { LayoutContext } from '@/utils/contexts';
 
 export default function App({ Component, pageProps }) {

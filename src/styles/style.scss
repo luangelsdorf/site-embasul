@@ -1,1 +1,144 @@
-@use 'scss/colors';
+// @use 'scss/colors';
+
+:root {
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  overflow-x: clip;
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  scroll-margin-top: 120px;
+}
+
+#viewport {
+  height: 100vh;
+  transition: all 560ms;
+
+  &.success {
+    height: auto;
+  }
+
+  @include mixins.lg {
+    &.active {
+      transform: translateY(100%);
+    }
+  }
+}
+
+#content {
+  &.success {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+
+    @include mixins.lg {
+      justify-content: flex-start;
+    }
+  }
+}
+
+main {
+  &:not(.home) {
+    margin-top: 80px;
+  }
+}
+
+figure,
+blockquote {
+  margin: 0;
+}
+
+address {
+  font-style: normal;
+}
+
+img,
+svg {
+  vertical-align: middle;
+}
+
+img,
+video {
+  object-fit: cover;
+  object-position: center;
+}
+
+video {
+  pointer-events: none;
+}
+
+ul,
+ol,
+dl,
+menu,
+summary {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+dialog {
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+dialog.fullscreen {
+  max-width: none;
+  max-height: none;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+[data-reveal] {
+  visibility: hidden;
+}
+
+[data-reveal-parent] {
+  & > * {
+    visibility: hidden;
+  }
+}
+
+details {
+  cursor: pointer;
+}
+
+summary {
+  user-select: none;
+}
+
+@include mixins.lg {
+  [class*="col-lg"] {
+    & > div {
+      text-align: center;
+      align-items: center;
+    }
+  }
+}
+
+@include mixins.sm {
+  .col-12 {
+    padding: 0 24px;
+    text-align: center;
+  }
+}
+

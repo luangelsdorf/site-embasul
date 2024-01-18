@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import { useRouter } from 'next/router';
+import styles from './Button.module.scss';
 
 export default function Button({
   children,
@@ -23,17 +24,17 @@ export default function Button({
 
 
   const Children = () => (
-    <div>
+    <>
       {LeftIcon && <LeftIcon />}
       {
         children && <span>{children}</span>
       }
       {RightIcon && <RightIcon />}
-    </div>
+    </>
   );
 
   const baseProps = {
-    className: `${link ? '' : 'btn'}${className ? ' ' + className : ''}`,
+    className: `${styles.btn} ${link ? '' : 'btn-primary'}${className ? ' ' + className : ''}`,
   };
 
   if (btnElement) {

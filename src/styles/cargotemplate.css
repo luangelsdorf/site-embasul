@@ -5342,6 +5342,7 @@ figcaption {
   padding: 26px 38px;
   font-size: 16px;
   line-height: 1.125em;
+  text-decoration: none;
   transition: border-color .3s, transform .3s, background-color .3s, color .3s;
 }
 

@@ -1,0 +1,47 @@
+.highlight {
+  height: 280px;
+  width: 100%;
+  align-items: flex-end;
+  overflow: hidden;
+
+  &:hover {
+    img {
+      transform: scale(1.08);
+    }
+  }
+
+
+  &::before {
+    content: '';
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(180deg, rgba(4, 4, 4, 0.00) 0%, rgba(4, 4, 4, 0.25) 52.08%, rgba(4, 4, 4, 0.80) 100%);
+  }
+
+  img {
+    transition: 400ms ease;
+  }
+
+  p {
+    position: relative;
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+    z-index: 2;
+    padding-bottom: 16px;
+    padding-left: 16px;
+
+    span {
+      white-space: break-spaces;
+    }
+
+    svg {
+      display: inline-block;
+      margin-left: 8px;
+    }
+  }
+}

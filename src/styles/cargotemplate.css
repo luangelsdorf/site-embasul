@@ -3691,7 +3691,7 @@ h6 {
 }
 
 p {
-  margin-bottom: 16px;
+  margin-bottom: 0;
 }
 
 a {
@@ -3709,11 +3709,6 @@ ol {
   margin-top: 0;
   margin-bottom: 10px;
   padding-left: 40px;
-}
-
-li {
-  margin-bottom: 8px;
-  padding-left: 8px;
 }
 
 img {

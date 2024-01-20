@@ -23,7 +23,15 @@ module.exports = {
         test: /\.svg$/i,
         issuer: fileLoaderRule.issuer,
         resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] }, // exclude if *.svg?url
-        use: ['@svgr/webpack'],
+        use: [
+          {
+            loader: '@svgr/webpack',
+            options: {
+              svgo: false,
+              replaceAttrValues: { 'white': 'currentColor' }
+            }
+          }
+        ],
       },
     )
 

@@ -1,0 +1,149 @@
+.footer {
+}
+
+.links {
+  background-color: #00203d;
+  padding-top: 96px;
+  padding-bottom: 64px;
+
+  h2 {
+    text-transform: uppercase;
+    color: white;
+    font-weight: 600;
+  }
+
+  .cta {
+    h2 {
+      margin-bottom: 40px;
+    }
+
+    p {
+      color: var(--neutral--300);
+      padding-bottom: 32px;
+      margin-bottom: 40px;
+      border-bottom: 1px solid #003666;
+    }
+  }
+
+  .contactButton {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+
+    &:first-of-type {
+      margin-bottom: 32px;
+    }
+
+    & > div {
+      &:first-of-type {
+        //Form
+        background-color: var(--accent--primary-1);
+        color: var(--neutral--300);
+        width: 64px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        border-radius: 32px;
+      }
+
+      &:last-of-type {
+        // Phone
+        span {
+          display: block;
+          color: var(--neutral--300);
+        }
+
+        a {
+          text-transform: none;
+        }
+      }
+    }
+  }
+}
+
+.getInTouch,
+.usefulLinks {
+  h2 {
+    margin-bottom: 40px;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    a {
+      color: white;
+      text-transform: none;
+    }
+  }
+}
+
+.getInTouch {
+  ul {
+    margin-bottom: 40px;
+    a {
+      gap: 12px;
+    }
+  }
+
+  & > p {
+    color: var(--neutral--300);
+    max-width: 90%;
+  }
+}
+
+.usefulLinks {
+  ul {
+    margin-bottom: 32px;
+  }
+
+  & > a {
+    color: white;
+    text-transform: none;
+    display: inline;
+    font-weight: 600;
+
+    span {
+      display: inline;
+    }
+
+    svg {
+      display: inline-block;
+      margin-left: 8px;
+    }
+  }
+}
+
+.copyright {
+  background-color: #001b33;
+}
+
+.copyInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 96px;
+
+  & > p {
+    color: white;
+    font-size: 14px;
+    line-height: 21px;
+    span {
+      color: var(--accent--primary-1);
+    }
+  }
+
+  & > a {
+    &:first-child {
+      text-transform: none;
+      font-size: 14px;
+      line-height: 21px;
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}

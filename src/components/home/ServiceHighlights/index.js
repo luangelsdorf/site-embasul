@@ -6,7 +6,7 @@ import Button from '@/components/common/Button';
 import Arrow from 'public/images/icons/arrow-short.svg';
 
 export default function ServiceHighlights({ content }) {
-  console.log(content);
+  
   return (
     <div className={styles.section}>
       {

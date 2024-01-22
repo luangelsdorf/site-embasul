@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap-grid.min.css';
 import '@/styles/style.scss';
 import { LayoutContext } from '@/utils/contexts';
 import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 
 export default function App({ Component, pageProps }) {
 
@@ -12,6 +13,7 @@ export default function App({ Component, pageProps }) {
     <LayoutContext.Provider value={pageProps.layout}>
       <Header />
       <Component {...pageProps} />
+      <Footer />
     </LayoutContext.Provider>
   )
 }

@@ -3639,7 +3639,7 @@ body {
 h1 {
   color: var(--neutral--800);
   margin-top: 0;
-  margin-bottom: 16px;
+  margin-bottom: 0;
   font-size: 54px;
   font-weight: 500;
   line-height: 1.222em;
@@ -3648,8 +3648,9 @@ h1 {
 h2 {
   color: var(--neutral--800);
   margin-top: 0;
-  margin-bottom: 16px;
-  font-size: 38px;
+  margin-bottom: 0;
+  /* font-size: 38px; */
+  font-size: 44px;
   font-weight: 500;
   line-height: 1.316em;
 }
@@ -3657,7 +3658,7 @@ h2 {
 h3 {
   color: var(--neutral--800);
   margin-top: 0;
-  margin-bottom: 8px;
+  margin-bottom: 0;
   font-size: 24px;
   font-weight: 500;
   line-height: 1.417em;
@@ -3666,7 +3667,7 @@ h3 {
 h4 {
   color: var(--neutral--800);
   margin-top: 0;
-  margin-bottom: 10px;
+  margin-bottom: 0;
   font-size: 22px;
   font-weight: 500;
   line-height: 1.273em;
@@ -3675,7 +3676,7 @@ h4 {
 h5 {
   color: var(--neutral--800);
   margin-top: 0;
-  margin-bottom: 10px;
+  margin-bottom: 0;
   font-size: 18px;
   font-weight: 700;
   line-height: 1.333em;
@@ -3684,7 +3685,7 @@ h5 {
 h6 {
   color: var(--neutral--800);
   margin-top: 0;
-  margin-bottom: 10px;
+  margin-bottom: 0;
   font-size: 16px;
   font-weight: 700;
   line-height: 1.375em;

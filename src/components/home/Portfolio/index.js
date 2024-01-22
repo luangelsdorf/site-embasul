@@ -8,7 +8,6 @@ import Link from 'next/link';
 export default function Portfolio({ content, projects }) {
 
   const ProjectCard = ({ cover, title, slug, categories }) => {
-    console.log(categories);
     return (
       <Link className="wrapper" href={`/projetos/${slug}`}>
         <article>

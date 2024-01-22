@@ -1,0 +1,11 @@
+.textContent {
+  max-width: 500px;
+
+  h2 {
+    margin-bottom: 24px;
+  }
+
+  & > p {
+    margin-bottom: 24px;
+  }
+}

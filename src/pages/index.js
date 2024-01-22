@@ -1,6 +1,7 @@
 import Section from '@/components/common/Section';
 import Banner from '@/components/home/Banner';
 import Portfolio from '@/components/home/Portfolio';
+import ServiceHighlights from '@/components/home/ServiceHighlights';
 import fetchAPI, { getLayoutContent } from '@/utils/fetch';
 import Head from 'next/head';
 
@@ -19,6 +20,10 @@ export default function Home({ home, portfolio, }) {
 
         <Section pt="140" pb="120" id="portfolio">
           <Portfolio content={home.cases} projects={portfolio.slice(0, 3)} />
+        </Section>
+
+        <Section id="destaques">
+          <ServiceHighlights content={home.serviceHighlights} />
         </Section>
       </main>
     </>

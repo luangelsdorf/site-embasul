@@ -1,5 +1,7 @@
 import '@/styles/cargotemplate.css';
 import 'bootstrap/dist/css/bootstrap-grid.min.css';
+import '@/styles/slick.css';
+import '@/styles/slick-theme.css';
 import '@/styles/style.scss';
 import { LayoutContext } from '@/utils/contexts';
 import Header from '@/components/layout/Header';

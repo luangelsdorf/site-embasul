@@ -1,12 +1,17 @@
 .section {
 
+  :global(.slick-list) {
+    overflow: visible;
+  }
+
   :global(.row):last-of-type {
     margin-top: 48px;
     padding-top: 48px;
     border-top: 1px solid var(--neutral--400);
     
-    a {
+    section {
       overflow: hidden;
+      position: relative;
       &::before {
         content: '';
         position: absolute;

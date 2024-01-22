@@ -14,7 +14,6 @@ import Link from 'next/link';
 
 export default function Footer() {
   const content = useContext(LayoutContext);
-  console.log(content);
 
   return (
     <footer className={styles.footer}>

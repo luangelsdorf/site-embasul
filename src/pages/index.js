@@ -21,7 +21,7 @@ export default function Home({ home, portfolio, }) {
         </Section>
 
         <Section pt="140" pb="120" id="portfolio">
-          <Portfolio content={home.cases} projects={portfolio.slice(0, 3)} />
+          <Portfolio content={home.cases} projects={portfolio} />
         </Section>
 
         <Section id="destaques">

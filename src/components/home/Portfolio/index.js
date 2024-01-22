@@ -4,12 +4,13 @@ import Button from '@/components/common/Button';
 import Img from '@/components/common/Img';
 import { getSizesString } from '@/utils/images';
 import Link from 'next/link';
+import Slider from 'react-slick';
 
 export default function Portfolio({ content, projects }) {
 
   const ProjectCard = ({ cover, title, slug, categories }) => {
     return (
-      <Link className="wrapper" href={`/projetos/${slug}`}>
+      <section className="wrapper" href={`/projetos/${slug}`} style={{ margin: '0px 12px' }}>
         <article>
           <Img fill sizes={getSizesString('col-12 col-md-4')} {...cover} />
           <div>
@@ -17,7 +18,7 @@ export default function Portfolio({ content, projects }) {
             <span className="heading-h3-size">{title}</span>
           </div>
         </article>
-      </Link>
+      </section>
     );
   }
 
@@ -33,13 +34,15 @@ export default function Portfolio({ content, projects }) {
           </div>
         </div>
         <div className="row">
-          {
-            projects.map(project => (
-              <div key={project.id} className="col-12 col-lg-4">
-                <ProjectCard {...project.attributes} />
-              </div>
-            ))
-          }
+          <Slider slidesToShow={3} autoplay autoplaySpeed={2000}>
+            {
+              projects.map(project => (
+                <div key={project.id} className="col-12 col-lg-4">
+                  <ProjectCard {...project.attributes} />
+                </div>
+              ))
+            }
+          </Slider>
         </div>
       </div>
     </div>

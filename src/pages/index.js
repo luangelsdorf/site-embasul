@@ -2,6 +2,7 @@ import Section from '@/components/common/Section';
 import Banner from '@/components/home/Banner';
 import Portfolio from '@/components/home/Portfolio';
 import ServiceHighlights from '@/components/home/ServiceHighlights';
+import Sustainability from '@/components/home/Sustainability';
 import fetchAPI, { getLayoutContent } from '@/utils/fetch';
 import Head from 'next/head';
 
@@ -24,6 +25,10 @@ export default function Home({ home, portfolio, }) {
 
         <Section id="destaques">
           <ServiceHighlights content={home.serviceHighlights} />
+        </Section>
+
+        <Section id="sustentabilidade">
+          <Sustainability content={home.sustainability} />
         </Section>
       </main>
     </>

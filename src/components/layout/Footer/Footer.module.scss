@@ -3,8 +3,6 @@
 
 .links {
   background-color: #00203d;
-  padding-top: 96px;
-  padding-bottom: 64px;
 
   h2 {
     text-transform: uppercase;
@@ -63,8 +61,30 @@
   }
 }
 
+.cta,
 .getInTouch,
 .usefulLinks {
+  padding-top: 96px;
+  padding-bottom: 64px;
+}
+
+.divider {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background-color: #00294D;
+    z-index: 0;
+  }
+}
+
+.getInTouch,
+.usefulLinks {
+  position: relative;
   h2 {
     margin-bottom: 40px;
   }

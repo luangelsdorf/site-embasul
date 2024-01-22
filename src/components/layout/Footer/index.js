@@ -46,7 +46,7 @@ export default function Footer() {
             </div>
 
             <div className="col-lg-1" />
-            <div className="col-lg-1" />
+            <div className={`col-lg-1 ${styles.divider}`} />
 
             <div className="col-12 col-lg-3">
               <div className={styles.getInTouch}>

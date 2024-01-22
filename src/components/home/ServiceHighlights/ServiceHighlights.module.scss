@@ -1,3 +1,14 @@
+.section {
+  & > div {
+    &:nth-child(odd) {
+      background-color: var(--neutral--200);
+    }
+    &:nth-child(even) {
+      background-color: white;
+    }
+  }
+}
+
 .textContent {
   max-width: 500px;
 

@@ -34,7 +34,7 @@ export default function Portfolio({ content, projects }) {
           </div>
         </div>
         <div className="row">
-          <Slider slidesToShow={3} autoplay autoplaySpeed={2000}>
+          <Slider slidesToShow={3}>
             {
               projects.map(project => (
                 <div key={project.id} className="col-12 col-lg-4">

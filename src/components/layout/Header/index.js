@@ -30,11 +30,13 @@ export default function Header() {
           <DropdownMenu
             extraLinks={[
               <Highlight
+                key="company"
                 coverUrl="/images/header/conheca.jpg"
                 text={"Conheça a \nEmbasul"}
                 href="/empresa/"
               />,
               <Highlight
+                key="structure"
                 coverUrl="/images/header/estrutura.jpg"
                 text={"Veja nossa \nEstrutura"}
                 href="/produtos#estrutura"
@@ -53,11 +55,13 @@ export default function Header() {
           <DropdownMenu
             extraLinks={[
               <Highlight
+                key="digital"
                 coverUrl="/images/header/digital.jpg"
                 text={"Impressão \nDigital"}
                 href="/produtos/digital"
               />,
               <Highlight
+                key="flexo"
                 coverUrl="/images/header/flexo.jpg"
                 text={"Impressão \nFlexográfica"}
                 href="/produtos/flexo"

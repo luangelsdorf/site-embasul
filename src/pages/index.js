@@ -4,6 +4,7 @@ import Certificates from '@/components/home/Certificates';
 import Portfolio from '@/components/home/Portfolio';
 import ServiceHighlights from '@/components/home/ServiceHighlights';
 import Sustainability from '@/components/home/Sustainability';
+import Footer from '@/components/layout/Footer';
 import fetchAPI, { getLayoutContent } from '@/utils/fetch';
 import Head from 'next/head';
 
@@ -36,6 +37,7 @@ export default function Home({ home, portfolio, }) {
           <Certificates content={home.certificates} />
         </Section>
       </main>
+      <Footer />
     </>
   )
 }

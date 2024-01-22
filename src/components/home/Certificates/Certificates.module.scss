@@ -1,0 +1,23 @@
+.section {
+  :global {
+    .row {
+      &:last-of-type {
+        margin-top: 64px;
+        padding-top: 32px;
+        padding-bottom: 32px;
+        border-top: 1px solid var(--neutral--400);
+        border-bottom: 1px solid var(--neutral--400);
+
+        .col-12 {
+          text-align: center;
+          margin: 32px 0;
+
+          &:nth-child(2) {
+            border-left: 1px solid var(--neutral--400);
+            border-right: 1px solid var(--neutral--400);
+          }
+        }
+      }
+    }
+  }
+}

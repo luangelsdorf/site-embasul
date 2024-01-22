@@ -1,5 +1,6 @@
 import Section from '@/components/common/Section';
 import Banner from '@/components/home/Banner';
+import Certificates from '@/components/home/Certificates';
 import Portfolio from '@/components/home/Portfolio';
 import ServiceHighlights from '@/components/home/ServiceHighlights';
 import Sustainability from '@/components/home/Sustainability';
@@ -29,6 +30,10 @@ export default function Home({ home, portfolio, }) {
 
         <Section id="sustentabilidade">
           <Sustainability content={home.sustainability} />
+        </Section>
+
+        <Section pt="120" pb="120" id="certificados">
+          <Certificates content={home.certificates} />
         </Section>
       </main>
     </>

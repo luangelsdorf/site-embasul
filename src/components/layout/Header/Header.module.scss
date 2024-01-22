@@ -1,0 +1,261 @@
+@use "src/styles/scss/mixins";
+
+@keyframes enable-pointer-events {
+  0%,
+  100% {
+    pointer-events: all;
+  }
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  z-index: 20;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: rgb(var(--white));
+  transition: 400ms;
+  box-shadow: 0px 6px 20px 0px rgba(20, 20, 43, 0.06);
+
+  & > :global(.container) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    gap: 32px;
+  }
+
+  .logo {
+    margin-top: -12px;
+    svg {
+      height: 56px;
+      width: auto;
+      color: white;
+    }
+  }
+
+  .links {
+    display: flex;
+    gap: 24px;
+    margin-left: auto;
+
+    & > li {
+      padding: 32px 0;
+    }
+
+    a {
+      color: white;
+      font-size: 16px;
+    }
+
+    [data-dd-menu] {
+      a {
+        color: var(--secondary--color-1);
+        text-transform: none;
+      }
+    }
+
+    & > [data-dd-trigger] {
+      position: relative;
+      &:hover {
+        .dropdown {
+          transform: initial;
+          pointer-events: all;
+          opacity: 1;
+          transition: 250ms 150ms ease;
+        }
+      }
+      @media (hover: none) {
+        & > a {
+          pointer-events: none;
+        }
+        &:hover {
+          & > a {
+            animation: enable-pointer-events 2s 0.5s linear forwards;
+          }
+        }
+      }
+    }
+
+    &[data-desktop] {
+      & > [data-collapse-trigger],
+      & > [data-open] {
+        display: none;
+      }
+    }
+
+    [data-collapse-trigger] {
+      button {
+        & > div {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+        }
+      }
+    }
+
+    :global(.content) {
+      ul {
+        background: rgb(var(--orvalho), 0.25);
+        border-radius: 16px;
+        li {
+          padding: 24px;
+          &:last-child {
+            border-top: 1px solid rgb(var(--orvalho), 0.5);
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &:global(.active) {
+    background-color: white;
+    .links {
+      a {
+        color: var(--secondary--color-1);
+      }
+    }
+    .logo {
+      svg {
+        path {
+          transition: 400ms ease;
+          &:nth-child(n + 5) {
+            fill: #005199;
+          }
+        }
+      }
+    }
+  }
+
+  @include mixins.xl {
+    .logo {
+      svg {
+        height: 48px;
+      }
+    }
+
+    .links {
+      gap: 24px;
+      a {
+        font-size: 12px;
+      }
+    }
+
+    :global(.btn-primary.small) {
+      font-size: 12px;
+    }
+  }
+
+  @include mixins.lg {
+    :global {
+      .container {
+        flex-wrap: wrap;
+        padding: 24px 12px;
+
+        .content {
+          width: 100%;
+        }
+      }
+    }
+
+    .dropdown {
+      display: none;
+    }
+
+    .links {
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      padding: 24px 44px;
+      background-color: white;
+
+      li,
+      [data-collapse-trigger] {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+
+      & > li {
+        padding: 8px;
+      }
+
+      a:not(:global(.btn-primary)) {
+        color: var(--secondary--color-1);
+      }
+
+      &[data-desktop] {
+        display: none;
+      }
+
+      & > [data-dd-trigger] {
+        /* display: none; */
+        @media (hover: none) {
+          &:hover {
+            & > a {
+              animation: none;
+            }
+          }
+        }
+      }
+    }
+
+    button[title="Menu"] {
+      height: 40px;
+      width: 40px;
+      justify-content: center;
+      padding: 0;
+
+      &:hover {
+        transform: none;
+      }
+
+      div {
+        &:last-child {
+          display: none;
+        }
+      }
+
+      &.active {
+        div {
+          &:first-of-type {
+            display: none;
+          }
+          &:last-of-type {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100%);
+  left: 0;
+  z-index: 0;
+  width: max-content;
+  padding: 16px 32px 24px 32px;
+  opacity: 0;
+  transform: scale(0.97) translateY(-8px);
+  transition: 250ms 150ms ease;
+  background-color: white;
+  pointer-events: none;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0px 6px 20px 0px rgba(20, 20, 43, 0.06);
+
+  &:hover {
+    pointer-events: all;
+    opacity: 1;
+    transition: 250ms 150ms ease;
+  }
+
+  & + a {
+    svg {
+      transition: 350ms;
+    }
+  }
+}

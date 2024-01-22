@@ -1,6 +1,13 @@
 // @use 'scss/colors';
 @use "scss/mixins";
 
+.period {
+  &::after {
+    content: ".";
+    color: var(--accent--primary-1);
+  }
+}
+
 :root {
   &.no-scroll {
     overflow: hidden;

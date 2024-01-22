@@ -1,0 +1,41 @@
+.banner {
+  position: relative;
+  display: flex;
+  height: 800px;
+  align-items: center;
+
+  &::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.6;
+    background: #070707;
+  }
+
+  img {
+    z-index: -1;
+  }
+
+  .textContent {
+    color: white;
+    margin-top: 32px;
+
+    h1 {
+      color: white;
+      margin-bottom: 24px;
+    }
+
+    p {
+      margin-bottom: 40px;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    gap: 18px;
+  }
+}

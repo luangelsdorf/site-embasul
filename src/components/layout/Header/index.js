@@ -7,10 +7,15 @@ import { Collapse } from 'src/components/common/Collapse';
 import DropdownMenu from './DropdownMenu';
 import Highlight from './Highlight';
 import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 export default function Header() {
 
+  const router = useRouter();
+  const isStaticHeader = (router.pathname === '/empresa');
+
   useEffect(() => {
+    if (isStaticHeader) return;
     const header = document.querySelector('#header');
     const onScroll = () => {
       if (window.scrollY > 0) {
@@ -21,7 +26,7 @@ export default function Header() {
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [isStaticHeader]);
 
   const Navigation = ({ ...props }) => (
     <ul className={styles.links} {...props}>
@@ -115,7 +120,7 @@ export default function Header() {
   );
 
   return (
-    <header id="header" className={`${styles.header}`}>
+    <header id="header" className={`${styles.header}${isStaticHeader ? ' active' : ''}`}>
       <div className="container">
         <Link href="/" className={styles.logo}>
           <LogoType />

@@ -1,10 +1,10 @@
 import styles from './PictureAndText.module.scss';
 
-export default function PictureAndText({ title, flipped, height = 'auto', children }) {
+export default function PictureAndText({ title, flipped, contained, height = 'auto', children }) {
   let [first, ...rest] = children;
   return (
-    <div className={`${styles.section}${flipped ? ' ' + styles.flipped : ''}`} style={{ height: height }}>
-      <div>
+    <div className={`${styles.section}${contained ? ' ' + styles.contained : ''}`} style={{ height: height }}>
+      <div className={contained ? 'container' : undefined}>
         <div className={`row flex-nowrap justify-content-${flipped ? 'end' : 'start'}`}>
           <div className="col-6 p-0">
             <div className={styles.first}>

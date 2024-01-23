@@ -16,7 +16,6 @@
   align-items: center;
   background-color: rgb(var(--white));
   transition: 400ms;
-  box-shadow: 0px 6px 20px 0px rgba(20, 20, 43, 0.06);
 
   & > :global(.container) {
     display: flex;
@@ -111,6 +110,7 @@
   }
 
   &:global(.active) {
+    box-shadow: 0 2px 20px 6px rgba(20, 20, 43, 0.15);
     background-color: white;
     .links {
       a {

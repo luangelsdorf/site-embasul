@@ -11,6 +11,31 @@
     width: calc(100vw + 24px);
   }
 
+  &.contained {
+    & > div:first-child :global(.row) {
+      width: auto;
+    }
+
+    :global(.container) {
+      &:last-child {
+        height: 100%;
+        div {
+          height: 100%;
+        }
+      }
+    }
+
+    &:first-of-type {
+      .last {
+        justify-content: flex-start;
+      }
+    }
+    &:last-of-type {
+      .last {
+        justify-content: flex-end;
+      }
+    }
+  }
   /* @include mixins.lg {
     flex-direction: column;
     gap: 80px;

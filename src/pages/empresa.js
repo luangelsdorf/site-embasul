@@ -1,4 +1,5 @@
 import Section from '@/components/common/Section';
+import Future from '@/components/company/Future';
 import History from '@/components/company/History';
 import Structure from '@/components/company/Structure';
 import fetchAPI, { getLayoutContent } from '@/utils/fetch';

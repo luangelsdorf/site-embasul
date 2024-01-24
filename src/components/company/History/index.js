@@ -1,6 +1,7 @@
 import Title from '@/components/common/Title';
 import styles from './History.module.scss';
 import { useEffect } from 'react';
+import Future from '../Future';
 
 export default function History({ content }) {
 
@@ -33,6 +34,7 @@ export default function History({ content }) {
             </header>
           </div>
         </div>
+
         <div className={styles.timeline}>
           {
             content.timelineItems.map(item => (
@@ -53,6 +55,10 @@ export default function History({ content }) {
             ))
           }
         </div>
+      </div>
+
+      <div className={styles.future}>
+        <Future content={content.future} />
       </div>
     </div>
   )

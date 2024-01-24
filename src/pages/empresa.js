@@ -1,4 +1,5 @@
 import Section from '@/components/common/Section';
+import History from '@/components/company/History';
 import Structure from '@/components/company/Structure';
 import fetchAPI, { getLayoutContent } from '@/utils/fetch';
 import Head from 'next/head';
@@ -14,6 +15,10 @@ export default function Company({ company }) {
       <main>
         <Section id="estrutura" pt="176" pb="0">
           <Structure content={company.structure} />
+        </Section>
+
+        <Section id="historia" pt="120 80" pb="120 80">
+          <History content={company.history} />
         </Section>
       </main>
     </>

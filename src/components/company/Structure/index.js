@@ -15,7 +15,7 @@ export default function Structure({ content }) {
           <div className="col-12 col-lg-5">
             <header>
               <p className="overline">{content.headline.overline}</p>
-              <h1 className="overline">{content.headline.title}</h1>
+              <h1>{content.headline.title}</h1>
             </header>
           </div>
           <div className="col-12 col-lg-6">

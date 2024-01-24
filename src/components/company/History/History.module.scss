@@ -1,0 +1,57 @@
+.section {
+  position: relative;
+
+  header {
+    text-align: center;
+    margin-bottom: 96px;
+  }
+}
+
+.timeline {
+  :global(.row) {
+    &:not(:last-child) {
+      margin-bottom: 56px;
+    }
+  }
+
+  h3,
+  time,
+  h4 {
+    transition: 400ms ease;
+  }
+
+  h3 {
+    text-align: right;
+  }
+
+  time {
+    display: inline-block;
+    color: var(--secondary--color-1);
+    background-color: var(--neutral--200);
+    padding: 16px;
+    font-weight: 600;
+  }
+
+  .details {
+    h4 {
+      margin-bottom: 24px;
+    }
+  }
+
+  .active {
+    h3 {
+      color: var(--accent--primary-1);
+    }
+
+    time {
+      background-color: var(--accent--primary-1);
+      color: white;
+    }
+
+    .details {
+      h4 {
+        color: var(--accent--primary-1);
+      }
+    }
+  }
+}

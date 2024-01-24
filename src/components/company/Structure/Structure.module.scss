@@ -1,16 +1,5 @@
 .section {
-  header {
-    & > p {
-      color: var(--accent--primary-1);
-      text-transform: uppercase;
-      font-weight: 600;
-      margin-bottom: 24px;
-
-      &::after {
-        content: "/";
-      }
-    }
-  }
+  position: relative;
 }
 
 .stat {

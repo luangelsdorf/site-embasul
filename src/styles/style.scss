@@ -21,6 +21,15 @@ h6 {
     white-space: normal;
   }
 }
+.overline {
+  color: var(--accent--primary-1);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 24px;
+  &::after {
+    content: "/";
+  }
+}
 
 :root {
   &.no-scroll {

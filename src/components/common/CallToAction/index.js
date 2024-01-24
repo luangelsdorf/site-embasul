@@ -7,7 +7,7 @@ import { getSizesString } from '@/utils/images';
 export default function CallToAction({ content }) {
   return (
     <div className={styles.section}>
-      <Image src={cta} fill sizes={getSizesString('col-12 col-sm-12')} />
+      <Image src={cta} alt="" fill sizes={getSizesString('col-12 col-sm-12')} />
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-lg-10">

@@ -3,7 +3,6 @@ import styles from './Future.module.scss';
 import PictureAndText from '@/components/common/PictureAndText';
 
 export default function Future({ content }) {
-  console.log(content);
 
   return (
     <div className={styles.section}>

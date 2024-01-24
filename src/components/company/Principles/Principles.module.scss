@@ -1,0 +1,35 @@
+.section {
+  position: relative;
+}
+
+.textContent {
+  position: sticky;
+  top: 120px;
+  h2 {
+    font-size: 72px;
+    line-height: normal;
+    margin-bottom: 24px;
+  }
+}
+
+.guidelines {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  article {
+    padding: 64px 48px;
+    background-color: white;
+    header {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 24px;
+
+      h3 {
+        font-size: 40px;
+        line-height: 56px;
+      }
+    }
+  }
+}

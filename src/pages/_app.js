@@ -15,6 +15,7 @@ export default function App({ Component, pageProps }) {
     <LayoutContext.Provider value={pageProps.layout}>
       <Header />
       <Component {...pageProps} />
+      {pageProps.layout && <Footer />}
     </LayoutContext.Provider>
   )
 }

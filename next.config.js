@@ -18,6 +18,15 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/admin',
+        destination: 'http://162.240.159.17:1337/admin/',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 module.exports = {

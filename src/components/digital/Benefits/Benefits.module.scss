@@ -1,0 +1,18 @@
+.section {
+  h2 {
+    margin-bottom: 24px;
+  }
+}
+
+.production {
+  & > p {
+    margin-bottom: 48px;
+  }
+}
+
+.quality {
+  & > div {
+    padding-top: 48px;
+    padding-left: 40px;
+  }
+}

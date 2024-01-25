@@ -1,0 +1,34 @@
+.section {
+  position: relative;
+}
+
+.collage {
+  position: relative;
+
+  img {
+    width: 100%;
+
+    &:first-child {
+
+    }
+
+    &:last-child {
+      position: absolute;
+      top: 116px;
+      right: -48px;
+      width: 244px;
+      height: 308px;
+    }
+  }
+}
+
+.textContent {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h2 {
+    margin-bottom: 24px;
+  }
+}

@@ -8,7 +8,7 @@ export default function CallToAction({ content, long = false }) {
   return (
     <div className={`${styles.section} ${long ? styles.long : ''}`}>
       <div className="container" style={{ position: 'relative' }}>
-        <Image src={cta} alt="" fill sizes={getSizesString('col-12 col-sm-12')} />
+        <Image quality={100} src={cta} alt="" fill sizes={getSizesString('col-12 col-sm-12')} />
         <div className="row justify-content-center">
           <div className="col-12 col-lg-10">
             <div className={styles.content}>

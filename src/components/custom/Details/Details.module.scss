@@ -1,0 +1,44 @@
+.section {
+}
+
+.textContent {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h2 {
+    margin-bottom: 24px;
+  }
+
+  p {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    span {
+      display: inline-block;
+      &:first-child {
+        color: var(--accent--primary-1);
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.collage {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  flex-direction: column;
+  max-height: 640px;
+
+  img {
+    width: calc(50% - 12px);
+    height: 256px;
+
+    &:first-child,
+    &:last-child {
+      height: 356px;
+    }
+  }
+}

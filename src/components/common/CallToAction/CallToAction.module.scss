@@ -1,5 +1,15 @@
 .section {
   position: relative;
+
+  img {
+    z-index: -1;
+  }
+
+  &.long {
+    .content {
+      padding: 80px 0;
+    }
+  }
 }
 
 .content {
@@ -8,14 +18,19 @@
   justify-content: space-between;
   padding: 124px 0;
 
-  img {
-    z-index: -1;
-  }
-
   h2 {
     position: relative;
     z-index: 1;
     font-size: 40px;
     color: white;
+
+    &:not(:only-child) {
+      margin-bottom: 24px;
+    }
+  }
+
+  p {
+    color: var(--neutral--300);
+    max-width: 480px;
   }
 }

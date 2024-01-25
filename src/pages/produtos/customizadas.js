@@ -1,10 +1,11 @@
+import CallToAction from '@/components/common/CallToAction';
 import Section from '@/components/common/Section';
 import SimpleBanner from '@/components/common/SimpleBanner';
+import Details from '@/components/custom/Details';
 import fetchAPI, { getLayoutContent } from '@/utils/fetch';
 import Head from 'next/head';
 
 export default function Custom({ custom }) {
-  console.log(custom);
 
   return (
     <>
@@ -19,13 +20,21 @@ export default function Custom({ custom }) {
             <h1 className="display-1">{custom.banner.title}</h1>
           </SimpleBanner>
         </Section>
+
+        <Section id="detalhes" pt="128" pb="120">
+          <Details content={custom.content} />
+        </Section>
+
+        <Section pb="120">
+          <CallToAction long content={custom.cta} />
+        </Section>
       </main>
     </>
   )
 }
 
 export async function getStaticProps() {
-  const custom = await fetchAPI('custom-composition', { populate: '*' });
+  const custom = await fetchAPI('custom-composition');
   const layout = await getLayoutContent();
 
   return {

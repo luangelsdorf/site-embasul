@@ -4,15 +4,21 @@ import styles from './CallToAction.module.scss';
 import cta from 'public/images/cta.png';
 import { getSizesString } from '@/utils/images';
 
-export default function CallToAction({ content }) {
+export default function CallToAction({ content, long = false }) {
   return (
-    <div className={styles.section}>
-      <Image src={cta} alt="" fill sizes={getSizesString('col-12 col-sm-12')} />
-      <div className="container">
+    <div className={`${styles.section} ${long ? styles.long : ''}`}>
+      <div className="container" style={{ position: 'relative' }}>
+        <Image src={cta} alt="" fill sizes={getSizesString('col-12 col-sm-12')} />
         <div className="row justify-content-center">
           <div className="col-12 col-lg-10">
             <div className={styles.content}>
-              <h2>{content.text}</h2>
+              <div>
+                {
+                  content.text.split('\n\n').map((item, i) => (
+                    i === 0 ? <h2>{item}</h2> : <p>{item}</p>
+                  ))
+                }
+              </div>
               <Button className="btn-secondary black small" href={content.linkUrl}>{content.linkText}</Button>
             </div>
           </div>

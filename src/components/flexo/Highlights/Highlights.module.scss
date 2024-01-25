@@ -1,0 +1,29 @@
+.section {
+  :global {
+    .row {
+      &:not(:last-child) {
+        margin-bottom: 96px;
+      }
+      &:nth-child(even) {
+        & > :first-child {
+          order: 1;
+        }
+      }
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+
+  h2 {
+    margin-bottom: 24px;
+  }
+}

@@ -1,26 +1,10 @@
 import Title from '@/components/common/Title';
 import styles from './Portfolio.module.scss';
 import Button from '@/components/common/Button';
-import Img from '@/components/common/Img';
-import { getSizesString } from '@/utils/images';
-import Link from 'next/link';
 import Slider from 'react-slick';
+import ProjectCard from '@/components/portfolio/ProjectCard';
 
 export default function Portfolio({ content, projects }) {
-
-  const ProjectCard = ({ cover, title, slug, categories }) => {
-    return (
-      <section className="wrapper" href={`/projetos/${slug}`} style={{ margin: '0px 12px' }}>
-        <article>
-          <Img fill sizes={getSizesString('col-12 col-md-4')} {...cover} />
-          <div>
-            <span>{categories?.data.length > 0 && categories.data[0].attributes.name}</span>
-            <span className="heading-h3-size">{title}</span>
-          </div>
-        </article>
-      </section>
-    );
-  }
 
   return (
     <div className={styles.section}>
@@ -34,7 +18,7 @@ export default function Portfolio({ content, projects }) {
           </div>
         </div>
         <div className="row">
-          <Slider slidesToShow={3}>
+          <Slider slidesToShow={3} arrows={false}>
             {
               projects.map(project => (
                 <div key={project.id} className="col-12 col-lg-4">

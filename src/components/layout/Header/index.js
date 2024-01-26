@@ -12,7 +12,7 @@ import { useRouter } from 'next/router';
 export default function Header() {
 
   const router = useRouter();
-  const isStaticHeader = (router.pathname === '/empresa');
+  const isStaticHeader = (router.pathname === '/empresa' || router.pathname === '/projetos');
 
   useEffect(() => {
     if (isStaticHeader) return;
@@ -44,7 +44,7 @@ export default function Header() {
                 key="structure"
                 coverUrl="/images/header/estrutura.jpg"
                 text={"Veja nossa \nEstrutura"}
-                href="/produtos#estrutura"
+                href="/empresa#estrutura"
               />
             ]}
           >
@@ -76,7 +76,7 @@ export default function Header() {
             <Button link href="/produtos/customizadas">Customizadas</Button>
             <Button link href="/produtos/suporte">Suporte Técnico</Button>
             <Button link href="/produtos/design-embalagens">Design de Embalagens</Button>
-            <Button link href="/produtos/portfolio">Projetos Realizados</Button>
+            <Button link href="/produtos/projetos">Projetos Realizados</Button>
           </DropdownMenu>
         </div>
         <Button onClick={e => e.preventDefault()} link>Produtos</Button>

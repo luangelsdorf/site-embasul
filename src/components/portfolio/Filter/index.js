@@ -25,7 +25,6 @@ export default function Filter({ content, categories, portfolio }) {
     }
 
     let newList = portfolio.filter(item => item.attributes.categories.data.some(cat => cat.attributes.slug === value));
-    console.log(newList);
     setList(newList);
   }
 

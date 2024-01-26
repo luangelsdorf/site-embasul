@@ -15,7 +15,7 @@ export default function PictureAndText({ title, flipped, contained, height = 'au
       </div>
       <div className="container">
         <div className={`row flex-nowrap justify-content-${flipped ? 'start' : 'end'}`}>
-          <div className="col-6 p-0 d-flex justify-content-center">
+          <div className="col-5 p-0 d-flex justify-content-center">
             <div className={styles.last}>
               {rest}
             </div>

@@ -1,0 +1,30 @@
+.section {
+  position: relative;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #070707;
+    opacity: 0.6;
+    z-index: -1;
+  }
+
+  img {
+    z-index: -1;
+  }
+}
+
+.textContent {
+  h1 {
+    color: white;
+  }
+}

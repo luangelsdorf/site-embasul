@@ -3,7 +3,6 @@ import styles from './Highlights.module.scss';
 import Title from '@/components/common/Title';
 
 export default function Highlights({ content }) {
-  console.log(content);
   return (
     <div className={styles.section}>
       <div className="container">

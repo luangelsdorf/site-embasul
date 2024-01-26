@@ -16,13 +16,14 @@ export default function Filter({ content, categories, portfolio }) {
   function handleClick(e) {
     let { value } = e.currentTarget.dataset;
 
+    document.querySelectorAll('.btn-primary').forEach(el => el.classList.remove('active'));
+    e.currentTarget.classList.add('active');
+
     if (value === 'all') {
       setList(portfolio);
       return;
     }
 
-    e.currentTarget.parentElement.childNodes.forEach(el => el.classList.remove('active'));
-    e.currentTarget.classList.add('active');
     let newList = portfolio.filter(item => item.attributes.categories.data.some(cat => cat.attributes.slug === value));
     console.log(newList);
     setList(newList);

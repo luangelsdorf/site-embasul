@@ -12,7 +12,7 @@ import { useRouter } from 'next/router';
 export default function Header() {
 
   const router = useRouter();
-  const isStaticHeader = (router.pathname === '/empresa' || router.pathname === '/projetos');
+  const isStaticHeader = (router.pathname === '/empresa' || router.pathname === '/produtos/projetos');
 
   useEffect(() => {
     if (isStaticHeader) return;

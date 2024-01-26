@@ -30,12 +30,19 @@
     background-color: var(--neutral--400);
   }
 
-  :global(.btn-primary) {
-    all: unset;
-    cursor: pointer;
-    font-weight: 500;
-    color: var(--secondary--color-1);
-    text-transform: uppercase;
-    font-size: 16px;
+  :global {
+    .btn-primary {
+      all: unset;
+      cursor: pointer;
+      font-weight: 500;
+      color: var(--secondary--color-1);
+      text-transform: uppercase;
+      font-size: 16px;
+
+      &.active {
+        color: var(--accent--primary-1);
+        font-weight: 600;
+      }
+    }
   }
 }

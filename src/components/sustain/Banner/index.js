@@ -3,7 +3,7 @@ import styles from './Banner.module.scss';
 import { getSizesString } from '@/utils/images';
 
 export default function Banner({ content }) {
-  console.log(content);
+  
   return (
     <div className={styles.section}>
       <Img {...content.icon} fill sizes={getSizesString('col-12 col-lg-10')} alt="" />

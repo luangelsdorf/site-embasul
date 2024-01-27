@@ -7,7 +7,7 @@ export default function PictureAndText({ title, flipped, contained, height = 'au
       <div className={contained ? 'container' : undefined}>
         <div className={`row flex-nowrap justify-content-${flipped ? 'end' : 'start'}`}>
           <div className="col-6 p-0">
-            <div className={styles.first}>
+            <div className={`${styles.first} first`}>
               {first}
             </div>
           </div>

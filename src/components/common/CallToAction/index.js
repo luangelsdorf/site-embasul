@@ -19,7 +19,7 @@ export default function CallToAction({ content, long = false }) {
                   ))
                 }
               </div>
-              <Button className="btn-secondary black small" href={content.linkUrl}>{content.linkText}</Button>
+              <Button className="btn-secondary black" href={content.linkUrl}>{content.linkText}</Button>
             </div>
           </div>
         </div>

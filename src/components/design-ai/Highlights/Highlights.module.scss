@@ -1,0 +1,46 @@
+.section {
+}
+
+.highlights {
+  & > div {
+    &:last-child {
+      :global(.p-0.d-flex) {
+        & > div > div {
+          justify-content: center !important;
+        }
+      }
+    }
+  }
+
+  :global(.first) div {
+    padding: 4px 12px;
+    background-color: white;
+    color: var(--accent--primary-1);
+    position: absolute;
+    bottom: 12px;
+    margin: 0 12px;
+    font-size: 14px;
+    font-weight: 500;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 0;
+      height: 0;
+      bottom: 0;
+      left: 0;
+      border-color: var(--accent--primary-1) transparent transparent;
+      border-style: solid;
+      border-width: 10px 10px 0 0;
+      transform: rotateX(180deg);
+    }
+  }
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}

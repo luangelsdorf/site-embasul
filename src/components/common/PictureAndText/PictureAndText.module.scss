@@ -65,10 +65,23 @@
       position: relative;
     } */
   }
+
+  &:nth-child(odd) {
+    .first {
+      align-items: flex-start;
+    }
+  }
+
+  &:nth-child(even) {
+    .first {
+      align-items: flex-end;
+    }
+  }
 }
 
 .first,
 .last {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;

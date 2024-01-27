@@ -100,7 +100,7 @@ export default function Header() {
             <Button link href="/inovacao/iso9001">Processos ISO 9001</Button>
           </DropdownMenu>
         </div>
-        <Button href="/inovacao" link>Inovação</Button>
+        <Button onClick={e => e.preventDefault()} link>Inovação</Button>
       </li>
       <li data-dd-trigger>
         <div className={styles.dropdown}>

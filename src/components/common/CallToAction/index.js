@@ -15,7 +15,7 @@ export default function CallToAction({ content, long = false }) {
               <div>
                 {
                   content.text.split('\n\n').map((item, i) => (
-                    i === 0 ? <h2>{item}</h2> : <p>{item}</p>
+                    i === 0 ? <h2 key={i}>{item}</h2> : <p key={i}>{item}</p>
                   ))
                 }
               </div>

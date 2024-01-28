@@ -1,3 +1,5 @@
+@use "src/styles/scss/mixins";
+
 .section {
   :global(.slick-list) {
     overflow: visible;
@@ -12,6 +14,10 @@
   :global(.slick-track) {
     & > div {
       margin: 0 12px;
+
+      @include mixins.lg {
+        margin: 0;
+      }
     }
   }
 }

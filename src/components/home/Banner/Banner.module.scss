@@ -1,3 +1,5 @@
+@use "src/styles/scss/mixins";
+
 .banner {
   position: relative;
   display: flex;
@@ -36,6 +38,7 @@
 
   .buttons {
     display: flex;
+    flex-wrap: wrap;
     gap: 18px;
   }
 }

@@ -21,11 +21,11 @@ export default function Home({ home, portfolio, }) {
           <Banner content={home.banner} />
         </Section>
 
-        <Section pt="140" pb="120" id="portfolio">
+        <Section pt="140 96" pb="120" id="portfolio">
           <Portfolio content={home.cases} projects={portfolio} />
         </Section>
 
-        <Section id="destaques">
+        <Section id="destaques" mb="104">
           <ServiceHighlights content={home.serviceHighlights} />
         </Section>
 
@@ -37,7 +37,6 @@ export default function Home({ home, portfolio, }) {
           <Certificates content={home.certificates} />
         </Section>
       </main>
-      <Footer />
     </>
   )
 }

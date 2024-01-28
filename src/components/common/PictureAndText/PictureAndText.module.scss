@@ -1,4 +1,4 @@
-/* @use "../../../../styles/scss/mixins"; */
+@use "src/styles/scss/mixins";
 
 .section {
   position: relative;
@@ -41,14 +41,15 @@
       }
     }
   }
-  /* @include mixins.lg {
+
+  @include mixins.lg {
     flex-direction: column;
     gap: 80px;
     
     img {
-      border-radius: 8px;
+      height: auto;
     }
-  } */
+  }
 
   img {
     width: 100%;
@@ -61,9 +62,9 @@
   :global(.container) {
     position: absolute;
 
-    /* @include mixins.lg {
+    @include mixins.lg {
       position: relative;
-    } */
+    }
   }
 
   &:nth-child(odd) {

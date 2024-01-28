@@ -1,3 +1,5 @@
+@use "src/styles/scss/mixins";
+
 .section {
   & > div {
     &:nth-child(odd) {
@@ -6,6 +8,12 @@
     &:nth-child(even) {
       background-color: white;
     }
+  }
+
+  @include mixins.lg {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
   }
 }
 

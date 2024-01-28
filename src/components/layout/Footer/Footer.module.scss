@@ -1,3 +1,5 @@
+@use "src/styles/scss/mixins";
+
 .footer {
 }
 
@@ -58,6 +60,14 @@
         }
       }
     }
+
+    @include mixins.lg {
+      justify-content: flex-start;
+
+      & > div {
+        text-align: left;
+      }
+    }
   }
 }
 
@@ -66,18 +76,22 @@
 .usefulLinks {
   padding-top: 96px;
   padding-bottom: 64px;
+
+  @include mixins.lg {
+    padding: 48px 0;
+  }
 }
 
 .divider {
   position: relative;
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     height: 100%;
     width: 100vw;
     top: 0;
     left: 0;
-    background-color: #00294D;
+    background-color: #00294d;
     z-index: 0;
   }
 }
@@ -99,6 +113,12 @@
       text-transform: none;
     }
   }
+
+  @include mixins.lg {
+    ul {
+      gap: 16px;
+    }
+  }
 }
 
 .getInTouch {
@@ -112,6 +132,12 @@
   & > p {
     color: var(--neutral--300);
     max-width: 90%;
+  }
+
+  @include mixins.lg {
+    & > p {
+      max-width: none;
+    }
   }
 }
 
@@ -146,6 +172,7 @@
   justify-content: space-between;
   align-items: center;
   height: 96px;
+  flex-wrap: wrap;
 
   & > p {
     color: white;
@@ -165,5 +192,14 @@
         color: white;
       }
     }
+  }
+
+  @include mixins.lg {
+    padding: 32px 0;
+    height: auto;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 24px;
   }
 }

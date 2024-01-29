@@ -18,7 +18,7 @@ export default function ISO9001({ iso }) {
           <Banner content={iso.banner} />
         </Section>
 
-        <Section id="destaques" pt="96" pb="120">
+        <Section id="destaques" pt="96" pb="120 40">
           <Highlights content={iso.highlights} />
         </Section>
 

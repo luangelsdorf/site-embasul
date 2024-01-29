@@ -26,7 +26,7 @@ export default function ISO9001({ designAI }) {
           </div>
         </SimpleBanner>
 
-        <Section id="destaques" pt="96" pb="120">
+        <Section id="destaques" pt="96" pb="120 40">
           <Highlights note={designAI.imageNote } content={designAI.highlights} />
         </Section>
 

@@ -1,3 +1,5 @@
+@use "src/styles/scss/mixins";
+
 .section {
 
 }
@@ -11,4 +13,8 @@
   flex-direction: column;
   justify-content: center;
   height: 100%;
+
+  @include mixins.lg {
+    margin-bottom: 80px;
+  }
 }

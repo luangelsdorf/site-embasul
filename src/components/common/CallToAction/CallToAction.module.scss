@@ -1,3 +1,5 @@
+@use "src/styles/scss/mixins";
+
 .section {
   position: relative;
 
@@ -17,6 +19,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 124px 0;
+  flex-wrap: wrap;
 
   h2 {
     position: relative;
@@ -32,5 +35,9 @@
   p {
     color: var(--neutral--300);
     max-width: 480px;
+  }
+
+  @include mixins.lg {
+    gap: 32px;
   }
 }

@@ -1,3 +1,5 @@
+@use "src/styles/scss/mixins";
+
 .section {
   position: relative;
 }
@@ -6,9 +8,11 @@
   position: sticky;
   top: 120px;
   h2 {
-    font-size: 72px;
-    line-height: normal;
     margin-bottom: 24px;
+  }
+
+  @include mixins.lg {
+    margin-bottom: 40px;
   }
 }
 

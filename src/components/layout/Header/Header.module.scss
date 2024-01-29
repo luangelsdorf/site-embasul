@@ -74,6 +74,11 @@
             animation: enable-pointer-events 2s 0.5s linear forwards;
           }
         }
+        @include mixins.lg {
+          & > a {
+            pointer-events: all;
+          }
+        }
       }
     }
 
@@ -184,6 +189,10 @@
 
       a:not(:global(.btn-primary)) {
         color: var(--secondary--color-1);
+      }
+
+      a:global(.btn-primary) {
+        color: white;
       }
 
       &[data-desktop] {

@@ -1,4 +1,3 @@
-import Title from '@/components/common/Title';
 import styles from './History.module.scss';
 import { useEffect } from 'react';
 import Future from '../Future';
@@ -39,10 +38,10 @@ export default function History({ content }) {
           {
             content.timelineItems.map(item => (
               <div className="row" key={item.id}>
-                <div className="col-12 col-lg-3">
+                <div className="col-6 col-md-3">
                   <h3 className="heading-h2-size">{item.title}</h3>
                 </div>
-                <div className="col-12 col-lg-3" style={{ textAlign: 'center' }}>
+                <div className="col-6 col-md-3" style={{ textAlign: 'center' }}>
                   <time>{item.time}</time>
                 </div>
                 <div className="col-12 col-lg-5">

@@ -9,7 +9,10 @@ export default function Principles({ content }) {
         <div className="row">
           <div className="col-12 col-lg-5">
             <div className={styles.textContent}>
-              <Title content={content.headline} />
+              <header>
+                <p className="overline">{content.headline.overline}</p>
+                <h2 className="display-1">{content.headline.title}</h2>
+              </header>
               <p>{content.text}</p>
             </div>
           </div>

@@ -1,5 +1,13 @@
+@use "src/styles/scss/mixins";
+
 .section {
   position: relative;
+
+  @include mixins.lg {
+    header {
+      margin-bottom: 24px;
+    }
+  }
 }
 
 .stat {
@@ -26,6 +34,26 @@
       }
     }
   }
+
+  @include mixins.lg {
+    margin-bottom: 64px;
+
+    h2 {
+      margin-bottom: 16px;
+      div {
+        &:first-child {
+          span {
+            &:first-child,
+            &:last-child {
+              color: var(--accent--primary-1);
+              font-size: 24px;
+              line-height: normal;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .highlights {
@@ -37,16 +65,14 @@
     }
   }
 
-  & > div {/* 
-    &:nth-child(odd) {
-      .textContent {
-        padding-right: 116px;
-      }
+  & > div {
+    @include mixins.lg {
+      margin-bottom: 112px;
+      gap: 64px;
     }
-    &:nth-child(even) {
-      .textContent {
-        padding-left: 116px;
-      }
-    }
-   */}
+  }
+}
+
+.cta {
+  position: relative;
 }

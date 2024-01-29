@@ -1,3 +1,5 @@
+@use "src/styles/scss/mixins";
+
 .section {
   position: relative;
   color: white;
@@ -32,6 +34,12 @@
 
   p {
     margin-bottom: 64px;
+  }
+
+  @include mixins.lg {
+    h1 {
+      margin-bottom: 24px;
+    }
   }
 }
 
@@ -90,6 +98,19 @@
           text-transform: none;
         }
       }
+    }
+  }
+
+  @include mixins.lg {
+    padding: 56px 24px;
+    
+    .contactButton {
+      text-align: left;
+    }
+
+    p {
+      padding: 0;
+      padding-bottom: 48px;
     }
   }
 }

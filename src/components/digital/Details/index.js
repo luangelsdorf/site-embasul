@@ -13,7 +13,7 @@ export default function Details({ content }) {
   return (
     <div className={styles.section}>
       <div className="container">
-        <div className="row">
+        <div className="row gy-5 gy-lg-0">
           <div className="col-12 col-lg-6">
             <div className={styles.collage}>
               {content.collage.map((image, i) => <Img sizes={sizes[i]} key={image.id} {...image.image} alt="" />)}

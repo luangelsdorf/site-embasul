@@ -1,3 +1,5 @@
+@use "src/styles/scss/mixins";
+
 .section {
   h2 {
     margin-bottom: 24px;
@@ -8,11 +10,37 @@
   & > p {
     margin-bottom: 48px;
   }
+
+  @include mixins.lg {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    img {
+      order: 0;
+    }
+    header {
+      order: 1;
+      flex-direction: column-reverse;
+      h2 {
+        margin-bottom: 0;
+      }
+    }
+    p {
+      order: 2;
+    }
+  }
 }
 
 .quality {
   & > div {
     padding-top: 48px;
     padding-left: 40px;
+  }
+
+  @include mixins.lg {
+    & > div {
+      padding: 0;
+      margin-top: 40px;
+    }
   }
 }

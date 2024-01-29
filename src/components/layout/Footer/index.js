@@ -22,7 +22,7 @@ export default function Footer() {
           <div className="row">
             <div className="col-12 col-lg-4">
               <div className={styles.cta}>
-                <h2 className="text-300">{content.footer.title}</h2>
+                <h2 className="text-300 no-period">{content.footer.title}</h2>
                 <p>{content.footer.text}</p>
                 <div className={styles.contactButton}>
                   <div>
@@ -50,19 +50,19 @@ export default function Footer() {
 
             <div className="col-12 col-lg-3">
               <div className={styles.getInTouch}>
-                <h2 className="text-300">Nossas Redes</h2>
+                <h2 className="text-300 no-period">Nossas Redes</h2>
                 <ul>
                   <li><Button LeftIcon={Instagram} link>Instagram</Button></li>
                   <li><Button LeftIcon={Facebook} link>Facebook</Button></li>
                   <li><Button LeftIcon={LinkedIn} link>LinkedIn</Button></li>
                 </ul>
-                <h2 className="text-300">Nos Visite</h2>
+                <h2 className="text-300 no-period">Nos Visite</h2>
                 <p>{content.info.address}</p>
               </div>
             </div>
             <div className="col-12 col-lg-3">
               <div className={styles.usefulLinks}>
-                <h2 className="text-300">Links Úteis</h2>
+                <h2 className="text-300 no-period">Links Úteis</h2>
                 <ul>
                   <li><Button link href="#">Solicite Orçamento</Button></li>
                   <li><Button link href="#">Canal de Ética</Button></li>

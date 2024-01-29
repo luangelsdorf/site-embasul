@@ -3,6 +3,13 @@
 .section {
   :global(.slick-list) {
     overflow: visible;
+    height: 400px;
+  }
+  :global(.slick-track) {
+    height: 400px;
+  }
+  :global(.slick-slider) {
+    height: 400px;
   }
 
   :global(.row):last-of-type {

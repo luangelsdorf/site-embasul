@@ -1,103 +1,41 @@
-@use "mixins";
+@use 'mixins';
 
-body {
-  font-family: Onest, sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.667em;
+.no-period {
+  &::after {
+    content: none;
+  }
 }
 
-// -- Headings -- //
-h1 {
-  font-size: 54px;
-  font-weight: 500;
-  line-height: 1.222em;
+h1, h2 {
+  &::after {
+    content: ".";
+    color: var(--accent--primary-1);
+  }
 }
 
-h2 {
-  font-size: 38px;
-  font-weight: 500;
-  line-height: 1.316em;
-}
-
-h3 {
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 1.417em;
-}
-
-h4 {
-  font-size: 22px;
-  font-weight: 500;
-  line-height: 1.273em;
-}
-
-h5 {
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1.333em;
-}
-
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
 h6 {
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1.375em;
-}
+  margin: 0;
+  white-space: break-spaces;
 
-@include mixins.lg {
-  h1 {
-    font-size: 40px;
-  }
-
-  h2 {
-    font-size: 32px;
+  @include mixins.sm {
+    white-space: normal;
   }
 }
-
-@include mixins.md {
-  body {
-    font-size: 16px;
-  }
-
-  h1 {
-    font-size: 35px;
-  }
-
-  h2 {
-    font-size: 28px;
-  }
-
-  h3 {
-    font-size: 22px;
-  }
-
-  h4 {
-    font-size: 20px;
-  }
-
-  h5 {
-    font-size: 16px;
-  }
-
-  h6 {
-    font-size: 14px;
+.overline {
+  color: var(--accent--primary-1);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 24px;
+  &::after {
+    content: "/";
   }
 }
-
-@include mixins.sm {
-  h1 {
-    font-size: 32px;
-  }
-
-  h2 {
-    font-size: 24px;
-  }
-
-  h3 {
-    font-size: 20px;
-  }
-
-  h4 {
-    font-size: 18px;
-  }
+h2 {
+  margin-bottom: 24px;
 }

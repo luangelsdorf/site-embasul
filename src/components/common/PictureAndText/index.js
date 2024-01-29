@@ -4,18 +4,18 @@ export default function PictureAndText({ title, flipped, contained, height = 'au
   let [first, ...rest] = children;
   return (
     <>
-      <style>{`
+      {/* <style>{`
         .${styles.section} {
           height: ${height};
         }
 
-        @media screen and (max-width: 992px) {
+        @media (max-width: 992px) {
           .${styles.section} {
             height: auto;
           }
         }
-      `}</style>
-      <div className={`${styles.section}${contained ? ' ' + styles.contained : ''}`}>
+      `}</style> */}
+      <div className={`${styles.section}${contained ? ' ' + styles.contained : ''}`} style={{ height: height }}>
         <div className={contained ? 'container' : undefined}>
           <div className={`row flex-nowrap justify-content-${flipped ? 'end' : 'start'}`}>
             <div className="col-12 col-lg-6 p-0">

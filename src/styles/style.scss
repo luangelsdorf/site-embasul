@@ -1,38 +1,6 @@
 // @use 'scss/colors';
 @use "scss/mixins";
-
-.period {
-  &::after {
-    content: ".";
-    color: var(--accent--primary-1);
-  }
-}
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  white-space: break-spaces;
-
-  @include mixins.sm {
-    white-space: normal;
-  }
-}
-.overline {
-  color: var(--accent--primary-1);
-  text-transform: uppercase;
-  font-weight: 600;
-  margin-bottom: 24px;
-  &::after {
-    content: "/";
-  }
-}
-h2 {
-  margin-bottom: 24px;
-}
+@use "scss/typography";
 
 :root {
   &.no-scroll {

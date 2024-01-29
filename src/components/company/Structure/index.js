@@ -30,7 +30,7 @@ export default function Structure({ content }) {
             content.statistics.map(stat => (
               <div key={stat.id} className="col-12 col-lg-4">
                 <article className={styles.stat}>
-                  <h2>
+                  <h2 className="no-period">
                     <div className="heading-h1-size">{stat.value.split(/(\d+)/).map((el, i) => <span key={i}>{el}</span>)}</div>
                     <div className="heading-h3-size">{stat.title}</div>
                   </h2>
@@ -46,7 +46,7 @@ export default function Structure({ content }) {
             <PictureAndText key={item.id} flipped={index % 2 === 0 ? true : false} contained height="540px">
               <Img {...item.image} sizes={getSizesString('col-12 col-lg-6')} />
               <div className={styles.textContent}>
-                <h2>{item.title}</h2>
+                <h2 className="no-period">{item.title}</h2>
                 <p>{item.text}</p>
               </div>
             </PictureAndText>

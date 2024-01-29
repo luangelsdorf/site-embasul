@@ -1,3 +1,5 @@
+@use "src/styles/scss/mixins";
+
 .section {
   header {
     text-align: center;
@@ -18,4 +20,8 @@
 
 .ethicalValues {
   width: calc(100% + 24px);
+
+  @include mixins.lg {
+    width: 100%;
+  }
 }

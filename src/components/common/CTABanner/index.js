@@ -2,9 +2,10 @@ import Button from '../Button';
 import Img from '../Img';
 import styles from './CTABanner.module.scss';
 import Icon from 'public/images/icons/digital-printing.svg';
+import Mail from 'public/images/icons/mail.svg';
 import Arrow from 'public/images/icons/arrow-short.svg';
 
-export default function CTABanner({ content }) {
+export default function CTABanner({ people, content }) {
   return (
     <div className={styles.section}>
       <Img fill {...content.cover} alt="" sizes="col-12 col-lg-10" />
@@ -22,7 +23,7 @@ export default function CTABanner({ content }) {
               <p>{content.ctaText}</p>
               <div className={styles.contactButton}>
                 <div>
-                  <Icon />
+                  {people ? <Mail /> : <Icon />}
                 </div>
                 <div>
                   <span>{content.shortText}</span>

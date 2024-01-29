@@ -1,3 +1,5 @@
+@use "src/styles/scss/mixins";
+
 .section {
 }
 
@@ -74,5 +76,11 @@
   }
   :global(.col-12:nth-child(3)) article {
     padding-right: 48px;
+  }
+
+  @include mixins.lg {
+    :global(.col-12) article {
+      padding: 48px 32px;
+    }
   }
 }

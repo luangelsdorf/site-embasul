@@ -16,7 +16,7 @@ export default function People({ people }) {
 
       <main>
         <Section id="inicio">
-          <CTABanner content={people.banner} />
+          <CTABanner people content={people.banner} />
         </Section>
 
         <Section id="details" pt="96" pb="120">

@@ -6,7 +6,7 @@ export default function CodeOfConduct({ content }) {
   return (
     <div className={styles.section}>
       <div className="container">
-        <div className="row justify-content-center">
+        <div className="row justify-content-center gy-5 gy-lg-0">
           <div className="col-12">
             <header>
               <p className="overline">{content.headline.overline}</p>

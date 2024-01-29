@@ -12,7 +12,8 @@ export default function Policy({ content }) {
     '#8F1838',
     '#F36E24',
     '#CD8B2A',
-  ]
+  ];
+  
   return (
     <div className={styles.section}>
       <div className="container">

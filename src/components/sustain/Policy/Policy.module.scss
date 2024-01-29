@@ -1,3 +1,5 @@
+@use "src/styles/scss/mixins";
+
 .section {
   header {
     text-align: center;
@@ -11,6 +13,11 @@
 
 .text {
   padding-right: 64px;
+
+  @include mixins.lg {
+    padding-right: 0;
+    margin-bottom: 32px;
+  }
 }
 
 .download {
@@ -42,5 +49,9 @@
       white-space: break-spaces;
       color: white;
     }
+  }
+
+  @include mixins.lg {
+    grid-template-columns: 1fr;
   }
 }

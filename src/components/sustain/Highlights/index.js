@@ -12,7 +12,7 @@ export default function Highlights({ content }) {
         content.map((item, index) => (
           <PictureAndText key={item.id} flipped={index % 2 === 0 ? true : false} height="800px">
             <Img {...item.image} />
-            <div>
+            <div className="mb-5 mb-lg-5">
               <Title content={item.headline} />
               <p className="mb-4">{item.text}</p>
               <Button link RightIcon={Arrow} className="link-wrapper" href={item.link.url}>{item.link.text}</Button>

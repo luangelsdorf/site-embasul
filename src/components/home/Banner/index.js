@@ -10,7 +10,8 @@ export default function Banner({ content }) {
       <div className="container">
         <div className="row">
           <div className="col-12 col-lg-6">
-            <Img fill sizes={getSizesString('col-12 col-lg-12')} {...content.cover} />
+            {/* <Img fill sizes={getSizesString('col-12 col-lg-12')} {...content.cover} /> */}
+            <video src="/video.mp4" /* poster="/images/banners/home.png" */ autoPlay muted loop controls={false} />
             <div className={styles.textContent}>
               <h1 className="period display-1">{content.title}</h1>
               <p>{content.text}</p>

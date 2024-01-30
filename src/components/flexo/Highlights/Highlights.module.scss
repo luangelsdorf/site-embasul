@@ -11,11 +11,26 @@
           order: 1;
         }
       }
+      @include mixins.lg {
+        &:nth-child(even) {
+          & > :first-child {
+            order: 0;
+          }
+        }
+      }
     }
   }
 
   img {
     width: 100%;
+    z-index: -1;
+  }
+
+  .tag {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
   }
 }
 
@@ -23,6 +38,7 @@
   display: flex;
   height: 100%;
   align-items: center;
+  position: relative;
 }
 
 .textContent {

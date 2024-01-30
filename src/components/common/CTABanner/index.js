@@ -19,7 +19,7 @@ export default function CTABanner({ people, content }) {
           </div>
           <div className="col-12l col-lg-6 offset-lg-1">
             <div className={styles.cta}>
-              <h2 className="text-300">{content.ctaTitle}</h2>
+              <h2 className="text-300 no-period">{content.ctaTitle}</h2>
               <p>{content.ctaText}</p>
               <div className={styles.contactButton}>
                 <div>

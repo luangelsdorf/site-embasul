@@ -13,7 +13,7 @@ import Caret from 'public/images/icons/caret-down.svg';
 export default function Header() {
 
   const router = useRouter();
-  const isStaticHeader = (router.pathname === '/empresa' || router.pathname === '/produtos/projetos');
+  const isStaticHeader = (router.pathname === '/empresa' || router.pathname === '/produtos/projetos' || router.pathname === '/contato');
 
   useEffect(() => {
     if (isStaticHeader) return;

@@ -18,7 +18,7 @@ export default function Portfolio({ content, projects }) {
           </div>
         </div>
         <div className="row">
-          <Slider autoplay={true} slidesToShow={3} arrows={false} responsive={[{ breakpoint: 992, settings: { slidesToShow: 1 } }]}>
+          <Slider /* autoplay={true} */ slidesToShow={3} arrows={false} responsive={[{ breakpoint: 992, settings: { slidesToShow: 1 } }]}>
             {
               projects.map(project => (
                 <div key={project.id} className="col-12 col-lg-4">

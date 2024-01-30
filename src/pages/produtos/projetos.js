@@ -24,7 +24,7 @@ export default function Projects({ projects, portfolio, categories }) {
 
 export async function getStaticProps() {
   const projects = await fetchAPI('project');
-  const portfolio = await fetchAPI('portfolio', { 'populate[1]': 'cover', 'populate[2]': 'categories' });
+  const portfolio = await fetchAPI('portfolio', { 'populate[1]': 'cover', 'populate[2]': 'categories', 'populate[3]': 'gallery' });
   const categories = await fetchAPI('project-categories', { populate: false });
   const layout = await getLayoutContent();
 

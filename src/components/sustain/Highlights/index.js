@@ -6,7 +6,6 @@ import Title from '@/components/common/Title';
 import Arrow from 'public/images/icons/arrow-short.svg';
 
 export default function Highlights({ content }) {
-  console.log(content);
 
   const ids = [
     'fsc',

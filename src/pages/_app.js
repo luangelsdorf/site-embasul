@@ -1,3 +1,4 @@
+import 'lightgallery/css/lightgallery.css';
 import '@/styles/cargotemplate.css';
 import 'bootstrap/dist/css/bootstrap-grid.min.css';
 import '@/styles/slick.css';

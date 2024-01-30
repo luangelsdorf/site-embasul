@@ -3,11 +3,19 @@ import styles from './ProjectCard.module.scss';
 import Img from '@/components/common/Img';
 import { apiURL } from '@/utils/env';
 import LightGallery from 'lightgallery/react';
+import Image from 'next/image';
+import { useEffect } from 'react';
 
 export default function ProjectCard({ cover, title, slug, categories, gallery }) {
   function handleClick(e) {
     e.target.querySelector('[data-src]')?.click();
   }
+
+  useEffect(() => {
+    document.querySelectorAll('[data-src]')?.forEach(el => {
+      el.dataset.src = el.src;
+    })
+  }, []);
 
   return (
     <div className={styles.card} onMouseUp={handleClick}>
@@ -21,7 +29,15 @@ export default function ProjectCard({ cover, title, slug, categories, gallery })
       <LightGallery download={false} speed={500}>
         {
           gallery.data.map(img => (
-            <img loading="lazy" key={img.id} data-src={apiURL + img.attributes.url} width="0" height="0" src={apiURL + img.attributes.url} alt="" />
+            <Image
+              key={img.id}
+              data-src={apiURL + img.attributes.url}
+              width={img.attributes.width}
+              height={img.attributes.height}
+              src={apiURL + img.attributes.url}
+              alt=""
+              style={{ display: 'none' }}
+            />
           ))
         }
       </LightGallery>

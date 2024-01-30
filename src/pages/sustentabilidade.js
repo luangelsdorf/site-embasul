@@ -22,7 +22,7 @@ export default function Sustainability({ sustain }) {
           <Highlights content={sustain.highlights} />
         </Section>
 
-        <Section pt="120 80" pb="120 80" style={{backgroundColor: '#f2f2f2'}}>
+        <Section id="politica" pt="120 80" pb="120 80" style={{backgroundColor: '#f2f2f2'}}>
           <Policy content={sustain.policy} />
         </Section>
       </main>

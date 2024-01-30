@@ -25,7 +25,7 @@ export default function Home({ home, portfolio, }) {
           <Portfolio content={home.cases} projects={portfolio} />
         </Section>
 
-        <Section id="destaques" mb="104">
+        <Section id="destaques" mb="0 104">
           <ServiceHighlights content={home.serviceHighlights} />
         </Section>
 

@@ -57,6 +57,12 @@
 
     & > [data-dd-trigger] {
       position: relative;
+      a {
+        svg {
+          fill: currentColor;
+          display: none;
+        }
+      }
       &:hover {
         .dropdown {
           transform: initial;
@@ -200,7 +206,31 @@
       }
 
       & > [data-dd-trigger] {
-        /* display: none; */
+        text-align: center;
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & > a {
+          svg {
+            display: block;
+          }
+        }
+
+        &:global(.show) {
+          .dropdown {
+            display: block;
+            padding: 16px 24px;
+          }
+
+          & > a {
+            svg {
+              transform: rotate(180deg);
+            }
+          }
+        }
+
         @media (hover: none) {
           &:hover {
             & > a {
@@ -266,5 +296,15 @@
     svg {
       transition: 350ms;
     }
+  }
+
+  @include mixins.lg {
+    position: relative;
+    top: 0;
+    left: 0;
+    box-shadow: none;
+    outline: 1px solid var(--neutral--300);
+    opacity: 1;
+    transform: none;
   }
 }

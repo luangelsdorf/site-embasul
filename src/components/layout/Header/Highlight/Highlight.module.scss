@@ -1,3 +1,5 @@
+@use 'src/styles/scss/mixins';
+
 .highlight {
   height: 230px;
   width: 100%;
@@ -42,6 +44,25 @@
     svg {
       display: inline-block;
       margin-left: 8px;
+    }
+  }
+
+  @include mixins.lg {
+    height: auto;
+
+    &::before {
+      content: none;
+    }
+
+    p {
+      color: var(--secondary--color-1);
+      font-size: 12px;
+      line-height: auto;
+      font-weight: 500;
+    }
+
+    img {
+      display: none;
     }
   }
 }

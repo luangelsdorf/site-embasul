@@ -14,7 +14,7 @@ export default function Portfolio({ content, projects }) {
             <Title content={content.headline} />
           </div>
           <div className="col-auto">
-            <Button className="btn-secondary" href="">Navegue por Todos os Projetos</Button>
+            <Button className="btn-secondary" href="/produtos/projetos">Navegue por Todos os Projetos</Button>
           </div>
         </div>
         <div className="row">

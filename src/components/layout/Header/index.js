@@ -8,6 +8,7 @@ import DropdownMenu from './DropdownMenu';
 import Highlight from './Highlight';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Caret from 'public/images/icons/caret-down.svg';
 
 export default function Header() {
 
@@ -28,9 +29,15 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, [isStaticHeader]);
 
+  function handleClick(e) {
+    if (e.nativeEvent.pointerType === 'touch') e.preventDefault();
+    e.currentTarget.parentElement.classList.toggle('show');
+  }
+
   const Navigation = ({ ...props }) => (
     <ul className={styles.links} {...props}>
       <li data-dd-trigger>
+        <Button RightIcon={Caret} onClick={handleClick} href="/empresa" link>Empresa</Button>
         <div className={styles.dropdown}>
           <DropdownMenu
             extraLinks={[
@@ -53,9 +60,9 @@ export default function Header() {
             <Button link href="/empresa#estrutura">Estrutura</Button>
           </DropdownMenu>
         </div>
-        <Button href="/empresa" link>Empresa</Button>
       </li>
       <li data-dd-trigger>
+        <Button RightIcon={Caret} onClick={handleClick} link>Produtos</Button>
         <div className={styles.dropdown}>
           <DropdownMenu
             extraLinks={[
@@ -79,9 +86,9 @@ export default function Header() {
             <Button link href="/produtos/projetos">Projetos Realizados</Button>
           </DropdownMenu>
         </div>
-        <Button onClick={e => e.preventDefault()} link>Produtos</Button>
       </li>
       <li data-dd-trigger>
+        <Button RightIcon={Caret} onClick={handleClick} href="/sustentabilidade" link>Sustentabilidade</Button>
         <div className={styles.dropdown}>
           <DropdownMenu>
             <Button link href="/sustentabilidade#fsc">Certificado FSC</Button>
@@ -91,18 +98,18 @@ export default function Header() {
             <Button link href="/sustentabilidade#politica">Política de Sustentabilidade</Button>
           </DropdownMenu>
         </div>
-        <Button href="/sustentabilidade" link>Sustentabilidade</Button>
       </li>
       <li data-dd-trigger>
+        <Button RightIcon={Caret} onClick={handleClick} link>Inovação</Button>
         <div className={styles.dropdown}>
           <DropdownMenu>
             <Button link href="/inovacao/design-ai">Design com AI</Button>
             <Button link href="/inovacao/iso9001">Processos ISO 9001</Button>
           </DropdownMenu>
         </div>
-        <Button onClick={e => e.preventDefault()} link>Inovação</Button>
       </li>
       <li data-dd-trigger>
+        <Button RightIcon={Caret} onClick={handleClick} href="/pessoas" link>Pessoas</Button>
         <div className={styles.dropdown}>
           <DropdownMenu>
             <Button link href="/pessoas#pessoas">Pessoas</Button>
@@ -111,10 +118,9 @@ export default function Header() {
             <Button link href="/pessoas#trabalhe-conosco">Trabalhe Conosco</Button>
           </DropdownMenu>
         </div>
-        <Button href="/pessoas" link>Pessoas</Button>
       </li>
       <li className="d-inline-flex d-lg-none">
-        <Button href="/contato" RightIcon={ArrowLong}>Faça uma Cotação</Button>
+        <Button onClick={handleClick} href="/contato" RightIcon={ArrowLong}>Faça uma Cotação</Button>
       </li>
     </ul>
   );

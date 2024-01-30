@@ -1,7 +1,9 @@
+@use "src/styles/scss/mixins";
+
 .dropDownMenu {
   display: flex;
   gap: 40px;
-  
+
   ul {
     margin-bottom: 16px;
 
@@ -18,6 +20,44 @@
 
     & > div {
       width: 180px;
+    }
+  }
+
+  @include mixins.lg {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    ul {
+      margin-bottom: 0;
+      li {
+        &:last-child {
+          a {
+            border-bottom: none;
+          }
+        }
+      }
+      a {
+        padding: 16px;
+      }
+    }
+    .extraLinks {
+      //
+      display: none;
+      //
+      flex-direction: column;
+      align-items: center;
+
+      p {
+        padding: 0;
+        span {
+          white-space: initial;
+        }
+      }
+
+      a {
+        justify-content: center;
+      }
     }
   }
 }

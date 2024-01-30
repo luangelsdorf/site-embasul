@@ -19,6 +19,12 @@
   }
 }
 
+.image {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
 .textContent {
   display: flex;
   flex-direction: column;

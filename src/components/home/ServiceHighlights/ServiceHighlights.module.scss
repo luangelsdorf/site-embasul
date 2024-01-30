@@ -1,14 +1,14 @@
 @use "src/styles/scss/mixins";
 
 .section {
-  & > div {
+  /* & > div {
     &:nth-child(odd) {
       background-color: var(--neutral--200);
     }
     &:nth-child(even) {
       background-color: white;
     }
-  }
+  } */
 
   @include mixins.lg {
     display: flex;

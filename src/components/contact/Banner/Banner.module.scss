@@ -1,0 +1,24 @@
+.section {
+  img {
+    height: 720px;
+    object-position: bottom;
+  }
+
+  svg {
+    width: 100%;
+    height: auto;
+
+    text:global(.send) {
+      color: white;
+      & + g {
+        path {
+          color: white;
+        }
+      }
+    }
+  }
+
+  :global(.container) {
+    margin-top: -240px;
+  }
+}

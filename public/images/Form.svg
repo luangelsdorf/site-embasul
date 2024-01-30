@@ -1,0 +1,92 @@
+<svg width="1224" height="626" viewBox="0 0 1224 626" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame 33">
+<rect id="Background" width="600" height="626" fill="#F2F2F2"/>
+<g id="Link">
+<text id="Nos Visite" fill="#00182E" xml:space="preserve" style="white-space: pre" font-family="Onest" font-size="18" letter-spacing="0.05em"><tspan x="72" y="551.985">NOS VISITE</tspan></text>
+<g id="Icon">
+<path id="Vector" d="M194.606 551.786C194.45 551.786 194.312 551.747 194.192 551.669C194.072 551.591 193.985 551.483 193.931 551.345C193.877 551.207 193.865 551.066 193.895 550.922C193.925 550.778 193.988 550.658 194.084 550.562L199.664 544.964L194.084 539.384C194.012 539.312 193.958 539.231 193.922 539.141C193.886 539.051 193.868 538.958 193.868 538.862C193.868 538.766 193.886 538.676 193.922 538.592C193.958 538.508 194.012 538.43 194.084 538.358C194.156 538.286 194.237 538.232 194.327 538.196C194.417 538.16 194.501 538.142 194.579 538.142C194.657 538.142 194.756 538.166 194.876 538.214C194.96 538.25 195.038 538.304 195.11 538.376L201.194 544.46C201.338 544.604 201.41 544.775 201.41 544.973C201.41 545.171 201.338 545.342 201.194 545.486L195.11 551.57C194.966 551.714 194.798 551.786 194.606 551.786ZM200.69 545.684H187.73C187.526 545.684 187.355 545.615 187.217 545.477C187.079 545.339 187.01 545.171 187.01 544.973C187.01 544.775 187.082 544.604 187.226 544.46C187.37 544.316 187.538 544.244 187.73 544.244H200.69C200.882 544.244 201.05 544.316 201.194 544.46C201.338 544.604 201.41 544.775 201.41 544.973C201.41 545.171 201.341 545.339 201.203 545.477C201.065 545.615 200.894 545.684 200.69 545.684Z" fill="#235CF2"/>
+</g>
+</g>
+<rect id="Background_2" x="600" width="624" height="626" fill="#00203D"/>
+<g id="Form">
+<g id="Link_2">
+<rect x="660.5" y="482.5" width="221.31" height="71" rx="35.5" fill="#006CCC"/>
+<rect x="660.5" y="482.5" width="221.31" height="71" rx="35.5" stroke="#006CCC"/>
+<text class="send" id="enviar agora" fill="white" xml:space="preserve" style="white-space: pre" font-family="Onest" font-size="14" letter-spacing="0.05em"><tspan x="700.369" y="522.655">ENVIAR AGORA</tspan></text>
+<g id="Icon_2">
+<path id="Vector_2" d="M834.274 512.008L840.728 518.462L834.274 524.93L833.126 523.782L838.446 518.462L833.126 513.156L834.274 512.008ZM821.002 517.664H838.236V519.274H821.002V517.664Z" fill="white"/>
+</g>
+</g>
+<g id="Input">
+<mask id="path-8-inside-1_1136_1158" fill="white">
+<path d="M660 72H900V126H660V72Z"/>
+</mask>
+<path d="M900 125H660V127H900V125Z" fill="white" mask="url(#path-8-inside-1_1136_1158)"/>
+<g id="div#placeholder">
+<text id="Nome" fill="#ECECEC" xml:space="preserve" style="white-space: pre" font-family="Onest" font-size="18" letter-spacing="1.08px"><tspan x="660" y="104.985">NOME</tspan></text>
+</g>
+</g>
+<g id="Input_2">
+<mask id="path-11-inside-2_1136_1158" fill="white">
+<path d="M924 72H1164V126H924V72Z"/>
+</mask>
+<path d="M1164 125H924V127H1164V125Z" fill="white" mask="url(#path-11-inside-2_1136_1158)"/>
+<g id="div#placeholder_2">
+<text id="e-mail" fill="#ECECEC" xml:space="preserve" style="white-space: pre" font-family="Onest" font-size="18" letter-spacing="1.08px"><tspan x="923.779" y="104.985">E-MAIL</tspan></text>
+</g>
+</g>
+<g id="Input_3">
+<mask id="path-14-inside-3_1136_1158" fill="white">
+<path d="M660 174H900V228H660V174Z"/>
+</mask>
+<path d="M900 227H660V229H900V227Z" fill="white" mask="url(#path-14-inside-3_1136_1158)"/>
+<g id="div#placeholder_3">
+<text id="telefone" fill="#ECECEC" xml:space="preserve" style="white-space: pre" font-family="Onest" font-size="18" letter-spacing="1.08px"><tspan x="660" y="206.985">TELEFONE</tspan></text>
+</g>
+</g>
+<g id="Input_4">
+<mask id="path-17-inside-4_1136_1158" fill="white">
+<path d="M926 174H1164V228H926V174Z"/>
+</mask>
+<path d="M1164 227H926V229H1164V227Z" fill="white" mask="url(#path-17-inside-4_1136_1158)"/>
+<g id="div#placeholder_4">
+<text id="EMpresa" fill="#ECECEC" xml:space="preserve" style="white-space: pre" font-family="Onest" font-size="18" letter-spacing="1.08px"><tspan x="926" y="207.485">EMPRESA</tspan></text>
+</g>
+</g>
+<g id="Textarea">
+<mask id="path-20-inside-5_1136_1158" fill="white">
+<path d="M660 276H1164V434H660V276Z"/>
+</mask>
+<path d="M1164 433H660V435H1164V433Z" fill="white" mask="url(#path-20-inside-5_1136_1158)"/>
+<g id="div#placeholder_5">
+<text id="Mensagem" fill="#ECECEC" xml:space="preserve" style="white-space: pre" font-family="Onest" font-size="18" letter-spacing="1.08px"><tspan x="660" y="309.485">MENSAGEM</tspan></text>
+</g>
+</g>
+</g>
+<text id="Fale Conosco/" fill="#006CCC" xml:space="preserve" style="white-space: pre" font-family="Onest" font-size="18" letter-spacing="0.02em"><tspan x="72" y="87.985">FALE CONOSCO/</tspan></text>
+<g id="Fa&#195;&#167;a uma cota&#195;&#167;&#195;&#163;o.">
+<text fill="#00182E" xml:space="preserve" style="white-space: pre" font-family="Onest" font-size="44" letter-spacing="0em"><tspan x="72" y="157.63">Fa&#xe7;a uma cota&#xe7;&#xe3;o</tspan></text>
+<text fill="#006CCC" xml:space="preserve" style="white-space: pre" font-family="Onest" font-size="44" letter-spacing="0em"><tspan x="449.738" y="157.63">.</tspan></text>
+</g>
+<text id="Fale conosco para solu&#195;&#167;&#195;&#181;es personalizadas. Estamos prontos para ouvir e ajudar. Aguardamos seu contato!" fill="#757575" xml:space="preserve" style="white-space: pre" font-family="Onest" font-size="17.7188" letter-spacing="0em"><tspan x="72" y="214.891">Fale conosco para solu&#xe7;&#xf5;es personalizadas. Estamos </tspan><tspan x="72" y="244.891">prontos para ouvir e ajudar. Aguardamos seu contato!</tspan></text>
+<g id="div.mg-right-24px">
+<g id="div.mg-bottom-14px">
+<text id="E-mail" fill="#006CCC" xml:space="preserve" style="white-space: pre" font-family="Onest" font-size="17.5781" font-weight="bold" letter-spacing="0em"><tspan x="72" y="301.815">E-mail</tspan></text>
+</g>
+<text id="Link &#226;&#134;&#146; newyork@cargo.com" fill="#00182E" xml:space="preserve" style="white-space: pre" font-family="Onest" font-size="18" letter-spacing="0em"><tspan x="72" y="338.955">embasul@embasul.com.br</tspan></text>
+</g>
+<g id="div.mg-right-24px_2">
+<g id="div.mg-bottom-14px_2">
+<text id="Endere&#195;&#167;o" fill="#006CCC" xml:space="preserve" style="white-space: pre" font-family="Onest" font-size="17.5781" font-weight="bold" letter-spacing="0em"><tspan x="72" y="427.845">Endere&#xe7;o</tspan></text>
+</g>
+<text id="Link &#226;&#134;&#146; newyork@cargo.com_2" fill="#00182E" xml:space="preserve" style="white-space: pre" font-family="Onest" font-size="18" letter-spacing="0em"><tspan x="72" y="464.985">Rua Farroupilha, n&#xba; 233 - Bairro S&#xe3;o Jos&#xe9;, &#x2028;</tspan><tspan x="72" y="494.985">Novo Hamburgo - RS, CEP 93530-500</tspan></text>
+</g>
+<g id="div">
+<g id="div.mg-bottom-14px_3">
+<text id="Telefone" fill="#006CCC" xml:space="preserve" style="white-space: pre" font-family="Onest" font-size="17.7188" font-weight="bold" letter-spacing="0em"><tspan x="323" y="302.851">Telefone</tspan></text>
+</g>
+<text id="Link &#226;&#134;&#146; (415) 509 - 6995" fill="#00182E" xml:space="preserve" style="white-space: pre" font-family="Onest" font-size="17.5781" letter-spacing="0em"><tspan x="323" y="339.805">+55 (51) 3595.9696</tspan></text>
+</g>
+<line id="Div" x1="72" y1="379.5" x2="496" y2="379.5" stroke="#CCCCCC"/>
+</g>
+</svg>

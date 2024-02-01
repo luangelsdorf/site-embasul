@@ -1,10 +1,12 @@
 import CallToAction from '@/components/common/CallToAction'
 import Section from '@/components/common/Section'
 import Banner from '@/components/contact/Banner'
+import Form from '@/components/contact/Form'
+import fetchAPI, { getLayoutContent } from '@/utils/fetch'
 import Head from 'next/head'
 import React from 'react'
 
-export default function Contato() {
+export default function Contato({ contact }) {
   return (
     <>
       <Head>
@@ -16,16 +18,27 @@ export default function Contato() {
           <Banner />
         </Section>
 
+        <Section id="form">
+          <Form content={contact} />
+        </Section>
+
         <Section pt="120 80" pb="120 80">
-          <CallToAction content={{
-            text: 'Conheça mais sobre \na Embasul Embalagens',
-            linkUrl: '/empresa',
-            linkText: 'Assistir Vídeo'
-          }}
-            contact
-          />
+          <CallToAction content={contact.cta} contact />
         </Section>
       </main>
     </>
   )
+}
+
+export async function getStaticProps() {
+  const contact = await fetchAPI('contact');
+  const layout = await getLayoutContent();
+
+  return {
+    props: {
+      contact,
+
+      layout
+    }
+  }
 }

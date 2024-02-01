@@ -1,0 +1,96 @@
+@use "src/styles/scss/mixins";
+
+.section {
+  position: relative;
+  margin-top: -240px;
+}
+
+.textContent {
+  padding: 72px;
+
+  header {
+    margin-bottom: 24px;
+  }
+
+  & > p {
+    max-width: 460px;
+    margin-bottom: 32px;
+  }
+
+  span:global(.d-block) {
+    color: var(--accent--primary-1);
+    font-weight: 700;
+  }
+
+  address {
+    a {
+      color: var(--secondary--color-1);
+      text-transform: lowercase;
+      font-weight: 400;
+      span {
+      }
+    }
+  }
+
+  .contact {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--neutral--400);
+
+    @include mixins.lg {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  .addr {
+    p {
+      color: var(--secondary--color-1);
+      max-width: 350px;
+      margin-bottom: 32px;
+    }
+  }
+
+  & > a {
+    span {
+      color: var(--secondary--color-1);
+    }
+  }
+
+  @include mixins.lg {
+    padding: 40px 24px;
+  }
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 72px 60px;
+    column-gap: 24px;
+    row-gap: 48px;
+
+    & > div {
+      &:not(:last-of-type) {
+        flex-basis: calc(50% - 12px);
+        @include mixins.lg {
+          flex-basis: 100%;
+        }
+      }
+      &:last-of-type {
+        flex-basis: 100%;
+      }
+    }
+
+    @include mixins.lg {
+      padding: 56px 24px;
+      row-gap: 48px;
+    }
+  }
+}

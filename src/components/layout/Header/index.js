@@ -36,6 +36,9 @@ export default function Header() {
 
   const Navigation = ({ ...props }) => (
     <ul className={styles.links} {...props}>
+      <li>
+        <Button href="/" link>Início</Button>
+      </li>
       <li data-dd-trigger>
         <Button RightIcon={Caret} onClick={handleClick} href="/empresa" link>Empresa</Button>
         <div className={styles.dropdown}>

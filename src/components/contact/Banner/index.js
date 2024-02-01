@@ -7,9 +7,6 @@ export default function Banner({ content }) {
   return (
     <div className={styles.section}>
       <Image src={banner} alt="" />
-      <div className="container">
-        <Form />
-      </div>
     </div>
   )
 }

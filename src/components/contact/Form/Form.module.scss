@@ -68,6 +68,7 @@
   display: flex;
   align-items: center;
   height: 100%;
+  position: relative;
 
   form {
     display: flex;
@@ -75,6 +76,7 @@
     padding: 72px 60px;
     column-gap: 24px;
     row-gap: 48px;
+    transition: 350ms ease;
 
     & > div {
       &:not(:last-of-type) {
@@ -91,6 +93,37 @@
     @include mixins.lg {
       padding: 56px 24px;
       row-gap: 48px;
+    }
+  }
+
+  &::after {
+    flex-basis: 100%;
+    position: absolute;
+    bottom: 16px;
+    left: 72px;
+    @include mixins.lg {
+      left: 0;
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  &.loading {
+    form {
+      opacity: 0.2;
+      pointer-events: none;
+    }
+
+    &::after {
+      content: "Enviando...";
+      color: var(--neutral--300);
+    }
+  }
+
+  &.loaded {
+    &::after {
+      content: "Mensagem enviada com sucesso!";
+      color: limegreen;
     }
   }
 }

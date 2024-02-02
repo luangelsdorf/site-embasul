@@ -21,6 +21,11 @@ html {
   padding: 0;
 }
 
+b {
+  font-weight: 500;
+  color: var(--accent--primary-1);
+}
+
 section {
   scroll-margin-top: 120px;
 }

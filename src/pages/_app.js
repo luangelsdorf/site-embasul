@@ -1,4 +1,5 @@
 import 'lightgallery/css/lightgallery.css';
+import 'lightgallery/css/lg-video.css';
 import '@/styles/cargotemplate.css';
 import 'bootstrap/dist/css/bootstrap-grid.min.css';
 import '@/styles/slick.css';

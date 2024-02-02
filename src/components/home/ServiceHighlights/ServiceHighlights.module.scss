@@ -10,6 +10,24 @@
     }
   } */
 
+  cursor: pointer;
+
+  img {
+    transition: 350ms ease;
+  }
+
+  :global(.first) {
+    overflow: hidden;
+  }
+
+  & > div {
+    &:hover {
+      img {
+        transform: scale(1.08);
+      }
+    }
+  }
+
   @include mixins.lg {
     display: flex;
     flex-direction: column;

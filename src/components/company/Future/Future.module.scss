@@ -10,12 +10,14 @@
   img {
     height: auto;
   }
+
+  :global(.container) {
+    height: 100%;
+  }
 }
 
 .textContent {
-  padding-left: 92px;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding: 80px 0;
 
   h2 {
     color: white;

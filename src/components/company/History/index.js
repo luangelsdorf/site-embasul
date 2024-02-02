@@ -22,6 +22,11 @@ export default function History({ content }) {
     return () => targets.forEach(target => observer.unobserve(target));
   }, []);
 
+  useEffect(() => {
+    const lineHeight = document.querySelector(`.${styles.timeline}`).clientHeight - document.querySelector(`.${styles.timeline} .row:last-child`).clientHeight;
+    document.querySelector(`.${styles.line}`).style.height = `${lineHeight}px`;
+  }, []);
+
   return (
     <div className={styles.section}>
       <div className="container">
@@ -36,13 +41,14 @@ export default function History({ content }) {
 
         <div className={styles.timeline}>
           {
-            content.timelineItems.map(item => (
+            content.timelineItems.map((item, i) => (
               <div className="row" key={item.id}>
                 <div className="col-6 col-md-3">
                   <h3 className="heading-h2-size">{item.title}</h3>
                 </div>
-                <div className="col-6 col-md-3" style={{ textAlign: 'center' }}>
+                <div className="col-6 col-md-3" style={{ textAlign: 'center', position: 'relative', display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
                   <time>{item.time}</time>
+                  {i === 0 && <span className={styles.line} />}
                 </div>
                 <div className="col-12 col-lg-5">
                   <div className={styles.details}>

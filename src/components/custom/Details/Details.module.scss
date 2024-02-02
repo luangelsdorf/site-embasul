@@ -18,10 +18,9 @@
     flex-direction: column;
     gap: 24px;
 
-    span {
-      display: inline-block;
-      
+    & > span {
       &:first-child {
+        display: inline-block;
         color: var(--accent--primary-1);
         font-weight: 600;
       }

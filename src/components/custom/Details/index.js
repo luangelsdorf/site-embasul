@@ -1,6 +1,7 @@
 import Img from '@/components/common/Img';
 import styles from './Details.module.scss';
 import { getSizesString } from '@/utils/images';
+import { toFormatted } from '@/utils/helpers';
 
 export default function Details({ content }) {
   return (
@@ -22,7 +23,7 @@ export default function Details({ content }) {
               <p>
                 {
                   content.text.split('\n\n').map((item, i) => (
-                    <span key={i}>{item}</span>
+                    <span key={i}>{toFormatted(item)}</span>
                   ))
                 }
               </p>

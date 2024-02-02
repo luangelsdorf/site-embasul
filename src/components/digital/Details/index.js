@@ -2,6 +2,7 @@ import Img from '@/components/common/Img';
 import styles from './Details.module.scss';
 import Title from '@/components/common/Title';
 import { getSizesString } from '@/utils/images';
+import { toFormatted } from '@/utils/helpers';
 
 export default function Details({ content }) {
 
@@ -22,7 +23,7 @@ export default function Details({ content }) {
           <div className="col-12 col-lg-5 offset-lg-1">
             <div className={styles.textContent}>
               <Title content={content.headline} />
-              <p>{content.text}</p>
+              <p>{toFormatted(content.text)}</p>
             </div>
           </div>
         </div>

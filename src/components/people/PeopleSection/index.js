@@ -7,6 +7,7 @@ import Practices from 'public/images/icons/practices.svg';
 import Collaborate from 'public/images/icons/collaborate.svg';
 import Button from '@/components/common/Button';
 import Arrow from 'public/images/icons/arrow-short.svg';
+import { toFormatted } from '@/utils/helpers';
 
 export default function PeopleSection({ content }) {
 
@@ -29,7 +30,7 @@ export default function PeopleSection({ content }) {
           <Img {...content.details.icon} />
           <div className={styles.detailsContent}>
             <Title content={{ title: content.details.title, overline: content.details.subtitle }} />
-            <p>{content.details.text}</p>
+            <p>{toFormatted(content.details.text)}</p>
           </div>
         </PictureAndText>
       </div>

@@ -1,6 +1,7 @@
 import Img from '@/components/common/Img';
 import styles from './Future.module.scss';
 import PictureAndText from '@/components/common/PictureAndText';
+import { toFormatted } from '@/utils/helpers';
 
 export default function Future({ content }) {
 
@@ -10,7 +11,7 @@ export default function Future({ content }) {
         <Img {...content.image} />
         <div className={styles.textContent}>
           <h2>{content.title}</h2>
-          <p>{content.text}</p>
+          <p>{toFormatted(content.text)}</p>
         </div>
       </PictureAndText>
     </div>

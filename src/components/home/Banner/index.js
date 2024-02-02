@@ -3,6 +3,7 @@ import Button from '@/components/common/Button';
 import Play from 'public/images/icons/play.svg';
 import LightGallery from 'lightgallery/react';
 import lgVideo from 'lightgallery/plugins/video';
+import { toFormatted } from '@/utils/helpers';
 
 export default function Banner({ content }) {
 
@@ -14,7 +15,7 @@ export default function Banner({ content }) {
             <video src="/video.mp4" autoPlay muted loop controls={false} />
             <div className={styles.textContent}>
               <h1 className="period display-1">{content.title}</h1>
-              <p>{content.text}</p>
+              <p>{toFormatted(content.text)}</p>
             </div>
             <div className={styles.buttons}>
               <LightGallery download={false} mode="lg-fade" plugins={[lgVideo]}>

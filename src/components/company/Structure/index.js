@@ -5,6 +5,7 @@ import PictureAndText from '@/components/common/PictureAndText';
 import Img from '@/components/common/Img';
 import { getSizesString } from '@/utils/images';
 import CallToAction from '@/components/common/CallToAction';
+import { toFormatted } from '@/utils/helpers';
 
 export default function Structure({ content }) {
 
@@ -19,7 +20,7 @@ export default function Structure({ content }) {
             </header>
           </div>
           <div className="col-12 col-lg-6">
-            <p>{content.text}</p>
+            <p>{toFormatted(content.text)}</p>
           </div>
         </div>
 
@@ -47,7 +48,7 @@ export default function Structure({ content }) {
               <Img {...item.image} sizes={getSizesString('col-12 col-lg-6')} />
               <div className={styles.textContent}>
                 <h2 className="no-period">{item.title}</h2>
-                <p>{item.text}</p>
+                <p>{toFormatted(item.text)}</p>
               </div>
             </PictureAndText>
           ))}

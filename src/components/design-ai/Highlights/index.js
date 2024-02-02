@@ -2,6 +2,7 @@ import PictureAndText from '@/components/common/PictureAndText';
 import styles from './Highlights.module.scss';
 import Img from '@/components/common/Img';
 import { getSizesString } from '@/utils/images';
+import { toFormatted } from '@/utils/helpers';
 
 export default function Highlights({ content, note }) {
   return (
@@ -16,7 +17,7 @@ export default function Highlights({ content, note }) {
             <div className={styles.textContent}>
               <p className="overline">Design com AI</p>
               <h2>{item.title}</h2>
-              <p>{item.text}</p>
+              <p>{toFormatted(item.text)}</p>
             </div>
           </PictureAndText>
         ))}

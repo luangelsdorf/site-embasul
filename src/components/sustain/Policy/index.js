@@ -3,6 +3,7 @@ import styles from './Policy.module.scss';
 import Button from '@/components/common/Button';
 import DownloadIcon from 'public/images/icons/download.svg';
 import Img from '@/components/common/Img';
+import { toFormatted } from '@/utils/helpers';
 
 export default function Policy({ content }) {
   const colors = [
@@ -26,7 +27,7 @@ export default function Policy({ content }) {
           </div>
           <div className="col-12 col-lg-6">
             <div className={styles.text}>
-              <p>{content.text}</p>
+              <p>{toFormatted(content.text)}</p>
             </div>
           </div>
           <div className="col-12 col-lg-4">

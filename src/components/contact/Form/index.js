@@ -5,6 +5,7 @@ import Button from '@/components/common/Button';
 import Arrow from 'public/images/icons/arrow-short.svg';
 import ArrowLong from 'public/images/icons/arrow-long.svg';
 import { useForm } from 'react-hook-form';
+import { toFormatted } from '@/utils/helpers';
 
 export default function Form({ content }) {
   const { footer } = useContext(LayoutContext);
@@ -39,7 +40,7 @@ export default function Form({ content }) {
                 <p className="overline">{content.headline.overline}</p>
                 <h1 className="heading-h2-size">{content.headline.title}</h1>
               </header>
-              <p>{content.text}</p>
+              <p>{toFormatted(content.text)}</p>
               <address>
                 <div className={styles.contact}>
                   <div>

@@ -3,6 +3,7 @@ import styles from './EthicsChannel.module.scss';
 import WhatsApp from 'public/images/icons/whatsapp-fill.svg';
 import Phone from 'public/images/icons/phone-fill.svg';
 import Globe from 'public/images/icons/globe.svg';
+import { toFormatted } from '@/utils/helpers';
 
 export default function EthicsChannel({ content }) {
 
@@ -20,7 +21,7 @@ export default function EthicsChannel({ content }) {
             <h2 className="display-1">{content.title}</h2>
           </div>
           <div className="col-12 col-lg-6">
-            <p>{content.text}</p>
+            <p>{toFormatted(content.text)}</p>
           </div>
         </div>
 

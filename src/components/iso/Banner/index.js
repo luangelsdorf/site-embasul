@@ -3,6 +3,7 @@ import styles from './Banner.module.scss';
 import { getSizesString } from '@/utils/images';
 import seal from 'public/images/image 35.png';
 import Image from 'next/image';
+import { toFormatted } from '@/utils/helpers';
 
 export default function Banner({ content }) {
   return (
@@ -15,7 +16,7 @@ export default function Banner({ content }) {
               <p className="overline">{content.subtitle}</p>
               <h1 className="display-1">{content.title}</h1>
             </header>
-            <p>{content.text}</p>
+            <p>{toFormatted(content.text)}</p>
           </div>
           <div className="col-12 col-lg-4">
             <div className={styles.image}>

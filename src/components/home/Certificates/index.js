@@ -1,6 +1,7 @@
 import Title from '@/components/common/Title';
 import styles from './Certificates.module.scss';
 import Img from '@/components/common/Img';
+import { toFormatted } from '@/utils/helpers';
 
 export default function Certificates({ content }) {
   return (
@@ -11,7 +12,7 @@ export default function Certificates({ content }) {
             <Title content={content.headline} />
           </div>
           <div className="col-12 col-lg-5 offset-lg-1">
-            <p>{content.text}</p>
+            <p>{toFormatted(content.text)}</p>
           </div>
         </div>
         <div className="row">

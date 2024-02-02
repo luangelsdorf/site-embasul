@@ -2,6 +2,7 @@ import PictureAndText from '@/components/common/PictureAndText';
 import styles from './Highlights.module.scss';
 import Img from '@/components/common/Img';
 import { getSizesString } from '@/utils/images';
+import { toFormatted } from '@/utils/helpers';
 
 export default function Highlights({ content }) {
   return (
@@ -13,7 +14,7 @@ export default function Highlights({ content }) {
             <div className={styles.textContent}>
               <p className="overline">ISO9001</p>
               <h2>{item.title}</h2>
-              <p>{item.text}</p>
+              <p>{toFormatted(item.text)}</p>
             </div>
           </PictureAndText>
         ))}

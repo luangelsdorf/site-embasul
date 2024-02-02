@@ -4,6 +4,7 @@ import styles from './CTABanner.module.scss';
 import Icon from 'public/images/icons/digital-printing.svg';
 import Mail from 'public/images/icons/mail.svg';
 import Arrow from 'public/images/icons/arrow-short.svg';
+import { toFormatted } from '@/utils/helpers';
 
 export default function CTABanner({ people, content }) {
   return (
@@ -14,7 +15,7 @@ export default function CTABanner({ people, content }) {
           <div className="col-12l col-lg-5">
             <div className={styles.mainContent}>
               <h1 className="display-1">{content.title}</h1>
-              <p>{content.text}</p>
+              <p>{toFormatted(content.text)}</p>
             </div>
           </div>
           <div className="col-12l col-lg-6 offset-lg-1">

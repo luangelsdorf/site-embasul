@@ -6,14 +6,29 @@ import Link from 'next/link';
 import { Collapse } from 'src/components/common/Collapse';
 import DropdownMenu from './DropdownMenu';
 import Highlight from './Highlight';
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Caret from 'public/images/icons/caret-down.svg';
+import { LayoutContext } from '@/utils/contexts';
+import LightGallery from 'lightgallery/react';
+import lgVideo from 'lightgallery/plugins/video';
 
-export default function Header() {
+export default function Header({ videoLink }) {
 
   const router = useRouter();
   const isStaticHeader = (router.pathname === '/empresa' || router.pathname === '/produtos/projetos' || router.pathname === '/contato');
+
+  useEffect(() => {
+    function click(e) {
+      e.preventDefault();
+      document.querySelector('#video').click();
+    }
+
+    const meetLink = document.querySelector('#meet');
+    meetLink.addEventListener('click', click);
+
+    return () => meetLink.removeEventListener('click', click);
+  }, []);
 
   useEffect(() => {
     if (isStaticHeader) return;
@@ -49,6 +64,7 @@ export default function Header() {
                 coverUrl="/images/header/conheca.jpg"
                 text={"Conheça a \nEmbasul"}
                 href="/empresa/"
+                id="meet"
               />,
               <Highlight
                 key="structure"
@@ -130,6 +146,10 @@ export default function Header() {
 
   return (
     <header id="header" className={`${styles.header}${isStaticHeader ? ' active' : ''}`}>
+      <LightGallery download={false} mode="lg-fade" plugins={[lgVideo]}>
+        <button id="video" data-src={videoLink} style={{ display: 'none' }} />
+      </LightGallery>
+
       <div className="container">
         <Link href="/" className={styles.logo}>
           <LogoType />

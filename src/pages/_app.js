@@ -24,7 +24,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <LayoutContext.Provider value={pageProps.layout}>
-      <Header />
+      <Header videoLink={pageProps.videoLink} />
       <Component {...pageProps} />
       {pageProps.layout && <Footer />}
     </LayoutContext.Provider>

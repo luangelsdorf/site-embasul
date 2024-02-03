@@ -4,9 +4,9 @@ import Image from 'next/image';
 import { getSizesString } from '@/utils/images';
 import Arrow from 'public/images/icons/arrow-diagonal.svg';
 
-export default function Highlight({ coverUrl, text, href }) {
+export default function Highlight({ coverUrl, text, href, ...other }) {
   return (
-    <Link href={href} className={`${styles.highlight} wrapper`}>
+    <Link href={href} className={`${styles.highlight} wrapper`} {...other}>
       <Image fill sizes={getSizesString('col-12 col-md-3')} alt="" src={coverUrl} />
       <p role="link">
         <span>{text}</span>

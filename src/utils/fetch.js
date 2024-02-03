@@ -30,6 +30,7 @@ export default async function fetchAPI(endpoint = '', parameters = { populate: '
 export async function getLayoutContent() {
   const footer = await fetchAPI('footer');
   const info = await fetchAPI('info');
+  const { banner: { link1: { url: videoLink } } } = await fetchAPI('home', { populate: 'banner.link1' });
 
-  return { footer, info };
+  return { footer, info, videoLink };
 }

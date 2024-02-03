@@ -21,7 +21,7 @@ export function toFormatted(text = '') {
 
   const markedPhrases = phrases.map((phrase, i) => {
     if (i % 2 === 1) {
-      return <b>{phrase.replaceAll('$', '*')}</b>;
+      return <b key={i}>{phrase.replaceAll('$', '*')}</b>;
     } else {
       return <>{phrase.replaceAll('$', '*')}</>;
     }

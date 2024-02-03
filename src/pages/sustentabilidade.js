@@ -10,7 +10,7 @@ export default function Sustainability({ sustain }) {
   return (
     <>
       <Head>
-        <title>A Empresa - Embasul</title>
+        <title>Sustentabilidade - Embasul</title>
       </Head>
 
       <main>

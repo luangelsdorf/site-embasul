@@ -1,4 +1,21 @@
 .section {
+  position: relative;
+
+  img {
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    transition: 350ms ease;
+    
+    &:hover {
+      transform: scale(1.08);
+    }
+  }
+
+  :global(.first) {
+    overflow: hidden;
+  }
+
   h2 {
     &::after {
       content: none;

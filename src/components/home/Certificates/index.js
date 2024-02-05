@@ -2,6 +2,7 @@ import Title from '@/components/common/Title';
 import styles from './Certificates.module.scss';
 import Img from '@/components/common/Img';
 import { toFormatted } from '@/utils/helpers';
+import Link from 'next/link';
 
 export default function Certificates({ content }) {
   return (
@@ -19,7 +20,9 @@ export default function Certificates({ content }) {
           {
             content.certificates.map(cert => (
               <div key={cert.id} className="col-12 col-lg-4">
-                <Img {...cert.image} />
+                <Link href={cert.link} className="wrapper">
+                  <Img {...cert.image} />
+                </Link>
               </div>
             ))
           }

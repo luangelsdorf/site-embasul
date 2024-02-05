@@ -39,7 +39,7 @@ export default function Footer() {
                   </div>
                   <div>
                     <span>Ligue para</span>
-                    <Button link RightIcon={Arrow} href={`tel:${content.info.phone.replaceAll(' ', '')}`}>{content.info.phone}</Button>
+                    <Button link RightIcon={Arrow} href={`tel:${content.footer.phone.replaceAll(' ', '')}`}>{content.footer.phone}</Button>
                   </div>
                 </div>
               </div>
@@ -57,7 +57,7 @@ export default function Footer() {
                   <li><Button LeftIcon={LinkedIn} link>LinkedIn</Button></li>
                 </ul>
                 <h2 className="text-300 no-period">Nos Visite</h2>
-                <p>{content.info.address}</p>
+                <p>{content.footer.address}</p>
               </div>
             </div>
             <div className="col-12 col-lg-3">

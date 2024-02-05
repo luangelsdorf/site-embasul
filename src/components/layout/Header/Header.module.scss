@@ -52,6 +52,11 @@
       a {
         color: var(--secondary--color-1);
         text-transform: none;
+        span {
+          &::after {
+            bottom: -17.5px;
+          }
+        }
       }
     }
 

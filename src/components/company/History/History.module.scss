@@ -116,4 +116,9 @@
 
 .future {
   background-color: var(--secondary--color-1);
+
+  :global(.container) {
+    display: flex;
+    align-items: center;
+  }
 }

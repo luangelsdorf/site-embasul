@@ -11,9 +11,11 @@ import DiagonalArrow from 'public/images/icons/arrow-diagonal.svg';
 import Abarca from 'public/images/icons/abarca.svg';
 import Button from '@/components/common/Button';
 import Link from 'next/link';
+import Img from '@/components/common/Img';
 
 export default function Footer() {
   const content = useContext(LayoutContext);
+  const lastLink = content.footer.usefulLinks.at(-1);
 
   return (
     <footer className={styles.footer}>
@@ -52,9 +54,16 @@ export default function Footer() {
               <div className={styles.getInTouch}>
                 <h2 className="text-300 no-period">Nossas Redes</h2>
                 <ul>
-                  <li><Button LeftIcon={Instagram} link>Instagram</Button></li>
-                  <li><Button LeftIcon={Facebook} link>Facebook</Button></li>
-                  <li><Button LeftIcon={LinkedIn} link>LinkedIn</Button></li>
+                  {
+                    content.footer.socials.map(link => (
+                      <li key={link.id}>
+                        <Button href={link.url} link>
+                          <Img style={{ marginRight: '12px' }} {...link.icon} />
+                          {link.title}
+                        </Button>
+                      </li>
+                    ))
+                  }
                 </ul>
                 <h2 className="text-300 no-period">Nos Visite</h2>
                 <p>{content.footer.address}</p>
@@ -64,12 +73,15 @@ export default function Footer() {
               <div className={styles.usefulLinks}>
                 <h2 className="text-300 no-period">Links Úteis</h2>
                 <ul>
-                  <li><Button link href="#">Solicite Orçamento</Button></li>
-                  <li><Button link href="#">Canal de Ética</Button></li>
-                  <li><Button link href="#">Política de Sustentabilidade</Button></li>
-                  <li><Button link href="#">Política de Conduta</Button></li>
+                  {
+                    content.footer.usefulLinks.slice(0, -1).map(link => (
+                      <li key={link.id}>
+                        <Button href={link.url} link>{link.text}</Button>
+                      </li>
+                    ))
+                  }
                 </ul>
-                <Button link href="#" RightIcon={DiagonalArrow}>Venha Trabalhar <br />Conosco</Button>
+                <Button link href={lastLink.url} RightIcon={DiagonalArrow}>{lastLink.text}</Button>
               </div>
             </div>
           </div>

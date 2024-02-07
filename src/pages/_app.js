@@ -27,16 +27,6 @@ export default function App({ Component, pageProps }) {
 
   return (
     <LayoutContext.Provider value={pageProps.layout}>
-      {
-        env === 'dev' ? null : (
-          <>
-            <Head>
-              <meta name="adopt-website-id" content="1d12a76e-f881-429d-8c86-0c2a876746b7" />
-            </Head>
-            <Script id="adopt" src="//tag.goadopt.io/injector.js?website_code=1d12a76e-f881-429d-8c86-0c2a876746b7" className="adopt-injector" />
-          </>
-        )
-      }
       <Header videoLink={pageProps.videoLink} />
       <Component {...pageProps} />
       {pageProps.layout && <Footer />}

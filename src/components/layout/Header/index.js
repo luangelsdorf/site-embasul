@@ -45,8 +45,11 @@ export default function Header({ videoLink }) {
   }, [isStaticHeader]);
 
   function handleClick(e) {
-    if (e.nativeEvent.pointerType === 'touch') e.preventDefault();
-    e.currentTarget.parentElement.classList.toggle('show');
+    console.log(e.currentTarget.href);
+    if (e.nativeEvent.pointerType === 'touch') {
+      e.preventDefault();
+      e.currentTarget.parentElement.classList.toggle('show');
+    }
   }
 
   const Navigation = ({ ...props }) => (
@@ -76,12 +79,12 @@ export default function Header({ videoLink }) {
           >
             <Button link href="/empresa#historia">Nossa História</Button>
             <Button link href="/empresa#norteadores">Norteadores</Button>
-            <Button link href="/empresa#estrutura">Estrutura</Button>
+            <Button link href="/empresa#Primeira Planta">Estrutura</Button>
           </DropdownMenu>
         </div>
       </li>
       <li data-dd-trigger>
-        <Button RightIcon={Caret} onClick={handleClick} link>Produtos</Button>
+        <Button RightIcon={Caret} onClick={handleClick} href="/produtos/projetos" link>Produtos</Button>
         <div className={styles.dropdown}>
           <DropdownMenu
             extraLinks={[
@@ -119,7 +122,7 @@ export default function Header({ videoLink }) {
         </div>
       </li>
       <li data-dd-trigger>
-        <Button RightIcon={Caret} onClick={handleClick} link>Inovação</Button>
+        <Button RightIcon={Caret} onClick={handleClick} href="/inovacao/design-ai" link>Inovação</Button>
         <div className={styles.dropdown}>
           <DropdownMenu>
             <Button link href="/inovacao/design-ai">Design com AI</Button>

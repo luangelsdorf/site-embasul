@@ -12,19 +12,17 @@ export default function Structure({ content }) {
   return (
     <div className={styles.section}>
       <div className="container">
-        <div className="row justify-content-between align-items-center" style={{ marginBottom: '24px' }}>
+        <div className="row justify-content-between align-items-end" style={{ marginBottom: '96px' }}>
           <div className="col-12 col-lg-5">
             <header>
               <p className="overline">{content.headline.overline}</p>
               <h1>{content.headline.title}</h1>
             </header>
           </div>
-          <div className="col-12 col-lg-6">
+          <div className="col-12 col-lg-7">
             <p>{toFormatted(content.text)}</p>
           </div>
         </div>
-
-        <Image src={map} alt="" priority />
 
         <div className="row">
           {

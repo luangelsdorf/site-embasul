@@ -66,6 +66,7 @@
   }
 
   & > div {
+    scroll-margin-top: 150px;
     @include mixins.lg {
       margin-bottom: 112px;
       gap: 64px;

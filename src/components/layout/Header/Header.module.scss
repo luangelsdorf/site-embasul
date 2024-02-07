@@ -63,6 +63,7 @@
     & > [data-dd-trigger] {
       position: relative;
       a {
+        z-index: 3;
         svg {
           fill: currentColor;
           display: none;
@@ -74,6 +75,17 @@
           pointer-events: all;
           opacity: 1;
           transition: 250ms 150ms ease;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          z-index: 1;
+          width: 100vw;
+          height: 75px;
+          top: 20px;
+          left: 0;
+          right: 0;
         }
       }
       @media (hover: none) {

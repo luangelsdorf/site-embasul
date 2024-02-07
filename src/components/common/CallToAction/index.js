@@ -5,6 +5,8 @@ import cta from 'public/images/cta.png';
 import ctaAlt from 'public/images/cta-alt.png';
 import { getSizesString } from '@/utils/images';
 import Play from 'public/images/icons/play.svg';
+import LightGallery from 'lightgallery/react';
+import lgVideo from 'lightgallery/plugins/video';
 
 export default function CallToAction({ content, contact, long = false }) {
   return (
@@ -21,7 +23,13 @@ export default function CallToAction({ content, contact, long = false }) {
                   ))
                 }
               </div>
-              <Button LeftIcon={contact ? Play : undefined} className={contact ? undefined : 'btn-secondary black'} href={content.linkUrl}>{content.linkText}</Button>
+              {contact ? (
+                <LightGallery download={false} mode="lg-fade" plugins={[lgVideo]}>
+                  <Button LeftIcon={Play} id="video" className="btn-primary" data-src={`${content.linkUrl}`}>{content.linkText}</Button>
+                </LightGallery>
+              ) : (
+                <Button className="btn-secondary black" href={content.linkUrl}>{content.linkText}</Button>
+              )}
             </div>
           </div>
         </div>

@@ -21,6 +21,12 @@
   padding: 124px 0;
   flex-wrap: wrap;
 
+  a {
+    svg {
+      overflow: visible;
+    }
+  }
+
   h2 {
     position: relative;
     z-index: 1;

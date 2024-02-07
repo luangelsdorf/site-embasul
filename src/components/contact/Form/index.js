@@ -57,7 +57,7 @@ export default function Form({ content }) {
                   <p>{footer.address}</p>
                 </div>
               </address>
-              <Button RightIcon={Arrow} link href={content.button.url}>{content.button.text}</Button>
+              <Button RightIcon={Arrow} link href={content.button.url} target="_blank">{content.button.text}</Button>
             </div>
           </div>
           <div className="col-12 col-lg-6" style={{ backgroundColor: 'var(--secondary--color-1)' }}>

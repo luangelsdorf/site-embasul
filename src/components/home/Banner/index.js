@@ -19,10 +19,7 @@ export default function Banner({ content }) {
             </div>
             <div className={styles.buttons}>
               <LightGallery download={false} mode="lg-fade" plugins={[lgVideo]}>
-                <button id="video" className="btn-primary" data-src={`${content.link1.url}`}>
-                  <Play style={{ marginRight: '8px' }} />
-                  <span>{content.link1.text}</span>
-                </button>
+                <Button LeftIcon={Play} id="video" className="btn-primary" data-src={`${content.link1.url}`}>{content.link1.text}</Button>
               </LightGallery>
               <Button className="btn-secondary white" href={content.link2.url}>{content.link2.text}</Button>
             </div>

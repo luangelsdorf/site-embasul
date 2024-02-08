@@ -69,6 +69,20 @@
           display: none;
         }
       }
+
+      &:nth-child(n + 5) {
+        .dropdown {
+          left: auto;
+          right: 0;
+        }
+      }
+      &:nth-child(4) {
+        .dropdown {
+          left: 50%;
+          transform: translateY(0) translateX(-50%) !important;
+        }
+      }
+
       &:hover {
         .dropdown {
           transform: initial;

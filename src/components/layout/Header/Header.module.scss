@@ -78,7 +78,7 @@
         }
 
         &::after {
-          content: '';
+          content: "";
           position: absolute;
           z-index: 1;
           width: 100vw;
@@ -232,6 +232,11 @@
         & > a {
           svg {
             display: block;
+          }
+          span {
+            &::after {
+              content: none;
+            }
           }
         }
 

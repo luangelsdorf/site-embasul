@@ -16,14 +16,12 @@ import LightGallery from 'lightgallery/react';
 import lgVideo from 'lightgallery/plugins/video';
 
 export default function Header({ videoLink }) {
-
-  const layoutData = useContext(LayoutContext);
-
+  const { header } = useContext(LayoutContext);
   const router = useRouter();
   const isStaticHeader = (router.pathname === '/empresa' || router.pathname === '/produtos/projetos' || router.pathname === '/contato' || router.pathname === '/404' || router.pathname === '/500');
 
   useEffect(() => {
-    function click(e) {
+    /* function click(e) {
       e.preventDefault();
       document.querySelector('#video').click();
     }
@@ -31,7 +29,7 @@ export default function Header({ videoLink }) {
     const meetLink = document.querySelector('#meet');
     meetLink.addEventListener('click', click);
 
-    return () => meetLink.removeEventListener('click', click);
+    return () => meetLink.removeEventListener('click', click); */
   }, []);
 
   useEffect(() => {
@@ -49,7 +47,6 @@ export default function Header({ videoLink }) {
   }, [isStaticHeader]);
 
   function handleClick(e) {
-    console.log(e.currentTarget.href);
     if (e.nativeEvent.pointerType === 'touch') {
       e.preventDefault();
       e.currentTarget.parentElement.classList.toggle('show');
@@ -64,23 +61,7 @@ export default function Header({ videoLink }) {
       <li data-dd-trigger>
         <Button RightIcon={Caret} onClick={handleClick} href="/empresa" link>Empresa</Button>
         <div className={styles.dropdown}>
-          <DropdownMenu
-            extraLinks={[
-              <Highlight
-                key="company"
-                coverUrl="/images/header/conheca.jpg"
-                text={"Conheça a \nEmbasul"}
-                href="/empresa/"
-                id="meet"
-              />,
-              <Highlight
-                key="structure"
-                coverUrl="/images/header/estrutura.jpg"
-                text={"Veja nossa \nEstrutura"}
-                href="/empresa#estrutura"
-              />
-            ]}
-          >
+          <DropdownMenu extraLinks={header.company.map(item => <Highlight key={item.id} {...item} />)}>
             <Button link href="/empresa#historia">Nossa História</Button>
             <Button link href="/empresa#norteadores">Norteadores</Button>
             <Button link href="/empresa#Primeira Planta">Estrutura</Button>
@@ -90,22 +71,7 @@ export default function Header({ videoLink }) {
       <li data-dd-trigger>
         <Button RightIcon={Caret} onClick={handleClick} href="/produtos/projetos" link>Produtos</Button>
         <div className={styles.dropdown}>
-          <DropdownMenu
-            extraLinks={[
-              <Highlight
-                key="digital"
-                coverUrl="/images/header/digital.jpg"
-                text={"Impressão \nDigital"}
-                href="/produtos/digital"
-              />,
-              <Highlight
-                key="flexo"
-                coverUrl="/images/header/flexo.jpg"
-                text={"Impressão \nFlexográfica"}
-                href="/produtos/flexo"
-              />
-            ]}
-          >
+          <DropdownMenu extraLinks={header.products.map(item => <Highlight key={item.id} {...item} />)}>
             <Button link href="/produtos/customizadas">Customizadas</Button>
             <Button link href="/produtos/suporte">Suporte Técnico</Button>
             <Button link href="/produtos/design-embalagens">Design de Embalagens</Button>
@@ -116,7 +82,7 @@ export default function Header({ videoLink }) {
       <li data-dd-trigger>
         <Button RightIcon={Caret} onClick={handleClick} href="/sustentabilidade" link>Sustentabilidade</Button>
         <div className={styles.dropdown}>
-          <DropdownMenu>
+          <DropdownMenu extraLinks={header.sustain.map(item => <Highlight key={item.id} {...item} />)}>
             <Button link href="/sustentabilidade#fsc">Certificado FSC</Button>
             <Button link href="/sustentabilidade#origem-sustentavel">Selo Origem Sustentável</Button>
             <Button link href="/sustentabilidade#pegada-neutra">Parceria Pegada Neutra</Button>
@@ -128,7 +94,7 @@ export default function Header({ videoLink }) {
       <li data-dd-trigger>
         <Button RightIcon={Caret} onClick={handleClick} href="/inovacao/design-ai" link>Inovação</Button>
         <div className={styles.dropdown}>
-          <DropdownMenu>
+          <DropdownMenu extraLinks={header.innovation.map(item => <Highlight key={item.id} {...item} />)}>
             <Button link href="/inovacao/design-ai">Design com AI</Button>
             <Button link href="/inovacao/iso9001">Processos ISO 9001</Button>
           </DropdownMenu>
@@ -137,7 +103,7 @@ export default function Header({ videoLink }) {
       <li data-dd-trigger>
         <Button RightIcon={Caret} onClick={handleClick} href="/pessoas" link>Pessoas</Button>
         <div className={styles.dropdown}>
-          <DropdownMenu>
+          <DropdownMenu extraLinks={header.people.map(item => <Highlight key={item.id} {...item} />)}>
             <Button link href="/pessoas#pessoas">Pessoas</Button>
             <Button link href="/pessoas#codigo-etica">Código de Ética</Button>
             <Button link href="/pessoas#canal-etica">Canal de Ética</Button>
@@ -169,10 +135,10 @@ export default function Header({ videoLink }) {
           <Collapse.Title>
             <Button onClick={e => e.currentTarget.classList.toggle(styles.active)} btnElement title="Menu">
               <div>
-                <Bars style={{width: '24px', height: '24px'}} />
+                <Bars style={{ width: '24px', height: '24px' }} />
               </div>
               <div>
-                <X style={{width: '24px', height: '24px'}} />
+                <X style={{ width: '24px', height: '24px' }} />
               </div>
             </Button>
           </Collapse.Title>

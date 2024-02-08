@@ -12,15 +12,19 @@ export default function DropdownMenu({ children, extraLinks }) {
           )
         }
       </ul>
-      <div className={styles.extraLinks}>
-        {
-          extraLinks && extraLinks.map((link, i) => (
-            <div key={i}>
-              {link}
-            </div>
-          ))
-        }
-      </div>
+      {
+        extraLinks && (
+          <div className={styles.extraLinks}>
+            {
+              extraLinks.map((link, i) => (
+                <div key={i}>
+                  {link}
+                </div>
+              ))
+            }
+          </div>
+        )
+      }
     </div>
   )
 }

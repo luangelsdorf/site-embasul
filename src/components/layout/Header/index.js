@@ -9,14 +9,18 @@ import Highlight from './Highlight';
 import { useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Caret from 'public/images/icons/caret-down.svg';
+import X from 'public/images/icons/x.svg';
+import Bars from 'public/images/icons/bars.svg';
 import { LayoutContext } from '@/utils/contexts';
 import LightGallery from 'lightgallery/react';
 import lgVideo from 'lightgallery/plugins/video';
 
 export default function Header({ videoLink }) {
 
+  const layoutData = useContext(LayoutContext);
+
   const router = useRouter();
-  const isStaticHeader = (router.pathname === '/empresa' || router.pathname === '/produtos/projetos' || router.pathname === '/contato');
+  const isStaticHeader = (router.pathname === '/empresa' || router.pathname === '/produtos/projetos' || router.pathname === '/contato' || router.pathname === '/404' || router.pathname === '/500');
 
   useEffect(() => {
     function click(e) {
@@ -164,10 +168,12 @@ export default function Header({ videoLink }) {
         <Collapse className="d-block d-lg-none">
           <Collapse.Title>
             <Button onClick={e => e.currentTarget.classList.toggle(styles.active)} btnElement title="Menu">
-              {/* <Hamburger /> */}
-              {/* <X /> */}
-              <div style={{ fontFamily: 'monospace' }}>+</div>
-              <div style={{ fontFamily: 'monospace' }}>❌</div>
+              <div>
+                <Bars style={{width: '24px', height: '24px'}} />
+              </div>
+              <div>
+                <X style={{width: '24px', height: '24px'}} />
+              </div>
             </Button>
           </Collapse.Title>
           <Collapse.Content>

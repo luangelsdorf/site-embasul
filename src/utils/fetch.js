@@ -29,7 +29,7 @@ export default async function fetchAPI(endpoint = '', parameters = { populate: '
 
 export async function getLayoutContent() {
   const footer = await fetchAPI('footer');
-  const { banner: { link1: { url: videoLink } } } = await fetchAPI('home', { populate: 'banner.link1' });
+  const header = await fetchAPI('cabecalho');
 
-  return { footer, videoLink };
+  return { footer, header };
 }

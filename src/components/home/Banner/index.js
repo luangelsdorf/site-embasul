@@ -4,6 +4,9 @@ import Play from 'public/images/icons/play.svg';
 import LightGallery from 'lightgallery/react';
 import lgVideo from 'lightgallery/plugins/video';
 import { toFormatted } from '@/utils/helpers';
+import { apiURL } from '@/utils/env';
+import Img from '@/components/common/Img';
+import { getSizesString } from '@/utils/images';
 
 export default function Banner({ content }) {
 
@@ -12,7 +15,8 @@ export default function Banner({ content }) {
       <div className="container">
         <div className="row">
           <div className="col-12 col-lg-7 col-xl-6">
-            <video src="/video.mp4" autoPlay muted loop controls={false} />
+            {content.cover.data.attributes.mime.includes('video') && <video src={apiURL + content.cover.data.attributes.url} autoPlay muted loop controls={false} />}
+            {content.cover.data.attributes.mime.includes('image') && <Img fill sizes={getSizesString('col-12 col-lg-12')} {...content.cover} />}
             <div className={styles.textContent}>
               <h1 className="period display-1">{content.title}</h1>
               <p>{toFormatted(content.text)}</p>

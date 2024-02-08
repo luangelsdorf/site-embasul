@@ -1,24 +1,19 @@
 .section {
-  img {
-    height: 720px;
-    object-position: bottom;
-  }
+  width: 100%;
+  outline: 1px solid red;
+  height: 720px;
+  overflow: hidden;
+  position: relative;
 
-  svg {
-    width: 100%;
-    height: auto;
-
-    text:global(.send) {
-      color: white;
-      & + g {
-        path {
-          color: white;
-        }
-      }
-    }
-  }
-
-  :global(.container) {
-    margin-top: -240px;
+  iframe {
+    pointer-events: none;
+    border: 0;
+    width: 280%;
+    height: 110%;
+    position: relative;
+    left: -90%;
+    top: -10%;
+    overflow: hidden;
+    outline: 1px solid blue;
   }
 }

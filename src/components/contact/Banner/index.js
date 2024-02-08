@@ -1,12 +1,13 @@
-import Image from 'next/image';
 import styles from './Banner.module.scss';
-import banner from 'public/images/banners/maps.png';
-import Form from 'public/images/Form.svg';
+import { useContext } from 'react';
+import { LayoutContext } from '@/utils/contexts';
 
-export default function Banner({ content }) {
+export default function Banner() {
+  /* const data = useContext(LayoutContext); */
+
   return (
     <div className={styles.section}>
-      <Image src={banner} alt="" />
+      <iframe src={`https://maps.google.com/maps?q=${'embasul comércio de embalagens'}&z=15&ie=UTF8&output=embed`} frameborder="0" />
     </div>
   )
 }

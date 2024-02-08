@@ -13,6 +13,7 @@ import { useRouter } from 'next/router';
 import { env } from '@/utils/env';
 import Script from 'next/script';
 import Head from 'next/head';
+import Cookies from '@/components/common/Cookies';
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -30,6 +31,7 @@ export default function App({ Component, pageProps }) {
       <Header videoLink={pageProps.videoLink} />
       <Component {...pageProps} />
       {pageProps.layout && <Footer />}
+      <Cookies />
     </LayoutContext.Provider>
   )
 }

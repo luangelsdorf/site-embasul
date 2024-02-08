@@ -39,6 +39,8 @@ export async function getStaticProps() {
       flexo,
 
       layout
-    }
+    },
+
+    revalidate: 60,
   }
 }

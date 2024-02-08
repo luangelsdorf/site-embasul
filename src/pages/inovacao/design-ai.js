@@ -47,6 +47,8 @@ export async function getStaticProps() {
       designAI,
 
       layout
-    }
+    },
+
+    revalidate: 60,
   }
 }

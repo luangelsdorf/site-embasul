@@ -44,6 +44,8 @@ export async function getStaticProps() {
       people,
 
       layout
-    }
+    },
+
+    revalidate: 60,
   }
 }

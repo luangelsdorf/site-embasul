@@ -35,6 +35,8 @@ export async function getStaticProps() {
       categories,
 
       layout
-    }
+    },
+
+    revalidate: 60,
   }
 }

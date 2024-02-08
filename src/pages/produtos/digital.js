@@ -44,6 +44,8 @@ export async function getStaticProps() {
       digital,
 
       layout
-    }
+    },
+
+    revalidate: 60,
   }
 }

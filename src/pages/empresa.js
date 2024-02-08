@@ -40,6 +40,8 @@ export async function getStaticProps() {
       company,
 
       layout
-    }
+    },
+
+    revalidate: 60,
   }
 }

@@ -39,6 +39,8 @@ export async function getStaticProps() {
       contact,
 
       layout
-    }
+    },
+
+    revalidate: 60,
   }
 }

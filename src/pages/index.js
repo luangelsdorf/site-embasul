@@ -52,6 +52,8 @@ export async function getStaticProps() {
       portfolio,
 
       layout
-    }
+    },
+
+    revalidate: 60,
   }
 }

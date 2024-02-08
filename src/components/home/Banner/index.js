@@ -11,7 +11,7 @@ export default function Banner({ content }) {
     <div className={styles.banner}>
       <div className="container">
         <div className="row">
-          <div className="col-12 col-lg-6">
+          <div className="col-12 col-lg-7 col-xl-6">
             <video src="/video.mp4" autoPlay muted loop controls={false} />
             <div className={styles.textContent}>
               <h1 className="period display-1">{content.title}</h1>

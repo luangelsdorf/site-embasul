@@ -2,6 +2,8 @@ import Link from 'next/link';
 import React from 'react';
 import { useRouter } from 'next/router';
 import styles from './Button.module.scss';
+import LightGallery from 'lightgallery/react';
+import lgVideo from 'lightgallery/plugins/video';
 
 export default function Button({
   children,
@@ -26,9 +28,7 @@ export default function Button({
   const Children = () => (
     <>
       {LeftIcon && <LeftIcon />}
-      {
-        children && <span>{children}</span>
-      }
+      {children && <span>{children}</span>}
       {RightIcon && <RightIcon />}
     </>
   );
@@ -37,7 +37,18 @@ export default function Button({
     className: `${styles.btn} ${link ? '' : 'btn-primary'}${className ? ' ' + className : ''}`,
   };
 
-  if (btnElement) {
+  if (href.startsWith('$')) {
+    const videoUrl = href.split('$').at(-1);
+    return (
+      <LightGallery download={false} mode="lg-fade" plugins={[lgVideo]}>
+        <button {...baseProps} type={type} {...otherProps} data-src={`${videoUrl}`}>
+          <Children />
+        </button>
+      </LightGallery>
+    )
+  }
+
+  else if (btnElement) {
     return (
       <button {...baseProps} type={type} {...otherProps}>
         <Children />

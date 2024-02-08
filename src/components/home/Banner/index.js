@@ -22,9 +22,7 @@ export default function Banner({ content }) {
               <p>{toFormatted(content.text)}</p>
             </div>
             <div className={styles.buttons}>
-              <LightGallery download={false} mode="lg-fade" plugins={[lgVideo]}>
-                <Button LeftIcon={Play} id="video" className="btn-primary" data-src={`${content.link1.url}`}>{content.link1.text}</Button>
-              </LightGallery>
+              <Button LeftIcon={Play} id="video" className="btn-primary" href={content.link1.url}>{content.link1.text}</Button>
               <Button className="btn-secondary white" href={content.link2.url}>{content.link2.text}</Button>
             </div>
           </div>

@@ -68,6 +68,8 @@
     display: flex;
     gap: 16px;
     align-items: center;
+    transition: 350ms ease;
+    cursor: pointer;
 
     &:first-of-type {
       margin-bottom: 32px;
@@ -85,6 +87,7 @@
         justify-content: center;
         flex-shrink: 0;
         border-radius: 32px;
+        transition: 350ms ease;
       }
 
       &:last-of-type {
@@ -99,11 +102,21 @@
         }
       }
     }
+
+    &:hover {
+      transform: scale3d(0.98, 0.98, 1.001);
+
+      & > div {
+        &:first-of-type {
+          background-color: var(--secondary--color-1);
+        }
+      }
+    }
   }
 
   @include mixins.lg {
     padding: 56px 24px;
-    
+
     .contactButton {
       text-align: left;
     }

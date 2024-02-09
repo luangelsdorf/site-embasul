@@ -16,6 +16,9 @@ import Img from '@/components/common/Img';
 export default function Footer() {
   const content = useContext(LayoutContext);
   const lastLink = content.footer.usefulLinks.at(-1);
+  const split = lastLink.text.split(' ');
+  split.splice(2, 0, '\n');
+  const lastLinkText = split.join(' ');
 
   return (
     <footer className={styles.footer}>
@@ -26,7 +29,7 @@ export default function Footer() {
               <div className={styles.cta}>
                 <h2 className="text-300 no-period">{content.footer.title}</h2>
                 <p>{content.footer.text}</p>
-                <div className={styles.contactButton}>
+                <div className={styles.contactButton} onClick={e => e.currentTarget.querySelector('a').click()}>
                   <div>
                     <Mail />
                   </div>
@@ -35,7 +38,7 @@ export default function Footer() {
                     <Button link RightIcon={Arrow} href="/contato">Formulário de Contato</Button>
                   </div>
                 </div>
-                <div className={styles.contactButton}>
+                <div className={styles.contactButton} onClick={e => e.currentTarget.querySelector('a').click()}>
                   <div>
                     <Phone />
                   </div>
@@ -81,7 +84,7 @@ export default function Footer() {
                     ))
                   }
                 </ul>
-                <Button link href={lastLink.url} RightIcon={DiagonalArrow}>{lastLink.text}</Button>
+                <Button link href={lastLink.url} RightIcon={DiagonalArrow}>{lastLinkText.split(' \n ').join('\n')}</Button>
               </div>
             </div>
           </div>

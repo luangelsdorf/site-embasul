@@ -29,6 +29,8 @@
     display: flex;
     gap: 16px;
     align-items: center;
+    transition: 350ms ease;
+    cursor: pointer;
 
     &:first-of-type {
       margin-bottom: 32px;
@@ -46,6 +48,7 @@
         justify-content: center;
         flex-shrink: 0;
         border-radius: 32px;
+        transition: 350ms ease;
       }
 
       &:last-of-type {
@@ -66,6 +69,16 @@
 
       & > div {
         text-align: left;
+      }
+    }
+
+    &:hover {
+      transform: scale3d(0.98, 0.98, 1.001);
+
+      & > div {
+        &:first-of-type {
+          background-color: var(--secondary--color-1);
+        }
       }
     }
   }
@@ -154,6 +167,10 @@
 
     span {
       display: inline;
+      white-space: break-spaces;
+      @include mixins.sm {
+        white-space: normal;
+      }
     }
 
     svg {

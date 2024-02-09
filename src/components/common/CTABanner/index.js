@@ -22,7 +22,7 @@ export default function CTABanner({ people, content }) {
             <div className={styles.cta}>
               <h2 className="text-300 no-period">{content.ctaTitle}</h2>
               <p>{content.ctaText}</p>
-              <div className={styles.contactButton}>
+              <div className={styles.contactButton} onClick={e => e.currentTarget.querySelector('a').click()}>
                 <div>
                   {people ? <Mail /> : <Icon />}
                 </div>

@@ -1,0 +1,25 @@
+.wrapper {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+
+  & > div {
+    margin: 0;
+  }
+
+  & > button {
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    right: 0;
+    padding: 8px;
+    background-color: var(--accent--primary-1);
+    color: white;
+    margin: 24px;
+    border-radius: 200px;
+  }
+}

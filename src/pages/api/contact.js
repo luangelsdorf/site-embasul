@@ -4,19 +4,43 @@ export default async function handler(req, res) {
     const sgMail = require('@sendgrid/mail');
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
+    let html;
+    if (req.body.resume) {
+      html = `
+        <div>Você recebeu um novo currículo no seu site. Confira as informações abaixo:</div>
+        <p><strong>Nome</strong>: ${req.body.name}</p>
+        <p><strong>E-mail</strong>: ${req.body.email}</p>
+        <p><strong>Telefone</strong>: ${req.body.phone}</p>
+        <p><strong>Currículo</strong>: (Ver anexo)</p>
+        <p><strong>Mensagem</strong>: ${req.body.message}</p>
+      `
+    } else {
+      html = `
+        <div>Você recebeu uma nova mensagem no seu site. Confira as informações abaixo:</div>
+        <p><strong>Nome</strong>: ${req.body.name}</p>
+        <p><strong>E-mail</strong>: ${req.body.email}</p>
+        <p><strong>Telefone</strong>: ${req.body.phone}</p>
+        <p><strong>Empresa</strong>: ${req.body.company}</p>
+        <p><strong>Mensagem</strong>: ${req.body.message}</p>
+      `
+    }
+
     const message = {
       from: process.env.SENDER_EMAIL,
-      to: process.env.SENDER_EMAIL,
-      subject: `Nova Mensagem | Website Embasul`,
+      to: /* process.env.SENDER_EMAIL */ 'luanferreira2136@gmail.com',
+      subject: req.body.resume ? `Novo Currículo | Website Embasul` : `Nova Mensagem | Website Embasul`,
       text: `Mensagem: ${req.body.message} | Enviada de ${req.body.email}`,
-      html: `
-              <div>Você recebeu uma nova mensagem no seu site. Confira as informações abaixo:</div>
-              <p><strong>Nome</strong>: ${req.body.name}</p>
-              <p><strong>E-mail</strong>: ${req.body.email}</p>
-              <p><strong>Telefone</strong>: ${req.body.phone}</p>
-              <p><strong>Telefone</strong>: ${req.body.company}</p>
-              <p><strong>Mensagem</strong>: ${req.body.message}</p>
-            `
+      html: html,
+      ...(req.body.resume && {
+        attachments: [
+          {
+            content: req.body.resume.fileContents,
+            filename: req.body.resume.filename,
+            type: req.body.resume.type,
+            disposition: 'attachment'
+          }
+        ]
+      })
     }
 
     sgMail
@@ -30,7 +54,7 @@ export default async function handler(req, res) {
         console.error(error);
         return res.status(error.code).send('Sent successfully');
       });
-      
+
   } else {
     return res.status(405).send('Method not allowed.');
   }

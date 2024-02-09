@@ -7,7 +7,7 @@ export default function Banner() {
 
   return (
     <div className={styles.section}>
-      <iframe src={`https://maps.google.com/maps?q=${'embasul comércio de embalagens'}&z=15&ie=UTF8&output=embed`} frameborder="0" />
+      <iframe src={`https://maps.google.com/maps?q=${'embasul comércio de embalagens'}&z=15&ie=UTF8&output=embed`} frameBorder="0" />
     </div>
   )
 }

@@ -7,12 +7,30 @@ import ArrowLong from 'public/images/icons/arrow-long.svg';
 import { useForm } from 'react-hook-form';
 import { toFormatted } from '@/utils/helpers';
 
-export default function Form({ content }) {
+export default function Form({ content, resume }) {
   const { footer } = useContext(LayoutContext);
   const { register, handleSubmit } = useForm();
 
-  function onSubmit(data, e) {
+  function readFile(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        resolve(reader.result)
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  async function onSubmit(data, e) {
     e.target.parentElement.classList.add(styles.loading);
+
+    if (data.resume) {
+      data.resume.filename = data.resume[0].name;
+      data.resume.type = data.resume[0].type;
+      const content = await readFile(data.resume[0]);
+      data.resume.fileContents = content.split(',')[1];
+    }
 
     fetch('/api/contact', {
       method: 'POST',
@@ -30,39 +48,47 @@ export default function Form({ content }) {
       .catch(error => console.error(error));
   }
 
+  function onError(e) {
+    console.error(e);
+  }
+
   return (
     <div className={styles.section}>
       <div className="container">
-        <div className="row">
-          <div className="col-12 col-lg-6" style={{ backgroundColor: 'var(--neutral--200)' }}>
-            <div className={styles.textContent}>
-              <header>
-                <p className="overline">{content.headline.overline}</p>
-                <h1 className="heading-h2-size">{content.headline.title}</h1>
-              </header>
-              <p>{toFormatted(content.text)}</p>
-              <address>
-                <div className={styles.contact}>
-                  <div>
-                    <span className="d-block">Email</span>
-                    <a href={`mailto:${footer.email}`}>{footer.email}</a>
-                  </div>
-                  <div>
-                    <span className="d-block">Telefone</span>
-                    <a href={`tel:${footer.phone}`}>{footer.phone}</a>
-                  </div>
+        <div className="row justify-content-center">
+          {
+            !resume && (
+              <div className="col-12 col-lg-6" style={{ backgroundColor: 'var(--neutral--200)' }}>
+                <div className={styles.textContent}>
+                  <header>
+                    <p className="overline">{content.headline.overline}</p>
+                    <h1 className="heading-h2-size">{content.headline.title}</h1>
+                  </header>
+                  <p>{toFormatted(content.text)}</p>
+                  <address>
+                    <div className={styles.contact}>
+                      <div>
+                        <span className="d-block">Email</span>
+                        <a href={`mailto:${footer.email}`}>{footer.email}</a>
+                      </div>
+                      <div>
+                        <span className="d-block">Telefone</span>
+                        <a href={`tel:${footer.phone}`}>{footer.phone}</a>
+                      </div>
+                    </div>
+                    <div className={styles.addr}>
+                      <span className="d-block">Endereço</span>
+                      <p>{footer.address}</p>
+                    </div>
+                  </address>
+                  <Button RightIcon={Arrow} link href={content.button.url} target="_blank">{content.button.text}</Button>
                 </div>
-                <div className={styles.addr}>
-                  <span className="d-block">Endereço</span>
-                  <p>{footer.address}</p>
-                </div>
-              </address>
-              <Button RightIcon={Arrow} link href={content.button.url} target="_blank">{content.button.text}</Button>
-            </div>
-          </div>
-          <div className="col-12 col-lg-6" style={{ backgroundColor: 'var(--secondary--color-1)' }}>
+              </div>
+            )
+          }
+          <div className={resume ? 'col-12 col-md-8 col-xxl-6' : 'col-12 col-lg-6'} style={{ backgroundColor: 'var(--secondary--color-1)' }}>
             <div className={`${styles.form}`}>
-              <form onSubmit={handleSubmit(onSubmit)}>
+              <form onSubmit={handleSubmit(onSubmit, onError)}>
                 <div>
                   <label htmlFor="name" className="hidden">Nome</label>
                   <input {...register('name', { required: true })} className="input light w-input" placeholder="Nome" type="text" id="name" />
@@ -73,12 +99,42 @@ export default function Form({ content }) {
                 </div>
                 <div>
                   <label htmlFor="phone" className="hidden">Telefone</label>
-                  <input {...register('phone', { required: true })} className="input light w-input" placeholder="Telefone" type="tel" id="phone" />
+                  <input {...register('phone', { required: true })} className="input light w-input" placeholder="Telefone" type="text" id="phone" />
                 </div>
-                <div>
-                  <label htmlFor="company" className="hidden">Empresa</label>
-                  <input {...register('company', { required: true })} className="input light w-input" placeholder="Empresa" type="text" id="company" />
-                </div>
+                {resume ? (
+                  <div onClick={e => e.currentTarget.lastChild.click()}>
+                    <label htmlFor="resumeFile" className="hidden">Currículo</label>
+                    <input
+                      style={{ pointerEvents: 'none' }}
+                      onFocus={e => {
+                        e.preventDefault();
+                        e.currentTarget.nextElementSibling.click();
+                        e.currentTarget.blur();
+                      }}
+                      className="input light w-input"
+                      placeholder="Anexe seu currículo"
+                      type="text"
+                      id="resume" />
+                    <input
+                      {...register('resume', {
+                        required: true,
+                        onChange: e => {
+                          if (e.target.files[0]) e.target.previousElementSibling.value = e.target.files[0].name;
+                        }
+                      })}
+                      style={{ display: 'none' }}
+                      className="input light w-input"
+                      placeholder="Anexe seu currículo"
+                      type="file"
+                      accept=".pdf, .doc, .docx, .json"
+                      id="resumeFile" />
+                  </div>
+                ) : (
+                  <div>
+                    <label htmlFor="company" className="hidden">Empresa</label>
+                    <input {...register('company', { required: !resume })} className="input light w-input" placeholder="Empresa" type="text" id="company" />
+                  </div>
+                )}
                 <div>
                   <label htmlFor="message" className="hidden">Mensagem</label>
                   <textarea {...register('message', { required: true })} className="text-area light w-input" placeholder="Mensagem" id="message" />

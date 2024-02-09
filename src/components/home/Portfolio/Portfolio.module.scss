@@ -1,6 +1,16 @@
 @use "src/styles/scss/mixins";
 
 .section {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  & > a {
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   :global(.slick-list) {
     overflow: visible;
     height: 400px;
@@ -13,7 +23,7 @@
     height: 400px;
   }
 
-  :global(.row):last-of-type {
+  :global(.row:nth-child(2)) {
     margin-top: 48px;
     padding-top: 48px;
     border-top: 1px solid var(--neutral--400);
@@ -27,5 +37,41 @@
         margin: 0;
       }
     }
+  }
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+
+  & > a {
+    &:first-child {
+      path {
+        transform-origin: center;
+        transform-box: view-box;
+        transform: rotateY(180deg);
+        fill: var(--secondary--color-1);
+      }
+      &:hover {
+        path {
+          fill: white;
+        }
+      }
+    }
+
+    &:last-child {
+      path {
+        fill: white;
+      }
+      &:hover {
+        path {
+          fill: var(--secondary--color-1);
+        }
+      }
+    }
+  }
+
+  @include mixins.lg {
+    display: none;
   }
 }

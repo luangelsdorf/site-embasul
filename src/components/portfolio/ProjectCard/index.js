@@ -4,21 +4,30 @@ import Img from '@/components/common/Img';
 import { apiURL } from '@/utils/env';
 import LightGallery from 'lightgallery/react';
 import Image from 'next/image';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
-export default function ProjectCard({ cover, title, slug, categories, gallery }) {
-  function handleClick(e) {
-    e.target.querySelector('[data-src]')?.click();
+export default function ProjectCard({ cover, title, categories, gallery }) {
+  let mouseDownPos = useRef(null);
+
+  function handleMouseDown(e) {
+    let { clientX, clientY } = e;
+    mouseDownPos.current = { clientX, clientY };
+  }
+
+  function handleMouseUp(e) {
+    if (e.clientX === mouseDownPos.current.clientX && e.clientY === mouseDownPos.current.clientY) {
+      e.currentTarget.querySelector('[data-src]')?.click();
+    }
   }
 
   useEffect(() => {
     document.querySelectorAll('[data-src]')?.forEach(el => {
       el.dataset.src = el.src;
-    })
+    });
   }, []);
 
   return (
-    <div className={styles.card} onMouseUp={handleClick}>
+    <div className={styles.card} onMouseUp={handleMouseUp} onMouseDown={handleMouseDown}>
       <article>
         <Img fill sizes={getSizesString('col-12 col-md-4')} {...cover} />
         <div>

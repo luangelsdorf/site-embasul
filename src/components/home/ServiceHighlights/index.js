@@ -24,7 +24,7 @@ export default function ServiceHighlights({ content }) {
       {
         content.map((item, index) => (
           <PictureAndText key={item.id} flipped={index % 2 === 0 ? true : false} height="540px" data-href={item.link.url}>
-            <Img {...item.image} />
+            <Img {...item.image} style={{ height: '540px' }} />
             <div className={styles.textContent}>
               <Title content={item.headline} />
               <p>{item.text}</p>

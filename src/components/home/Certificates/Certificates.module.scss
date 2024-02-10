@@ -20,4 +20,10 @@
       }
     }
   }
+
+  img {
+    width: 90%;
+    max-height: 128px;
+    object-fit: contain;
+  }
 }

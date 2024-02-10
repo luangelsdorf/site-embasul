@@ -43,7 +43,7 @@ export default function Structure({ content }) {
         <div className={styles.highlights}>
           {content.highlights.map((item, index) => (
             <PictureAndText id={item.title} key={item.id} flipped={index % 2 === 0 ? true : false} contained height="540px">
-              <Img {...item.image} sizes={getSizesString('col-12 col-lg-6')} />
+              <Img {...item.image} sizes={getSizesString('col-12 col-lg-6')} style={{ height: '540px' }} />
               <div className={styles.textContent}>
                 <h2 className="no-period">{item.title}</h2>
                 <p>{toFormatted(item.text)}</p>

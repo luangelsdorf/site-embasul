@@ -21,7 +21,7 @@ export default function Certificates({ content }) {
             content.certificates.map(cert => (
               <div key={cert.id} className="col-12 col-lg-4">
                 <Link href={cert.link} className="wrapper">
-                  <Img {...cert.image} />
+                  <Img {...cert.image} sizes={'(max-width: 992px) 80vw, (max-width: 1400px) 33vw, 25vw'} />
                 </Link>
               </div>
             ))

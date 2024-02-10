@@ -31,7 +31,7 @@ export default function Highlights({ content }) {
       {
         content.map((item, index) => (
           <PictureAndText key={item.id} flipped={index % 2 === 0 ? true : false} height="800px">
-            <Img {...item.image} data-href={item.link.url} />
+            <Img {...item.image} data-href={item.link.url} style={{ height: '800px' }} />
             <div className="mb-5 mb-lg-5" id={ids[index]} style={{ scrollMargin: '150px' }}>
               <Title content={item.headline} />
               <p className="mb-4">{item.text}</p>

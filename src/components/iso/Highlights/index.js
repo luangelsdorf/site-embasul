@@ -10,7 +10,7 @@ export default function Highlights({ content }) {
       <div className={styles.highlights}>
         {content.map((item, index) => (
           <PictureAndText key={item.id} flipped={index % 2 === 1 ? true : false} contained height="540px">
-            <Img {...item.image} sizes={getSizesString('col-12 col-lg-6')} />
+            <Img {...item.image} sizes={getSizesString('col-12 col-lg-6')} style={{ height: '540px' }} />
             <div className={styles.textContent}>
               <p className="overline">ISO9001</p>
               <h2>{item.title}</h2>

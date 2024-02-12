@@ -41,10 +41,6 @@
     flex-wrap: wrap;
     gap: 18px;
 
-    a {
-      width: max-content;
-    }
-
     @include mixins.lg {
       justify-content: center;
     }

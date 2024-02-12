@@ -14,6 +14,7 @@ import { env } from '@/utils/env';
 import Script from 'next/script';
 import Head from 'next/head';
 import Cookies from '@/components/common/Cookies';
+import lightGallery from 'lightgallery';
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -25,6 +26,42 @@ export default function App({ Component, pageProps }) {
     router.events.on('routeChangeStart', onChange);
     return () => router.events.off('routeChangeStart', onChange);
   }, []);
+
+  useEffect(() => {
+    const galleries = document.querySelectorAll('.lg-react-element');
+    const galleryContainers = document.querySelectorAll('.lg-container');
+
+    function openGalleryHandler() {
+      history.pushState({ openGallery: true }, '', '#galeria');
+    }
+    function hashListener(e) {
+      if (e.oldURL.endsWith('#galeria')) {
+        document.querySelectorAll('.lg-close.lg-icon')?.forEach(btn => { btn.click() });
+      }
+    }
+    function closeBtnHandler(e) {
+      if (e.isTrusted && window.location.hash === '#galeria') {
+        history.back();
+      }
+    }
+    function escKeyHandler(e) {
+      if (e.key === 'Escape' && window.location.hash === '#galeria') {
+        history.back();
+      }
+    }
+
+    window.addEventListener('hashchange', hashListener);
+    window.addEventListener('keydown', escKeyHandler);
+    galleries?.forEach(el => el.addEventListener('lgAfterOpen', openGalleryHandler));
+    galleryContainers?.forEach(el => el.querySelector('.lg-close.lg-icon')?.addEventListener('click', closeBtnHandler));
+
+    return () => {
+      window.removeEventListener('hashchange', hashListener);
+      window.removeEventListener('keydown', escKeyHandler);
+      galleries?.forEach(el => el.removeEventListener('lgAfterOpen', openGalleryHandler));
+      galleryContainers?.forEach(el => el.querySelector('.lg-close.lg-icon')?.removeEventListener('click', closeBtnHandler));
+    }
+  }, [router, lightGallery])
 
   return (
     <LayoutContext.Provider value={pageProps.layout}>

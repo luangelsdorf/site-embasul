@@ -35,7 +35,7 @@ export default function ProjectCard({ cover, title, categories, gallery }) {
           <span className="heading-h3-size">{title}</span>
         </div>
       </article>
-      <LightGallery download={false} speed={500}>
+      <LightGallery closeOnTap={false} showCloseIcon={true} download={false} speed={500} mobileSettings={{ showCloseIcon: true, controls: false }}>
         {
           gallery.data.map(img => (
             <Image

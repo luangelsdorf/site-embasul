@@ -16,7 +16,7 @@ export default function Structure({ content }) {
           <div className="col-12 col-lg-5">
             <header>
               <p className="overline">{content.headline.overline}</p>
-              <h1>{content.headline.title}</h1>
+              <h1 className="display-1">{content.headline.title}</h1>
             </header>
           </div>
           <div className="col-12 col-lg-7">
@@ -45,7 +45,7 @@ export default function Structure({ content }) {
             <PictureAndText id={item.title} key={item.id} flipped={index % 2 === 0 ? true : false} contained height="540px">
               <Img {...item.image} sizes={getSizesString('col-12 col-lg-6')} style={{ height: '540px' }} />
               <div className={styles.textContent}>
-                <h2 className="no-period">{item.title}</h2>
+                <h2 className="display-2 no-period">{item.title}</h2>
                 <p>{toFormatted(item.text)}</p>
               </div>
             </PictureAndText>

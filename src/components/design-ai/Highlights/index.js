@@ -16,7 +16,7 @@ export default function Highlights({ content, note }) {
             </>
             <div className={styles.textContent}>
               <p className="overline">Design com AI</p>
-              <h2>{item.title}</h2>
+              <h2 className="display-2">{item.title}</h2>
               <p>{toFormatted(item.text)}</p>
             </div>
           </PictureAndText>

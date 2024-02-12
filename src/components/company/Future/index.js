@@ -10,7 +10,7 @@ export default function Future({ content }) {
       <PictureAndText>
         <Img {...content.image} />
         <div className={styles.textContent}>
-          <h2>{content.title}</h2>
+          <h2 className="display-2">{content.title}</h2>
           <p>{toFormatted(content.text)}</p>
         </div>
       </PictureAndText>

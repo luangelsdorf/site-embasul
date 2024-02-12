@@ -11,6 +11,7 @@ export default function ServiceHighlights({ content }) {
   const router = useRouter();
 
   useEffect(() => {
+    if (matchMedia('(max-width: 992px)').matches) return;
     const click = e => router.push(e.currentTarget.dataset.href);
     const sections = document.querySelectorAll(`.${styles.section} > div`);
 

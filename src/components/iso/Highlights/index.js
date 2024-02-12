@@ -13,7 +13,7 @@ export default function Highlights({ content }) {
             <Img {...item.image} sizes={getSizesString('col-12 col-lg-6')} style={{ height: '540px' }} />
             <div className={styles.textContent}>
               <p className="overline">ISO9001</p>
-              <h2>{item.title}</h2>
+              <h2 className="display-2">{item.title}</h2>
               <p>{toFormatted(item.text)}</p>
             </div>
           </PictureAndText>

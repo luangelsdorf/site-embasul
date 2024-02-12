@@ -22,7 +22,7 @@ export default function Flexo({ flexo }) {
           <Highlights content={flexo.highlights} />
         </Section>
 
-        <Section id="chamada" mb="120">
+        <Section id="chamada" mb="120 0">
           <CallToAction content={flexo.cta} />
         </Section>
       </main>

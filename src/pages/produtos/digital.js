@@ -27,7 +27,7 @@ export default function Digital({ digital }) {
           <Benefits content={digital.benefits} />
         </Section>
 
-        <Section id="chamada" mb="120">
+        <Section id="chamada" mb="120 0">
           <CallToAction content={digital.cta} />
         </Section>
       </main>

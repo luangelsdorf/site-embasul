@@ -62,7 +62,7 @@ export default function Form({ content, resume }) {
                 <div className={styles.textContent}>
                   <header>
                     <p className="overline">{content.headline.overline}</p>
-                    <h1 className="heading-h2-size">{content.headline.title}</h1>
+                    <h1 className="display-2">{content.headline.title}</h1>
                   </header>
                   <p>{toFormatted(content.text)}</p>
                   <address>

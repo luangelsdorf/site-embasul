@@ -24,15 +24,20 @@
   article {
     padding: 64px 48px;
     background-color: white;
+    text-align: left;
+
     header {
       display: flex;
       gap: 8px;
       align-items: center;
       margin-bottom: 24px;
+    }
 
-      h3 {
-        font-size: 40px;
-        line-height: 56px;
+    @include mixins.sm {
+      &:last-child {
+        p {
+          white-space: break-spaces;
+        }
       }
     }
   }

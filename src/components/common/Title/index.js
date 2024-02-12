@@ -11,7 +11,7 @@ export default function Title({ content, align = 'start', spacing = 24, variant,
         ) : (
           <>
             {overline && <p>{overline}</p>}
-            <h2>{title}</h2>
+            <h2 className="display-2">{title}</h2>
           </>
         )
       }

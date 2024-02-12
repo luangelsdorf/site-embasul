@@ -19,7 +19,7 @@ export default function Company({ company }) {
           <Structure content={company.structure} />
         </Section>
 
-        <Section id="historia" pt="120 80" pb="0 80">
+        <Section id="historia" pt="120 80">
           <History content={company.history} />
         </Section>
 

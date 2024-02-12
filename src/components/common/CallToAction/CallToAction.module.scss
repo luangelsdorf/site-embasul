@@ -3,13 +3,17 @@
 .section {
   position: relative;
 
-  img {
-    z-index: -1;
-  }
-
   &.long {
     .content {
       padding: 80px 0;
+    }
+  }
+
+  @include mixins.lg {
+    img {
+      &:last-of-type {
+        display: none;
+      }
     }
   }
 }
@@ -30,7 +34,6 @@
   h2 {
     position: relative;
     z-index: 1;
-    font-size: 40px;
     color: white;
 
     &:not(:only-child) {

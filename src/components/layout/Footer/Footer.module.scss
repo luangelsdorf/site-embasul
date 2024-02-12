@@ -1,6 +1,14 @@
 @use "src/styles/scss/mixins";
 
 .footer {
+  @include mixins.lg {
+    :global([class*="col-lg"]) {
+      padding: 0 40px;
+      & > div {
+        text-align: left;
+      }
+    }
+  }
 }
 
 .links {

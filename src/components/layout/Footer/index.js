@@ -1,9 +1,6 @@
 import { useContext } from 'react';
 import styles from './Footer.module.scss';
 import { LayoutContext } from '@/utils/contexts';
-import Instagram from 'public/images/icons/instagram.svg';
-import Facebook from 'public/images/icons/facebook.svg';
-import LinkedIn from 'public/images/icons/linkedin.svg';
 import Mail from 'public/images/icons/mail.svg';
 import Phone from 'public/images/icons/phone.svg';
 import Arrow from 'public/images/icons/arrow-short.svg';

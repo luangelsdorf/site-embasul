@@ -34,7 +34,7 @@ export default function History({ content }) {
           <div className="col-12">
             <header>
               <p className="overline">{content.headline.overline}</p>
-              <h2 className="heading-h1-size">{content.headline.title}</h2>
+              <h2 className="display-1">{content.headline.title}</h2>
             </header>
           </div>
         </div>

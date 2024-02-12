@@ -1,16 +1,7 @@
+@use "src/styles/scss/mixins";
+
 .section {
   position: relative;
-
-  img {
-    cursor: pointer;
-    position: relative;
-    z-index: 1;
-    transition: 350ms ease;
-    
-    &:hover {
-      transform: scale(1.08);
-    }
-  }
 
   :global(.first) {
     overflow: hidden;
@@ -19,6 +10,29 @@
   h2 {
     &::after {
       content: none;
+    }
+  }
+
+  .imgWrapper {
+    position: relative;
+    width: 100%;
+    height: 800px;
+    scroll-margin: 200px;
+
+    & > img {
+      cursor: pointer;
+      position: relative;
+      z-index: 1;
+      transition: 350ms ease;
+      height: 100% !important;
+
+      &:hover {
+        transform: scale(1.08);
+      }
+    }
+
+    @include mixins.lg {
+      height: 360px;
     }
   }
 }

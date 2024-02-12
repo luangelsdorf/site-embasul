@@ -29,6 +29,7 @@
   }
 
   @include mixins.lg {
+    cursor: auto;
     display: flex;
     flex-direction: column;
     gap: 80px;

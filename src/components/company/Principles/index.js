@@ -1,4 +1,3 @@
-import Title from '@/components/common/Title';
 import styles from './Principles.module.scss';
 import Img from '@/components/common/Img';
 import { toFormatted } from '@/utils/helpers';
@@ -24,7 +23,7 @@ export default function Principles({ content }) {
                   <article key={item.id}>
                     <header>
                       <Img {...item.icon} />
-                      <h3>{item.title}</h3>
+                      <h3 className="display-3">{item.title}</h3>
                     </header>
                     <p>{toFormatted(item.text)}</p>
                   </article>

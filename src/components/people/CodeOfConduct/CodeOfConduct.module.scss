@@ -9,6 +9,12 @@
   :global(.row) {
     column-gap: 96px;
   }
+
+  @include mixins.lg {
+    header {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .ethicalManual {

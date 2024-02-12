@@ -21,11 +21,11 @@ export default function Custom({ custom }) {
           </SimpleBanner>
         </Section>
 
-        <Section id="detalhes" pt="128" pb="120">
+        <Section id="detalhes" pt="128 80" pb="120">
           <Details content={custom.content} />
         </Section>
 
-        <Section pb="120">
+        <Section mb="120 0">
           <CallToAction long content={custom.cta} />
         </Section>
       </main>

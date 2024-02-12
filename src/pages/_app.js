@@ -24,7 +24,11 @@ export default function App({ Component, pageProps }) {
   useEffect(() => {
     const onChange = () => document?.querySelector('[data-open="true"]')?.previousElementSibling.firstChild.click();
     router.events.on('routeChangeStart', onChange);
-    return () => router.events.off('routeChangeStart', onChange);
+    router.events.on('hashChangeStart', onChange);
+    return () => {
+      router.events.off('routeChangeStart', onChange);
+      router.events.off('hashChangeStart', onChange);
+    }
   }, []);
 
   useEffect(() => {

@@ -2,7 +2,8 @@
 
 .section {
   position: relative;
-  padding: 120px 0;
+  padding-bottom: 120px;
+  padding-top: 192px;
 
   &::after {
     content: "";
@@ -20,10 +21,6 @@
     z-index: -1;
   }
 
-  header {
-    margin-top: 72px;
-  }
-
   h1 {
     color: white;
     margin-bottom: 40px;
@@ -31,6 +28,10 @@
 
   p {
     color: var(--neutral--300);
+  }
+
+  @include mixins.lg {
+    padding-top: 120px;
   }
 }
 

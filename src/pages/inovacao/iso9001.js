@@ -18,11 +18,11 @@ export default function ISO9001({ iso }) {
           <Banner content={iso.banner} />
         </Section>
 
-        <Section id="destaques" pt="96" pb="120 40">
+        <Section id="destaques" pt="96 40" pb="120 40">
           <Highlights content={iso.highlights} />
         </Section>
 
-        <Section id="chamada" mb="120">
+        <Section id="chamada" mb="120 0">
           <CallToAction content={iso.cta} />
         </Section>
       </main>

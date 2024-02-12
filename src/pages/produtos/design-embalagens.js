@@ -22,7 +22,7 @@ export default function PackagingDesign({ design }) {
           <Highlights design content={design.highlights} />
         </Section>
 
-        <Section id="chamada" mb="120">
+        <Section id="chamada" mb="120 0">
           <CallToAction content={design.cta} />
         </Section>
       </main>

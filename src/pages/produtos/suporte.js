@@ -22,7 +22,7 @@ export default function Support({ support }) {
           <Highlights content={support.highlights} />
         </Section>
 
-        <Section id="chamada" mb="120">
+        <Section id="chamada">
           <CallToAction content={support.cta} />
         </Section>
       </main>

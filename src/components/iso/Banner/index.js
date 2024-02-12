@@ -18,7 +18,7 @@ export default function Banner({ content }) {
             </header>
             <p>{toFormatted(content.text)}</p>
           </div>
-          <div className="col-12 col-lg-4">
+          <div className="col-12 col-lg-4 d-none d-lg-block">
             <div className={styles.image}>
               <Image src={seal} alt="" />
             </div>

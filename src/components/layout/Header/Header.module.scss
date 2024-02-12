@@ -32,6 +32,25 @@
       width: auto;
       color: white;
     }
+
+    @media (max-width: 280px) {
+      margin-right: 24px;
+    }
+  }
+
+  :global(.btn-circle-primary) {
+    order: 2;
+    margin-right: 24px;
+    background-color: transparent;
+    border: 0;
+    path {
+      fill: none;
+      stroke: var(--accent--primary-1);
+    }
+
+    @media (max-width: 280px) {
+      display: none !important;
+    }
   }
 
   .links {
@@ -46,6 +65,7 @@
     a {
       color: white;
       font-size: 16px;
+      z-index: 3;
     }
 
     [data-dd-menu] {
@@ -63,7 +83,6 @@
     & > [data-dd-trigger] {
       position: relative;
       a {
-        z-index: 3;
         svg {
           fill: currentColor;
           display: none;
@@ -100,6 +119,9 @@
           top: 20px;
           left: -50vw;
           right: 0;
+          @include mixins.lg {
+            content: none;
+          }
         }
       }
       @media (hover: none) {
@@ -169,6 +191,10 @@
         }
       }
     }
+
+    [title="Menu"] {
+      color: var(--accent--primary-1);
+    }
   }
 
   @include mixins.xl {
@@ -191,13 +217,26 @@
   }
 
   @include mixins.lg {
+    .logo {
+      order: 1;
+      svg {
+        height: 36px;
+      }
+    }
+
+    [data-collapse-trigger] {
+      order: 0;
+      padding-left: 24px;
+    }
+
     :global {
       .container {
         flex-wrap: wrap;
-        padding: 24px 12px;
+        padding: 24px 0;
 
         .content {
           width: 100%;
+          order: 2;
         }
       }
     }
@@ -209,27 +248,45 @@
     .links {
       flex-direction: column;
       align-items: center;
-      gap: 0;
-      padding: 24px 44px;
+      gap: 28px;
+      padding: 24px;
+      border-top: 1px solid var(--neutral--200);
       background-color: white;
 
       li,
       [data-collapse-trigger] {
         width: 100%;
-        text-align: center;
+
         justify-content: center;
       }
 
       & > li {
-        padding: 8px;
+        padding: 0;
+        &:last-child {
+          padding: 0;
+          margin: 16px 0;
+        }
       }
 
-      a:not(:global(.btn-primary)) {
-        color: var(--secondary--color-1);
+      a {
+        font-size: 16px;
+        letter-spacing: 0.06em;
+        line-height: 1em;
+
+        &:not(:global(.btn-primary)) {
+          justify-content: space-between;
+          color: var(--secondary--color-1);
+        }
+
+        &:global(.btn-primary) {
+          color: white;
+        }
       }
 
-      a:global(.btn-primary) {
-        color: white;
+      [data-dd-menu] {
+        a {
+          width: 100%;
+        }
       }
 
       &[data-desktop] {
@@ -237,11 +294,9 @@
       }
 
       & > [data-dd-trigger] {
-        text-align: center;
         flex-direction: column;
         display: flex;
         justify-content: center;
-        align-items: center;
 
         & > a {
           svg {
@@ -257,7 +312,8 @@
         &:global(.show) {
           .dropdown {
             display: block;
-            padding: 16px 24px;
+            padding: 16px;
+            width: 100%;
           }
 
           & > a {
@@ -277,11 +333,14 @@
       }
     }
 
-    button[title="Menu"] {
+    [title="Menu"] {
       height: 40px;
       width: 40px;
       justify-content: center;
       padding: 0;
+      color: white;
+      background-color: transparent;
+      border: 0;
 
       &:hover {
         transform: none;
@@ -339,7 +398,6 @@
     top: 0;
     left: 0;
     box-shadow: none;
-    outline: 1px solid var(--neutral--300);
     opacity: 1;
     transform: none;
   }

@@ -19,7 +19,7 @@ export default function People({ people }) {
           <CTABanner people content={people.banner} />
         </Section>
 
-        <Section id="pessoas" pt="96" pb="120">
+        <Section id="pessoas" pt="96 40" pb="120 0">
           <PeopleSection content={people.people} />
         </Section>
 

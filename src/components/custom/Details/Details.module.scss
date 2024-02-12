@@ -53,4 +53,12 @@
       width: 100%;
     }
   }
+
+  @include mixins.md {
+    img {
+      &:not(:first-child) {
+        display: none;
+      }
+    }
+  }
 }

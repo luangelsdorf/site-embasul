@@ -32,7 +32,7 @@ export default function Footer() {
                   </div>
                   <div>
                     <span>Preencha nosso</span>
-                    <Button link RightIcon={Arrow} href="/contato">Formulário de Contato</Button>
+                    <Button link RightIcon={Arrow} href="/contato?persist=true" as="/contato">Formulário de Contato</Button>
                   </div>
                 </div>
                 <div className={styles.contactButton} onClick={e => e.currentTarget.querySelector('a').click()}>

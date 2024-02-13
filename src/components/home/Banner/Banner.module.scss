@@ -43,6 +43,10 @@
 
     @include mixins.lg {
       justify-content: center;
+
+      & > div {
+        width: 100%;
+      }
     }
   }
 

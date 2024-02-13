@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from './Button.module.scss';
 import LightGallery from 'lightgallery/react';
@@ -20,6 +20,7 @@ export default function Button({
   ...otherProps
 }) {
 
+  const [videoUrl, setVideoUrl] = useState('');
   const router = useRouter();
   let prefix = '';
   if (router.query.referrer) prefix = '/' + router.query.referrer;
@@ -37,11 +38,16 @@ export default function Button({
     className: `${styles.btn} ${link ? '' : 'btn-primary'}${className ? ' ' + className : ''}`,
   };
 
+  useEffect(() => {
+    if (href.startsWith('$')) {
+      setVideoUrl(href.split('$').at(-1));
+    }
+  }, []);
+
   if (href.startsWith('$')) {
-    const videoUrl = href.split('$').at(-1);
     return (
-      <LightGallery download={false} mode="lg-fade" plugins={[lgVideo]}>
-        <button {...baseProps} type={type} {...otherProps} data-src={`${videoUrl}`}>
+      <LightGallery closeOnTap={false} showCloseIcon={true} download={false} speed={500} mobileSettings={{ showCloseIcon: true, controls: false }} plugins={[lgVideo]}>
+        <button {...baseProps} type={type} {...otherProps} data-src={videoUrl}>
           <Children />
         </button>
       </LightGallery>

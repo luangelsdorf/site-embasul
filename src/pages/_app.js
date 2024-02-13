@@ -10,9 +10,6 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { env } from '@/utils/env';
-import Script from 'next/script';
-import Head from 'next/head';
 import Cookies from '@/components/common/Cookies';
 import lightGallery from 'lightgallery';
 
@@ -65,7 +62,7 @@ export default function App({ Component, pageProps }) {
       galleries?.forEach(el => el.removeEventListener('lgAfterOpen', openGalleryHandler));
       galleryContainers?.forEach(el => el.querySelector('.lg-close.lg-icon')?.removeEventListener('click', closeBtnHandler));
     }
-  }, [router, lightGallery])
+  }, [router, lightGallery]);
 
   return (
     <LayoutContext.Provider value={pageProps.layout}>

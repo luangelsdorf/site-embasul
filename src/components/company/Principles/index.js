@@ -1,6 +1,8 @@
 import styles from './Principles.module.scss';
 import Img from '@/components/common/Img';
+import { slideUp } from '@/utils/animation';
 import { toFormatted } from '@/utils/helpers';
+import Reveal from 'react-awesome-reveal';
 
 export default function Principles({ content }) {
   return (
@@ -10,10 +12,14 @@ export default function Principles({ content }) {
           <div className="col-12 col-lg-5">
             <div className={styles.textContent}>
               <header>
-                <p className="overline">{content.headline.overline}</p>
-                <h2 className="display-1">{content.headline.title}</h2>
+                <Reveal triggerOnce keyframes={slideUp} duration={500} fraction={0.5} cascade damping={0.3}>
+                  <p className="overline">{content.headline.overline}</p>
+                  <h2 className="display-1">{content.headline.title}</h2>
+                </Reveal>
               </header>
-              <p>{toFormatted(content.text)}</p>
+              <Reveal triggerOnce keyframes={slideUp} duration={500} fraction={0.5} delay={300}>
+                <p>{toFormatted(content.text)}</p>
+              </Reveal>
             </div>
           </div>
           <div className="col-12 col-lg-6 offset-lg-1">

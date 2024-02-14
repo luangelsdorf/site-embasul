@@ -56,7 +56,7 @@ export default function Form({ content, resume }) {
 
   return (
     <div className={styles.section}>
-      <Reveal triggerOnce keyframes={slideUp} duration={500} fraction={0.5} className="container">
+      <Reveal triggerOnce keyframes={slideUp} duration={500} className="container">
         <div className="row justify-content-center">
           {
             !resume && (
@@ -114,7 +114,7 @@ export default function Form({ content, resume }) {
                         e.currentTarget.blur();
                       }}
                       className="input light w-input"
-                      placeholder="Anexe seu currículo"
+                      placeholder="Anexar Currículo"
                       type="text"
                       id="resume" />
                     <input
@@ -126,7 +126,7 @@ export default function Form({ content, resume }) {
                       })}
                       style={{ display: 'none' }}
                       className="input light w-input"
-                      placeholder="Anexe seu currículo"
+                      placeholder="Anexar Currículo"
                       type="file"
                       accept=".pdf, .doc, .docx, .json"
                       id="resumeFile" />

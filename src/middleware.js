@@ -1,11 +1,15 @@
 import { NextResponse } from 'next/server';
-import { apiURL } from './utils/env';
+import fetchAPI from './utils/fetch';
 
-export function middleware(request) {
-  if (request.nextUrl.pathname.endsWith('contato.js')) {
+export async function middleware(request) {
+  if (request.nextUrl.pathname === '/contato') {
     const userAgent = request.headers.get('User-Agent');
     if (userAgent.includes('iPhone') || userAgent.includes('Android')) {
-      /* NextResponse.redirect() */
+      const { whatsapp } = await fetchAPI('footer');
+      if (whatsapp) {
+        return NextResponse.redirect(`https://wa.me/${whatsapp}`);
+      }
     }
   }
+  return NextResponse.next();
 }

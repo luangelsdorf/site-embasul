@@ -4,6 +4,8 @@ import Button from '@/components/common/Button';
 import Img from '@/components/common/Img';
 import { getSizesString } from '@/utils/images';
 import Arrow from 'public/images/icons/arrow-long.svg';
+import Reveal from 'react-awesome-reveal';
+import { slideUp } from '@/utils/animation';
 
 export default function Sustainability({ content }) {
   return (
@@ -12,10 +14,12 @@ export default function Sustainability({ content }) {
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-lg-7">
-            <div className={styles.textContent}>
-              <Title content={content.headline} align="center" />
-              <Button RightIcon={Arrow} href={content.link.url}>{content.link.text}</Button>
-            </div>
+            <Reveal triggerOnce keyframes={slideUp} duration={500} fraction={0.5}>
+              <div className={styles.textContent}>
+                <Title content={content.headline} align="center" />
+                <Button RightIcon={Arrow} href={content.link.url}>{content.link.text}</Button>
+              </div>
+            </Reveal>
           </div>
         </div>
       </div>

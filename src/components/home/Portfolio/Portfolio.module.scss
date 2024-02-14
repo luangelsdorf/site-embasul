@@ -23,7 +23,7 @@
     height: 400px;
   }
 
-  :global(.row:nth-child(2)) {
+  .sliderRow {
     margin-top: 48px;
     padding-top: 48px;
     border-top: 1px solid var(--neutral--400);

@@ -3,6 +3,8 @@ import styles from './Certificates.module.scss';
 import Img from '@/components/common/Img';
 import { toFormatted } from '@/utils/helpers';
 import Link from 'next/link';
+import Reveal from 'react-awesome-reveal';
+import { slideUp } from '@/utils/animation';
 
 export default function Certificates({ content }) {
   return (
@@ -10,22 +12,28 @@ export default function Certificates({ content }) {
       <div className="container">
         <div className="row align-items-end">
           <div className="col-12 col-lg-6">
-            <Title content={content.headline} />
+            <Reveal triggerOnce keyframes={slideUp} duration={500} fraction={0.5}>
+              <Title content={content.headline} />
+            </Reveal>
           </div>
           <div className="col-12 col-lg-5 offset-lg-1">
-            <p>{toFormatted(content.text)}</p>
+            <Reveal triggerOnce keyframes={slideUp} duration={500} fraction={0.5} delay={300}>
+              <p>{toFormatted(content.text)}</p>
+            </Reveal>
           </div>
         </div>
         <div className="row">
-          {
-            content.certificates.map(cert => (
-              <div key={cert.id} className="col-12 col-lg-4">
-                <Link href={cert.link} className="wrapper">
-                  <Img {...cert.image} sizes={'(max-width: 992px) 80vw, (max-width: 1400px) 33vw, 25vw'} />
-                </Link>
-              </div>
-            ))
-          }
+          <Reveal triggerOnce keyframes={slideUp} duration={500} fraction={0.5} cascade damping={0.3} className="col-12 col-lg-4" >
+            {
+              content.certificates.map(cert => (
+                <div key={cert.id}>
+                  <Link href={cert.link} className="wrapper">
+                    <Img {...cert.image} sizes={'(max-width: 992px) 80vw, (max-width: 1400px) 33vw, 25vw'} />
+                  </Link>
+                </div>
+              ))
+            }
+          </Reveal>
         </div>
       </div>
     </div>

@@ -8,6 +8,8 @@ import Collaborate from 'public/images/icons/collaborate.svg';
 import Button from '@/components/common/Button';
 import Arrow from 'public/images/icons/arrow-short.svg';
 import { toFormatted } from '@/utils/helpers';
+import Reveal from 'react-awesome-reveal';
+import { slideUp } from '@/utils/animation';
 
 export default function PeopleSection({ content }) {
 
@@ -38,18 +40,20 @@ export default function PeopleSection({ content }) {
       <div className={styles.highlights}>
         <div className="container">
           <div className="row">
-            {
-              content.items.map((item, i) => (
-                <div key={item.id} className="col-12 col-lg-4">
-                  <article>
-                    {icons[i]}
-                    <h2 className="heading-h3-size">{item.title}</h2>
-                    <p>{item.text}</p>
-                    <Button onClick={handleClick} RightIcon={Arrow} className="link-wrapper" href={item.linkUrl} link />
-                  </article>
-                </div>
-              ))
-            }
+            <Reveal triggerOnce keyframes={slideUp} duration={500} fraction={0.5} cascade damping={0.3} className="col-12 col-lg-4">
+              {
+                content.items.map((item, i) => (
+                  <div key={item.id}>
+                    <article>
+                      {icons[i]}
+                      <h2 className="heading-h3-size">{item.title}</h2>
+                      <p>{item.text}</p>
+                      <Button onClick={handleClick} RightIcon={Arrow} className="link-wrapper" href={item.linkUrl} link />
+                    </article>
+                  </div>
+                ))
+              }
+            </Reveal>
           </div>
         </div>
       </div>

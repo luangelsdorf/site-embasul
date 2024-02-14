@@ -6,6 +6,8 @@ import Arrow from 'public/images/icons/arrow-short.svg';
 import ArrowLong from 'public/images/icons/arrow-long.svg';
 import { useForm } from 'react-hook-form';
 import { toFormatted } from '@/utils/helpers';
+import Reveal from 'react-awesome-reveal';
+import { slideUp } from '@/utils/animation';
 
 export default function Form({ content, resume }) {
   const { footer } = useContext(LayoutContext);
@@ -54,7 +56,7 @@ export default function Form({ content, resume }) {
 
   return (
     <div className={styles.section}>
-      <div className="container">
+      <Reveal triggerOnce keyframes={slideUp} duration={500} fraction={0.5} className="container">
         <div className="row justify-content-center">
           {
             !resume && (
@@ -144,7 +146,7 @@ export default function Form({ content, resume }) {
             </div>
           </div>
         </div>
-      </div>
+      </Reveal>
     </div>
   )
 }

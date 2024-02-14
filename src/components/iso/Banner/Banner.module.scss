@@ -4,6 +4,7 @@
   position: relative;
   padding-bottom: 120px;
   padding-top: 192px;
+  overflow: hidden;
 
   &::after {
     content: "";

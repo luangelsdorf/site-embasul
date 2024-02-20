@@ -88,7 +88,7 @@ export default function Footer() {
                       ))
                     }
                   </ul>
-                  <Button link href={lastLink.url} RightIcon={DiagonalArrow}>{lastLinkText.split(' \n ').join('\n')}</Button>
+                  <Button link href={'/trabalhe-conosco'} RightIcon={DiagonalArrow}>{lastLinkText.split(' \n ').join('\n')}</Button>
                 </div>
               </Reveal>
             </div>

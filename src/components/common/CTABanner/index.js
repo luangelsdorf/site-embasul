@@ -34,7 +34,7 @@ export default function CTABanner({ people, content }) {
                     </div>
                     <div>
                       <span>{content.shortText}</span>
-                      <Button link RightIcon={Arrow} href={content.link.url}>{content.link.text}</Button>
+                      <Button link RightIcon={Arrow} href={people ? '/trabalhe-conosco' : content.link.url}>{content.link.text}</Button>
                     </div>
                   </div>
                 </Reveal>

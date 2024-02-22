@@ -22,7 +22,7 @@ const nextConfig = {
     return [
       {
         source: '/admin',
-        destination: 'http://162.240.159.17:1337/admin/',
+        destination: 'https://embasul.com/admin/',
         permanent: true,
       },
     ]

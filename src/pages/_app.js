@@ -19,12 +19,12 @@ export default function App({ Component, pageProps }) {
   if ((!pageProps.layout) && (Object.keys(pageProps).length > 0)) console.warn('[Warning]: Layout info not passed into `_app.js`');
 
   useEffect(() => {
-    const onChange = () => document?.querySelector('[data-open="true"]')?.previousElementSibling.firstChild.click();
-    router.events.on('routeChangeStart', onChange);
-    router.events.on('hashChangeStart', onChange);
+    const closeAllSubmenus = () => document?.querySelector('[data-open="true"]')?.previousElementSibling.firstChild.click();
+    router.events.on('routeChangeStart', closeAllSubmenus);
+    router.events.on('hashChangeStart', closeAllSubmenus);
     return () => {
-      router.events.off('routeChangeStart', onChange);
-      router.events.off('hashChangeStart', onChange);
+      router.events.off('routeChangeStart', closeAllSubmenus);
+      router.events.off('hashChangeStart', closeAllSubmenus);
     }
   }, []);
 

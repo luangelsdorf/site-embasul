@@ -27,7 +27,7 @@ export default async function handler(req, res) {
 
     const message = {
       from: process.env.SENDER_EMAIL,
-      to: process.env.SENDER_EMAIL,
+      to: process.env.RECIPIENT_EMAIL,
       subject: req.body.resume ? `Novo Currículo | Website Embasul` : `Nova Mensagem | Website Embasul`,
       text: `Mensagem: ${req.body.message} | Enviada de ${req.body.email}`,
       html: html,

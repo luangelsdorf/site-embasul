@@ -6,6 +6,10 @@
 .details {
   margin-bottom: 96px;
 
+  a {
+    margin-top: 32px;
+  }
+
   :global(.container) {
     &:last-child {
       position: relative;

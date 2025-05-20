@@ -33,6 +33,7 @@ export default function PeopleSection({ content }) {
           <div className={styles.detailsContent}>
             <Title content={{ title: content.details.title, overline: content.details.subtitle }} />
             <p>{toFormatted(content.details.text)}</p>
+            <Button target="_blank" rel="noopener noreferrer" href={content?.button?.url}>{content?.button?.text}</Button>
           </div>
         </PictureAndText>
       </div>

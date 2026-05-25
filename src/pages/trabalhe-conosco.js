@@ -11,7 +11,7 @@ export default function WorkWithUs({ contact }) {
       </Head>
 
       <main>
-        <ResumeForm content={contact} />
+        <ResumeForm content={contact} contact={contact} />
       </main>
     </>
   )

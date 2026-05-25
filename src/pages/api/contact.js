@@ -1,8 +1,9 @@
 export default async function handler(req, res) {
-
+  const recipientsString = req.body.recipients.join(',')
   if (req.method === 'POST') {
-    const sgMail = require('@sendgrid/mail');
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+    var nodemailer = require("nodemailer");
+
 
     let html;
     if (req.body.resume) {
@@ -25,9 +26,10 @@ export default async function handler(req, res) {
       `
     }
 
+    console.log(req.body);
     const message = {
-      from: process.env.SENDER_EMAIL,
-      to: process.env.RECIPIENT_EMAIL,
+      from: `Site Embasul <${process.env.SMTP2GO_SENDER}>`,
+      to: req.body.recipients,
       subject: req.body.resume ? `Novo Currículo | Website Embasul` : `Nova Mensagem | Website Embasul`,
       text: `Mensagem: ${req.body.message} | Enviada de ${req.body.email}`,
       html: html,
@@ -36,26 +38,38 @@ export default async function handler(req, res) {
           {
             content: req.body.resume.fileContents,
             filename: req.body.resume.filename,
-            type: req.body.resume.type,
-            disposition: 'attachment'
+            contentType: req.body.resume.type,
+            contentDisposition: 'attachment'
           }
         ]
       })
     }
 
-    sgMail
-      .send(message)
-      .then((response) => {
-        if ((response[0].statusCode / 200) >= 1 && (response[0].statusCode / 200) < 1.5) {
-          return res.status(200).send('Sent successfully');
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-        return res.status(error.code).send('Sent successfully');
-      });
 
-  } else {
-    return res.status(405).send('Method not allowed.');
+    var smtpTransport = nodemailer.createTransport({
+      host: "mail.smtp2go.com",
+      port: 2525, // 8025, 587 and 25 can also be used.
+      auth: {
+        user: process.env.SMTP2GO_USER,
+        pass: process.env.SMTP2GO_PASSWORD,
+      },
+    });
+
+    smtpTransport.sendMail(message,
+      function (error, response) {
+        if (error) {
+          console.error('Ocorreu um erro ao enviar o e-mail de contato:');
+          console.error(error);
+          console.error(error?.response?.body);
+          return res.status(500).json({ message: error?.response?.body?.errors?.[0]?.message });
+        } else {
+          return res.status(200).end();
+        }
+      }
+    );
+  }
+
+  else {
+    return res.status(405).end();
   }
 }

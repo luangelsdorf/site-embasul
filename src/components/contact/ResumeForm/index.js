@@ -4,7 +4,7 @@ import styles from './ResumeForm.module.scss';
 import X from 'public/images/icons/x.svg';
 import { useEffect } from 'react';
 
-export default function ResumeForm({ content }) {
+export default function ResumeForm({ content, contact }) {
   const router = useRouter();
 
   function handleClick() {
@@ -23,7 +23,7 @@ export default function ResumeForm({ content }) {
         <X />
       </button>
 
-      <Form resume content={content} />
+      <Form resume content={content} contact={contact} />
     </div>
   )
 }

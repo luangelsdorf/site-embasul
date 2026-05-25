@@ -9,7 +9,7 @@ import { toFormatted } from '@/utils/helpers';
 import Reveal from 'react-awesome-reveal';
 import { slideUp } from '@/utils/animation';
 
-export default function Form({ content, resume }) {
+export default function Form({ content, resume, contact }) {
   const { footer } = useContext(LayoutContext);
   const { register, handleSubmit } = useForm();
 
@@ -142,6 +142,8 @@ export default function Form({ content, resume }) {
                   <textarea {...register('message', { required: true })} className="text-area light w-input" placeholder="Mensagem" id="message" />
                 </div>
                 <Button style={{ cursor: 'pointer' }} RightIcon={ArrowLong} className="btn-primary bg-white-hover" btnElement type="submit">{content.sendBtnLabel}</Button>
+                <input type="hidden" value={contact.recipientEmail1} {...register('recipients.0')} />
+                <input type="hidden" value={contact.recipientEmail2} {...register('recipients.1')} />
               </form>
             </div>
           </div>

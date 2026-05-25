@@ -19,7 +19,7 @@ export default function Contato({ contact }) {
         </Section>
 
         <Section id="form">
-          <Form content={contact} />
+          <Form content={contact} contact={contact} />
         </Section>
 
         <Section pt="120 0" pb="120 0">

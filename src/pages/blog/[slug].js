@@ -1,0 +1,101 @@
+import Section from '@/components/common/Section';
+import PostHeader from '@/components/blog/PostHeader';
+import PostContent from '@/components/blog/PostContent';
+import RelatedPosts from '@/components/blog/RelatedPosts';
+import fetchAPI, { getLayoutContent } from '@/utils/fetch';
+import { getExcerpt } from '@/utils/helpers';
+import Head from 'next/head';
+
+export default function Post({ post, related }) {
+  if (!post) return null;
+
+  const metaDescription = getExcerpt(post.content ?? '', 30);
+
+  return (
+    <>
+      <Head>
+        <title>{`${post.title} - Embasul`}</title>
+        {metaDescription && <meta name="description" content={metaDescription} />}
+      </Head>
+
+      <main>
+        <Section id="post" pt="176" pb="64">
+          <PostHeader
+            title={post.title}
+            cover={post.cover}
+            publishedDate={post.publishedDate}
+            category={post.category}
+          />
+        </Section>
+
+        <Section pb="120 64">
+          <PostContent html={post.content} />
+        </Section>
+
+        {related?.length > 0 && (
+          <RelatedPosts posts={related} />
+        )}
+      </main>
+    </>
+  );
+}
+
+export async function getStaticPaths() {
+  const posts = await fetchAPI('posts', { populate: false });
+
+  return {
+    paths: posts.map(p => ({ params: { slug: p.attributes.slug } })),
+    fallback: 'blocking',
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const matches = await fetchAPI('posts', {
+    'filters[slug][$eq]': params.slug,
+    populate: 'deep',
+  });
+
+  const postEntity = matches?.[0];
+  const post = postEntity?.attributes ?? null;
+
+  if (!post) {
+    return { notFound: true, revalidate: 60 };
+  }
+
+  let related = [];
+  const categorySlug = post.category?.data?.attributes?.slug;
+
+  if (categorySlug) {
+    const sameCategory = await fetchAPI('posts', {
+      'filters[category][slug][$eq]': categorySlug,
+      sort: 'publishedDate:desc',
+      'pagination[limit]': 4,
+      populate: 'deep',
+    });
+    related = (sameCategory || []).filter(p => p.attributes.slug !== params.slug).slice(0, 3);
+  }
+
+  if (related.length < 3) {
+    const knownSlugs = new Set([params.slug, ...related.map(r => r.attributes.slug)]);
+    const latest = await fetchAPI('posts', {
+      sort: 'publishedDate:desc',
+      'pagination[limit]': 6,
+      populate: 'deep',
+    });
+    const fillers = (latest || []).filter(p => !knownSlugs.has(p.attributes.slug)).slice(0, 3 - related.length);
+    related = [...related, ...fillers];
+  }
+
+  const layout = await getLayoutContent();
+
+  return {
+    props: {
+      post,
+      related,
+
+      layout,
+    },
+
+    revalidate: 60,
+  };
+}

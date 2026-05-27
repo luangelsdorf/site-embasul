@@ -7,8 +7,11 @@ import Arrow from 'public/images/icons/arrow-short.svg';
 import { toFormatted } from '@/utils/helpers';
 import { animateBanner, slideRight, slideUp } from '@/utils/animation';
 import Reveal from 'react-awesome-reveal';
+import { useRouter } from 'next/router';
 
 export default function CTABanner({ people, content }) {
+  const router = useRouter();
+
   return (
     <div className={styles.section}>
       <Img style={{ opacity: 0 }} onLoad={animateBanner} fill {...content.cover} alt="" sizes="col-12 col-lg-10" />
@@ -22,25 +25,29 @@ export default function CTABanner({ people, content }) {
               </Reveal>
             </div>
           </div>
-          <div className="col-12l col-lg-6 offset-lg-1">
-            <Reveal triggerOnce keyframes={slideUp} duration={500} delay={800}>
-              <div className={styles.cta}>
-                <Reveal triggerOnce keyframes={slideRight} duration={500} delay={800} cascade damping={0.4}>
-                  <h2 className="text-300 no-period">{content.ctaTitle}</h2>
-                  <p>{content.ctaText}</p>
-                  <div className={styles.contactButton} onClick={e => e.currentTarget.querySelector('a').click()}>
-                    <div>
-                      {people ? <Mail /> : <Icon />}
+          {(router.pathname === '/produtos/suporte' || router.pathname === '/produtos/design-embalagens') ? (
+            null
+          ) : (
+            <div className="col-12 col-lg-6 offset-lg-1">
+              <Reveal triggerOnce keyframes={slideUp} duration={500} delay={800}>
+                <div className={styles.cta}>
+                  <Reveal triggerOnce keyframes={slideRight} duration={500} delay={800} cascade damping={0.4}>
+                    <h2 className="text-300 no-period">{content.ctaTitle}</h2>
+                    <p>{content.ctaText}</p>
+                    <div className={styles.contactButton} onClick={e => e.currentTarget.querySelector('a').click()}>
+                      <div>
+                        {people ? <Mail /> : <Icon />}
+                      </div>
+                      <div>
+                        <span>{content.shortText}</span>
+                        <Button link RightIcon={Arrow} href={people ? '/trabalhe-conosco' : content.link.url}>{content.link.text}</Button>
+                      </div>
                     </div>
-                    <div>
-                      <span>{content.shortText}</span>
-                      <Button link RightIcon={Arrow} href={people ? '/trabalhe-conosco' : content.link.url}>{content.link.text}</Button>
-                    </div>
-                  </div>
-                </Reveal>
-              </div>
-            </Reveal>
-          </div>
+                  </Reveal>
+                </div>
+              </Reveal>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -22,9 +22,9 @@ export default function Contato({ contact }) {
           <Form content={contact} contact={contact} />
         </Section>
 
-        <Section pt="120 0" pb="120 0">
+        {/* <Section pt="120 0" pb="120 0">
           <CallToAction content={contact.cta} contact />
-        </Section>
+        </Section> */}
       </main>
     </>
   )

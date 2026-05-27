@@ -22,9 +22,9 @@ export default function Support({ support }) {
           <Highlights content={support.highlights} />
         </Section>
 
-        <Section id="chamada" mb="120 0">
+        {/* <Section id="chamada" mb="120 0">
           <CallToAction content={support.cta} />
-        </Section>
+        </Section> */}
       </main>
     </>
   )

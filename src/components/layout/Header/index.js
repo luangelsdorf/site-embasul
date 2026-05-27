@@ -61,17 +61,17 @@ export default function Header() {
       <li data-dd-trigger>
         <Button RightIcon={Caret} onClick={handleClick} href="/empresa" link>Empresa</Button>
         <div className={styles.dropdown}>
-          <DropdownMenu extraLinks={header.company.map(item => <Highlight key={item.id} {...item} />)}>
+          <DropdownMenu /* extraLinks={header.company.map(item => <Highlight key={item.id} {...item} />)} */>
+            <Button link href="/empresa#Primeira Planta">Estrutura</Button>
             <Button link href="/empresa#historia">Nossa História</Button>
             <Button link href="/empresa#norteadores">Norteadores</Button>
-            <Button link href="/empresa#Primeira Planta">Estrutura</Button>
           </DropdownMenu>
         </div>
       </li>
       <li data-dd-trigger>
         <Button RightIcon={Caret} onClick={handleClick} href="/produtos/projetos" link>Produtos</Button>
         <div className={styles.dropdown}>
-          <DropdownMenu extraLinks={header.products.map(item => <Highlight key={item.id} {...item} />)}>
+          <DropdownMenu /* extraLinks={header.products.map(item => <Highlight key={item.id} {...item} />)} */>
             <Button link href="/produtos/customizadas">Customizadas</Button>
             <Button link href="/produtos/suporte">Suporte Técnico</Button>
             <Button link href="/produtos/design-embalagens">Design de Embalagens</Button>
@@ -82,7 +82,7 @@ export default function Header() {
       <li data-dd-trigger>
         <Button RightIcon={Caret} onClick={handleClick} href="/sustentabilidade" link>Sustentabilidade</Button>
         <div className={styles.dropdown}>
-          <DropdownMenu extraLinks={header.sustain.map(item => <Highlight key={item.id} {...item} />)}>
+          <DropdownMenu /* extraLinks={header.sustain.map(item => <Highlight key={item.id} {...item} />)} */>
             <Button link href="/sustentabilidade#fsc">Certificado FSC</Button>
             <Button link href="/sustentabilidade#origem-sustentavel">Selo Origem Sustentável</Button>
             <Button link href="/sustentabilidade#pegada-neutra">Parceria Pegada Neutra</Button>
@@ -94,7 +94,7 @@ export default function Header() {
       <li data-dd-trigger>
         <Button RightIcon={Caret} onClick={handleClick} href="/inovacao/design-ai" link>Inovação</Button>
         <div className={styles.dropdown}>
-          <DropdownMenu extraLinks={header.innovation.map(item => <Highlight key={item.id} {...item} />)}>
+          <DropdownMenu /* extraLinks={header.innovation.map(item => <Highlight key={item.id} {...item} />)} */>
             <Button link href="/inovacao/design-ai">Design com AI</Button>
             <Button link href="/inovacao/iso9001">Processos ISO 9001</Button>
           </DropdownMenu>
@@ -103,7 +103,7 @@ export default function Header() {
       <li data-dd-trigger>
         <Button RightIcon={Caret} onClick={handleClick} href="/pessoas" link>Pessoas</Button>
         <div className={styles.dropdown}>
-          <DropdownMenu extraLinks={header.people.map(item => <Highlight key={item.id} {...item} />)}>
+          <DropdownMenu /* extraLinks={header.people.map(item => <Highlight key={item.id} {...item} />)} */>
             <Button link href="/pessoas#pessoas">Pessoas</Button>
             <Button link href="/pessoas#codigo-etica">Código de Ética</Button>
             <Button link href="/pessoas#canal-etica">Canal de Ética</Button>
@@ -112,7 +112,7 @@ export default function Header() {
         </div>
       </li>
       <li className="d-inline-flex d-lg-none">
-        <Button href="/contato" RightIcon={ArrowLong}>Faça uma Cotação</Button>
+        <Button href="/contato" RightIcon={ArrowLong}>Trabalhe Conosco</Button>
       </li>
     </ul>
   );

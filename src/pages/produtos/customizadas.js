@@ -25,9 +25,9 @@ export default function Custom({ custom }) {
           <Details content={custom.content} />
         </Section>
 
-        <Section mb="120 0">
+        {/* <Section mb="120 0">
           <CallToAction long content={custom.cta} />
-        </Section>
+        </Section> */}
       </main>
     </>
   )

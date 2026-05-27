@@ -27,12 +27,12 @@ export default function ISO9001({ designAI }) {
         </SimpleBanner>
 
         <Section id="destaques" pt="96 40" pb="120 40">
-          <Highlights note={designAI.imageNote } content={designAI.highlights} />
+          <Highlights note={designAI.imageNote} content={designAI.highlights} />
         </Section>
 
-        <Section id="chamada" mb="120 0">
+        {/* <Section id="chamada" mb="120 0">
           <CallToAction content={designAI.cta} />
-        </Section>
+        </Section> */}
       </main>
     </>
   )

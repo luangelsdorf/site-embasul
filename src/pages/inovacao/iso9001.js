@@ -22,9 +22,9 @@ export default function ISO9001({ iso }) {
           <Highlights content={iso.highlights} />
         </Section>
 
-        <Section id="chamada" mb="120 0">
+        {/* <Section id="chamada" mb="120 0">
           <CallToAction content={iso.cta} />
-        </Section>
+        </Section> */}
       </main>
     </>
   )

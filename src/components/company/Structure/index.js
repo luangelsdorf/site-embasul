@@ -60,9 +60,9 @@ export default function Structure({ content }) {
           ))}
         </div>
 
-        <div className={styles.cta}>
+        {/* <div className={styles.cta}>
           <CallToAction content={content.cta} />
-        </div>
+        </div> */}
       </div>
     </div>
   )

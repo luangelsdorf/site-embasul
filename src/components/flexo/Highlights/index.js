@@ -19,7 +19,7 @@ export default function Highlights({ content, design }) {
                     {(
                       i === 0 && design) && (
                         <div className={styles.tag}>
-                          <div><span>+</span>30</div>
+                          <div><span>+</span>40</div>
                           <div>Anos de Experiência</div>
                         </div>
                       )}

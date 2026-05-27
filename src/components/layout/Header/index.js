@@ -92,11 +92,11 @@ export default function Header() {
         </div>
       </li>
       <li data-dd-trigger>
-        <Button RightIcon={Caret} onClick={handleClick} href="/inovacao/design-ai" link>Inovação</Button>
+        <Button RightIcon={Caret} onClick={handleClick} href="/inovacao" link>Inovação</Button>
         <div className={styles.dropdown}>
           <DropdownMenu /* extraLinks={header.innovation.map(item => <Highlight key={item.id} {...item} />)} */>
-            <Button link href="/inovacao/design-ai">Design com AI</Button>
-            <Button link href="/inovacao/iso9001">Processos ISO 9001</Button>
+            <Button link href="/inovacao#design-com-ai">Design com AI</Button>
+            <Button link href="/inovacao#processos-iso">Processos ISO 9001</Button>
           </DropdownMenu>
         </div>
       </li>

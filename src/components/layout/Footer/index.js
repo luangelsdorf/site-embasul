@@ -100,7 +100,7 @@ export default function Footer() {
         <div className="container">
           <div className={styles.copyInner}>
             <Link href="/politica-de-privacidade">Política de Privacidade</Link>
-            <p>Todos os Direitos Reservados <span>©</span> 2024</p>
+            <p>Todos os Direitos Reservados <span>©</span> {new Date().getFullYear()}</p>
             <a href="https://abarca.net.br" target="_blank">
               <Abarca />
             </a>

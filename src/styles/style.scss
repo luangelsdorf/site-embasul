@@ -3,6 +3,8 @@
 @use "scss/typography";
 
 :root {
+  scroll-behavior: smooth;
+
   &.no-scroll {
     overflow: hidden;
   }

@@ -1,0 +1,158 @@
+@use "src/styles/scss/mixins";
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) 3fr;
+  gap: 64px;
+  align-items: start;
+
+  @include mixins.lg {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.sidebar {
+  position: sticky;
+  top: 120px;
+
+  @include mixins.lg {
+    position: static;
+  }
+}
+
+.sidebarTitle {
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--neutral--800);
+  margin: 0 0 32px;
+
+  &::after {
+    content: ".";
+    color: var(--accent--primary-1);
+  }
+
+  @include mixins.lg {
+    display: none;
+  }
+}
+
+.trigger {
+  display: none;
+
+  @include mixins.lg {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: white;
+    border: 1px solid var(--neutral--300);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--neutral--800);
+
+    svg {
+      width: 14px;
+      height: 14px;
+      transition: transform 350ms;
+    }
+  }
+}
+
+.categories {
+  display: flex;
+  flex-direction: column;
+
+  li {
+    border-bottom: 1px solid var(--neutral--300);
+
+    &:first-child {
+      border-top: 1px solid var(--neutral--300);
+    }
+
+    button {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: 0;
+      padding: 18px 0;
+      font-size: 13px;
+      line-height: 20px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--neutral--800);
+      cursor: pointer;
+      transition: color 350ms;
+
+      &:hover,
+      &.active {
+        color: var(--accent--primary-1);
+      }
+    }
+  }
+
+  @include mixins.lg {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 400ms ease;
+    border: 1px solid var(--neutral--300);
+    border-top: 0;
+    border-radius: 0 0 8px 8px;
+    margin-top: -1px;
+
+    li {
+      border-bottom: 1px solid var(--neutral--300);
+
+      &:first-child {
+        border-top: 0;
+      }
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      button {
+        padding: 14px 20px;
+      }
+    }
+  }
+}
+
+.sidebar.open {
+  .trigger {
+    border-radius: 8px 8px 0 0;
+
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  @include mixins.lg {
+    .categories {
+      max-height: 800px;
+    }
+  }
+}
+
+.content {
+  min-height: 200px;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+}
+
+.notFound {
+  text-align: center;
+  padding: 64px 0;
+  color: var(--neutral--600);
+}

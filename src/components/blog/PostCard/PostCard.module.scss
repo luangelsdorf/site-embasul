@@ -1,0 +1,90 @@
+@use "src/styles/scss/mixins";
+
+.card {
+  display: block;
+  height: 100%;
+
+  article {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &:hover {
+    .cover :global(img) {
+      transform: scale(1.04);
+    }
+
+    .title {
+      color: var(--accent--primary-1);
+    }
+  }
+}
+
+.cover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  margin-bottom: 28px;
+
+  :global(img) {
+    object-fit: cover;
+    transition: transform 500ms ease;
+  }
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--neutral--600);
+  text-transform: none;
+  font-weight: 400;
+}
+
+.category {
+  color: var(--neutral--700);
+}
+
+.date {
+  &::before {
+    content: "—";
+    margin-right: 8px;
+    color: var(--neutral--400);
+  }
+}
+
+.title {
+  font-size: 34px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--neutral--800);
+  margin: 0;
+  transition: color 350ms ease;
+  letter-spacing: -0.01em;
+
+  &::after {
+    content: none;
+  }
+
+  @include mixins.xl {
+    font-size: 30px;
+  }
+
+  @include mixins.lg {
+    font-size: 26px;
+  }
+
+  @include mixins.md {
+    font-size: 22px;
+  }
+}

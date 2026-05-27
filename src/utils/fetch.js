@@ -12,6 +12,9 @@ export default async function fetchAPI(endpoint = '', parameters = { populate: '
   result = await response.json();
 
   if (dataOnly) {
+    if (result.data == null) {
+      return null;
+    }
     if (result.data.attributes) {
       let { data: { attributes: data } } = result;
       return data;

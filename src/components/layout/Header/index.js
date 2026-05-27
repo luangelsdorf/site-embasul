@@ -20,7 +20,7 @@ export default function Header() {
   const [isStaticHeader, setIsStaticHeader] = useState(false);
 
   useEffect(() => {
-    setIsStaticHeader(router.pathname === '/empresa' || router.pathname === '/produtos/projetos' || router.pathname === '/contato' || router.pathname === '/404' || router.pathname === '/500');
+    setIsStaticHeader(router.pathname === '/empresa' || router.pathname === '/produtos/projetos' || router.pathname === '/contato' || router.pathname === '/404' || router.pathname === '/500' || router.pathname === '/blog/[slug]');
   }, [router.pathname]);
 
   useEffect(() => {

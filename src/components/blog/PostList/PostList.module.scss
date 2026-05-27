@@ -1,0 +1,87 @@
+@use "src/styles/scss/mixins";
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) 4fr;
+  gap: 64px;
+  align-items: start;
+
+  @include mixins.lg {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+.sidebar {
+  position: sticky;
+  top: 120px;
+
+  @include mixins.lg {
+    position: static;
+  }
+}
+
+.sidebarTitle {
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--neutral--800);
+  margin: 0 0 32px;
+
+  &::after {
+    content: ".";
+    color: var(--accent--primary-1);
+  }
+}
+
+.categories {
+  display: flex;
+  flex-direction: column;
+
+  li {
+    border-bottom: 1px solid var(--neutral--300);
+
+    &:first-child {
+      border-top: 1px solid var(--neutral--300);
+    }
+
+    button {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: 0;
+      padding: 18px 0;
+      font-size: 13px;
+      line-height: 20px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--neutral--800);
+      cursor: pointer;
+      transition: color 350ms;
+
+      &:hover,
+      &.active {
+        color: var(--accent--primary-1);
+      }
+    }
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 64px 40px;
+
+  @include mixins.md {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+.notFound {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 64px 0;
+  color: var(--neutral--600);
+}

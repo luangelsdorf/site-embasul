@@ -25,6 +25,21 @@
     gap: 32px;
   }
 
+  .langWrap {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+
+  .mobileLang {
+    width: 100%;
+    padding-top: 8px;
+    margin-top: 8px;
+    border-top: 1px solid var(--neutral--300);
+  }
+
   .logo {
     margin-top: -12px;
     svg {

@@ -13,14 +13,17 @@ import X from 'public/images/icons/x.svg';
 import Box from 'public/images/icons/digital-printing.svg';
 import Bars from 'public/images/icons/bars.svg';
 import { LayoutContext } from '@/utils/contexts';
+import { t } from '@/utils/translations';
+import LanguageSwitcher from '@/components/layout/LanguageSwitcher';
 
 export default function Header() {
   const { header } = useContext(LayoutContext);
   const router = useRouter();
   const [isStaticHeader, setIsStaticHeader] = useState(false);
+  const locale = router.locale;
 
   useEffect(() => {
-    setIsStaticHeader(router.pathname === '/empresa' || router.pathname === '/produtos/projetos' || router.pathname === '/contato' || router.pathname === '/404' || router.pathname === '/500' || router.pathname === '/blog/[slug]');
+    setIsStaticHeader(router.pathname === '/empresa' || router.pathname === '/produtos/projetos' || router.pathname === '/trabalhe-conosco' || router.pathname === '/404' || router.pathname === '/500' || router.pathname === '/blog/[slug]');
   }, [router.pathname]);
 
   useEffect(() => {
@@ -38,7 +41,7 @@ export default function Header() {
         header.classList.remove('active');
       }
     }
-    
+
     window.addEventListener('scroll', onScroll, { passive: true });
 
     return () => {
@@ -56,63 +59,68 @@ export default function Header() {
   const Navigation = ({ ...props }) => (
     <ul className={styles.links} {...props}>
       <li>
-        <Button href="/" link>Início</Button>
+        <Button href="/" link>{t('nav.home', locale)}</Button>
       </li>
       <li data-dd-trigger>
-        <Button RightIcon={Caret} onClick={handleClick} href="/empresa" link>Empresa</Button>
+        <Button RightIcon={Caret} onClick={handleClick} href="/empresa" link>{t('nav.company', locale)}</Button>
         <div className={styles.dropdown}>
-          <DropdownMenu /* extraLinks={header.company.map(item => <Highlight key={item.id} {...item} />)} */>
-            <Button link href="/empresa#Primeira Planta">Estrutura</Button>
-            <Button link href="/empresa#historia">Nossa História</Button>
-            <Button link href="/empresa#norteadores">Norteadores</Button>
+          <DropdownMenu extraLinks={header?.company?.map(item => <Highlight key={item.id} {...item} />)}>
+            <Button link href="/empresa#historia">{t('company.history', locale)}</Button>
+            <Button link href="/empresa#norteadores">{t('company.principles', locale)}</Button>
+            <Button link href="/empresa#Primeira Planta">{t('company.structure', locale)}</Button>
           </DropdownMenu>
         </div>
       </li>
       <li data-dd-trigger>
-        <Button RightIcon={Caret} onClick={handleClick} href="/produtos/projetos" link>Produtos</Button>
+        <Button RightIcon={Caret} onClick={handleClick} href="/produtos" link>{t('nav.products', locale)}</Button>
         <div className={styles.dropdown}>
-          <DropdownMenu /* extraLinks={header.products.map(item => <Highlight key={item.id} {...item} />)} */>
-            <Button link href="/produtos/customizadas">Customizadas</Button>
-            <Button link href="/produtos/suporte">Suporte Técnico</Button>
-            <Button link href="/produtos/design-embalagens">Design de Embalagens</Button>
-            <Button link href="/produtos/projetos">Projetos Realizados</Button>
+          <DropdownMenu extraLinks={header?.products?.map(item => <Highlight key={item.id} {...item} />)}>
+            <Button link href="/produtos#digital">{t('products.digital', locale)}</Button>
+            <Button link href="/produtos#flexo">{t('products.flexo', locale)}</Button>
+            <Button link href="/produtos#customizadas">{t('products.custom', locale)}</Button>
+            <Button link href="/produtos#suporte">{t('products.support', locale)}</Button>
+            <Button link href="/produtos#design-embalagens">{t('products.packaging', locale)}</Button>
+            <Button link href="/produtos/projetos">{t('products.projects', locale)}</Button>
           </DropdownMenu>
         </div>
       </li>
       <li data-dd-trigger>
-        <Button RightIcon={Caret} onClick={handleClick} href="/sustentabilidade" link>Sustentabilidade</Button>
+        <Button RightIcon={Caret} onClick={handleClick} href="/sustentabilidade" link>{t('nav.sustainability', locale)}</Button>
         <div className={styles.dropdown}>
-          <DropdownMenu /* extraLinks={header.sustain.map(item => <Highlight key={item.id} {...item} />)} */>
-            <Button link href="/sustentabilidade#fsc">Certificado FSC</Button>
-            <Button link href="/sustentabilidade#origem-sustentavel">Selo Origem Sustentável</Button>
-            <Button link href="/sustentabilidade#pegada-neutra">Parceria Pegada Neutra</Button>
-            <Button link href="/sustentabilidade#cts">Parceria CTS Ambiental</Button>
-            <Button link href="/sustentabilidade#politica">Política de Sustentabilidade</Button>
+          <DropdownMenu extraLinks={header?.sustain?.map(item => <Highlight key={item.id} {...item} />)}>
+            <Button link href="/sustentabilidade#fsc">{t('sustain.fsc', locale)}</Button>
+            <Button link href="/sustentabilidade#origem-sustentavel">{t('sustain.origin', locale)}</Button>
+            <Button link href="/sustentabilidade#pegada-neutra">{t('sustain.neutral', locale)}</Button>
+            <Button link href="/sustentabilidade#cts">{t('sustain.cts', locale)}</Button>
+            <Button link href="/sustentabilidade#politica">{t('sustain.policy', locale)}</Button>
           </DropdownMenu>
         </div>
       </li>
       <li data-dd-trigger>
-        <Button RightIcon={Caret} onClick={handleClick} href="/inovacao" link>Inovação</Button>
+        <Button RightIcon={Caret} onClick={handleClick} href="/inovacao" link>{t('nav.innovation', locale)}</Button>
         <div className={styles.dropdown}>
-          <DropdownMenu /* extraLinks={header.innovation.map(item => <Highlight key={item.id} {...item} />)} */>
-            <Button link href="/inovacao#design-com-ai">Design com AI</Button>
-            <Button link href="/inovacao#processos-iso">Processos ISO 9001</Button>
+          <DropdownMenu extraLinks={header?.innovation?.map(item => <Highlight key={item.id} {...item} />)}>
+            <Button link href="/inovacao#design-ai">{t('innovation.ai', locale)}</Button>
+            <Button link href="/inovacao#iso9001">{t('innovation.iso', locale)}</Button>
           </DropdownMenu>
         </div>
       </li>
       <li data-dd-trigger>
-        <Button RightIcon={Caret} onClick={handleClick} href="/pessoas" link>Pessoas</Button>
+        <Button RightIcon={Caret} onClick={handleClick} href="/pessoas" link>{t('nav.people', locale)}</Button>
         <div className={styles.dropdown}>
-          <DropdownMenu /* extraLinks={header.people.map(item => <Highlight key={item.id} {...item} />)} */>
-            <Button link href="/pessoas#pessoas">Pessoas</Button>
-            <Button link href="/pessoas#codigo-etica">Código de Ética</Button>
-            <Button link href="/pessoas#canal-etica">Canal de Ética</Button>
-            <Button link href="/pessoas#trabalhe-conosco">Trabalhe Conosco</Button>
+          <DropdownMenu extraLinks={header?.people?.map(item => <Highlight key={item.id} {...item} />)}>
+            <Button link href="/pessoas#pessoas">{t('people.people', locale)}</Button>
+            <Button link href="/pessoas#codigo-etica">{t('people.ethics', locale)}</Button>
+            <Button link href="/pessoas#canal-etica">{t('people.channel', locale)}</Button>
+            <Button link href="/pessoas#trabalhe-conosco">{t('people.careers', locale)}</Button>
           </DropdownMenu>
         </div>
       </li>
       <li className="d-inline-flex d-lg-none">
-        <Button href="/contato" RightIcon={ArrowLong}>Trabalhe Conosco</Button>
+        <Button href="/trabalhe-conosco" RightIcon={ArrowLong}>{t('nav.workWithUs', locale)}</Button>
+      </li>
+      <li className={`d-block d-lg-none ${styles.mobileLang}`}>
+        <LanguageSwitcher expanded />
       </li>
     </ul>
   );
@@ -127,8 +135,8 @@ export default function Header() {
 
         <Navigation data-desktop />
 
-        <Button href="/contato" className="small d-none d-lg-inline-flex" RightIcon={ArrowLong}>Faça uma Cotação</Button>
-        <Button href="/contato" className="small d-inline-flex d-lg-none btn-circle-primary">
+        <Button href="/trabalhe-conosco" className="small d-none d-lg-inline-flex" RightIcon={ArrowLong}>{t('nav.workWithUs', locale)}</Button>
+        <Button href="/trabalhe-conosco" className="small d-inline-flex d-lg-none btn-circle-primary">
           <Box width="24" height="24" />
         </Button>
 
@@ -147,6 +155,10 @@ export default function Header() {
             <Navigation />
           </Collapse.Content>
         </Collapse>
+      </div>
+
+      <div className={`${styles.langWrap} d-none d-lg-flex`}>
+        <LanguageSwitcher />
       </div>
     </header>
   )

@@ -35,9 +35,9 @@ export default function People({ people }) {
   )
 }
 
-export async function getStaticProps() {
-  const people = await fetchAPI('people');
-  const layout = await getLayoutContent();
+export async function getStaticProps({ locale }) {
+  const people = await fetchAPI('people', { locale });
+  const layout = await getLayoutContent(locale);
 
   return {
     props: {

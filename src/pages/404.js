@@ -28,8 +28,8 @@ export default function NotFound() {
   )
 }
 
-export async function getStaticProps() {
-  const layout = await getLayoutContent();
+export async function getStaticProps({ locale }) {
+  const layout = await getLayoutContent(locale);
 
   return {
     props: { layout }

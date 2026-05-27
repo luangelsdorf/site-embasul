@@ -1,0 +1,148 @@
+@use "src/styles/scss/mixins";
+
+.switcher {
+  position: relative;
+  display: inline-flex;
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  color: white;
+  transition: background-color 350ms ease, border-color 350ms ease, color 350ms ease;
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .caret {
+    width: 10px;
+    height: 10px;
+    transition: transform 350ms ease;
+  }
+}
+
+:global(#header.active) .trigger {
+  color: var(--neutral--800);
+
+  &:hover {
+    border-color: var(--neutral--300);
+  }
+}
+
+.flag {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 50;
+  min-width: 180px;
+  margin: 0;
+  padding: 8px 0;
+  list-style: none;
+  background-color: white;
+  border: 1px solid var(--neutral--300);
+  border-radius: 8px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.12);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 250ms ease, transform 250ms ease, visibility 0s linear 250ms;
+
+  li {
+    display: block;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: 500;
+    color: var(--neutral--800);
+    text-transform: none;
+    transition: background-color 350ms ease, color 350ms ease;
+
+    &:hover {
+      background-color: var(--neutral--200);
+    }
+
+    &.active {
+      color: var(--accent--primary-1);
+      font-weight: 600;
+    }
+
+    .flag {
+      font-size: 18px;
+    }
+  }
+}
+
+.switcher.open {
+  .trigger {
+    border-color: rgba(255, 255, 255, 0.4);
+
+    .caret {
+      transform: rotate(180deg);
+    }
+  }
+
+  .menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity 250ms ease, transform 250ms ease, visibility 0s;
+  }
+}
+
+:global(#header.active) .switcher.open .trigger {
+  border-color: var(--neutral--300);
+}
+
+.expanded {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  li {
+    width: 100%;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    font-size: 15px;
+    line-height: 1.2;
+    font-weight: 500;
+    color: var(--neutral--800);
+    text-transform: none;
+    transition: color 350ms ease;
+
+    .flag {
+      font-size: 20px;
+    }
+
+    &.active {
+      color: var(--accent--primary-1);
+      font-weight: 600;
+    }
+  }
+}

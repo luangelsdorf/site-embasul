@@ -9,9 +9,12 @@ import { toFormatted } from '@/utils/helpers';
 import Reveal from 'react-awesome-reveal';
 import { slideUp } from '@/utils/animation';
 
-export default function Form({ content, resume, contact }) {
+export default function Form({ content, resume, showInfo = true }) {
   const { footer } = useContext(LayoutContext);
   const { register, handleSubmit } = useForm();
+
+  const email = content?.hrEmail || footer.email;
+  const phone = content?.hrPhone || footer.phone;
 
   function readFile(file) {
     return new Promise((resolve, reject) => {
@@ -58,37 +61,37 @@ export default function Form({ content, resume, contact }) {
     <div className={styles.section}>
       <Reveal triggerOnce keyframes={slideUp} duration={500} className="container">
         <div className="row justify-content-center">
-          {
-            !resume && (
-              <div className="col-12 col-lg-6" style={{ backgroundColor: 'var(--neutral--200)' }}>
-                <div className={styles.textContent}>
-                  <header>
-                    <p className="overline">{content.headline.overline}</p>
-                    <h1 className="display-2">{content.headline.title}</h1>
-                  </header>
-                  <p>{toFormatted(content.text)}</p>
-                  <address>
-                    <div className={styles.contact}>
-                      <div>
-                        <span className="d-block">Email</span>
-                        <a href={`mailto:${footer.email}`}>{footer.email}</a>
-                      </div>
-                      <div>
-                        <span className="d-block">Telefone</span>
-                        <a href={`tel:${footer.phone}`}>{footer.phone}</a>
-                      </div>
+          {showInfo && (
+            <div className="col-12 col-lg-6" style={{ backgroundColor: 'var(--neutral--200)' }}>
+              <div className={styles.textContent}>
+                <header>
+                  <p className="overline">{content.headline.overline}</p>
+                  <h1 className="display-2">{content.headline.title}</h1>
+                </header>
+                <p>{toFormatted(content.text)}</p>
+                <address>
+                  <div className={styles.contact}>
+                    <div>
+                      <span className="d-block">Email</span>
+                      <a href={`mailto:${email}`}>{email}</a>
                     </div>
-                    <div className={styles.addr}>
-                      <span className="d-block">Endereço</span>
-                      <p>{footer.address}</p>
+                    <div>
+                      <span className="d-block">Telefone</span>
+                      <a href={`tel:${phone}`}>{phone}</a>
                     </div>
-                  </address>
+                  </div>
+                  <div className={styles.addr}>
+                    <span className="d-block">Endereço</span>
+                    <p>{footer.address}</p>
+                  </div>
+                </address>
+                {content.button && (
                   <Button RightIcon={Arrow} link href={content.button.url} target="_blank">{content.button.text}</Button>
-                </div>
+                )}
               </div>
-            )
-          }
-          <div className={resume ? 'col-12 col-md-8 col-xxl-6' : 'col-12 col-lg-6'} style={{ backgroundColor: 'var(--secondary--color-1)' }}>
+            </div>
+          )}
+          <div className="col-12 col-lg-6" style={{ backgroundColor: 'var(--secondary--color-1)' }}>
             <div className={`${styles.form}`}>
               <form onSubmit={handleSubmit(onSubmit, onError)}>
                 <div>
@@ -142,8 +145,8 @@ export default function Form({ content, resume, contact }) {
                   <textarea {...register('message', { required: true })} className="text-area light w-input" placeholder="Mensagem" id="message" />
                 </div>
                 <Button style={{ cursor: 'pointer' }} RightIcon={ArrowLong} className="btn-primary bg-white-hover" btnElement type="submit">{content.sendBtnLabel}</Button>
-                <input type="hidden" value={contact.recipientEmail1} {...register('recipients.0')} />
-                <input type="hidden" value={contact.recipientEmail2} {...register('recipients.1')} />
+                {content?.recipientEmail1 && <input type="hidden" value={content.recipientEmail1} {...register('recipients.0')} />}
+                {content?.recipientEmail2 && <input type="hidden" value={content.recipientEmail2} {...register('recipients.1')} />}
               </form>
             </div>
           </div>

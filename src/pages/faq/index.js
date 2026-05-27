@@ -28,10 +28,10 @@ export default function Faq({ items, categories }) {
   );
 }
 
-export async function getStaticProps() {
-  const items = await fetchAPI('faq-items', { populate: 'deep', sort: 'order:asc' });
-  const categories = await fetchAPI('faq-categories', { populate: false });
-  const layout = await getLayoutContent();
+export async function getStaticProps({ locale }) {
+  const items = await fetchAPI('faq-items', { populate: 'deep', sort: 'order:asc', locale });
+  const categories = await fetchAPI('faq-categories', { populate: false, locale });
+  const layout = await getLayoutContent(locale);
 
   return {
     props: {

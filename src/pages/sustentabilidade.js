@@ -30,9 +30,9 @@ export default function Sustainability({ sustain }) {
   )
 }
 
-export async function getStaticProps() {
-  const sustain = await fetchAPI('sustainability');
-  const layout = await getLayoutContent();
+export async function getStaticProps({ locale }) {
+  const sustain = await fetchAPI('sustainability', { locale });
+  const layout = await getLayoutContent(locale);
 
   return {
     props: {

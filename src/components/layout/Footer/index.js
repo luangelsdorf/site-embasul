@@ -34,8 +34,8 @@ export default function Footer() {
                       <Mail />
                     </div>
                     <div>
-                      <span>Preencha nosso</span>
-                      <Button link RightIcon={Arrow} href="/contato?persist=true" as="/contato">Formulário de Contato</Button>
+                      <span>Envie pelo nosso</span>
+                      <Button link RightIcon={Arrow} href="/trabalhe-conosco">Formulário de Candidatura</Button>
                     </div>
                   </div>
                   <div className={styles.contactButton} onClick={e => e.currentTarget.querySelector('a').click()}>
@@ -43,7 +43,7 @@ export default function Footer() {
                       <Phone />
                     </div>
                     <div>
-                      <span>Ligue para</span>
+                      <span>Fale com o RH</span>
                       <Button link RightIcon={Arrow} href={`tel:${content.footer.phone.replaceAll(' ', '')}`}>{content.footer.phone}</Button>
                     </div>
                   </div>
@@ -100,7 +100,7 @@ export default function Footer() {
         <div className="container">
           <div className={styles.copyInner}>
             <Link href="/politica-de-privacidade">Política de Privacidade</Link>
-            <p>Todos os Direitos Reservados <span>©</span> 2024</p>
+            <p>Todos os Direitos Reservados <span>©</span> {new Date().getFullYear()}</p>
             <a href="https://abarca.net.br" target="_blank">
               <Abarca />
             </a>

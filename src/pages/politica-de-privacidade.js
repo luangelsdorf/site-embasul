@@ -32,9 +32,9 @@ export default function PrivacyPolicy({ policy }) {
   )
 }
 
-export async function getStaticProps() {
-  const policy = await fetchAPI('politica-de-privacidade');
-  const layout = await getLayoutContent();
+export async function getStaticProps({ locale }) {
+  const policy = await fetchAPI('politica-de-privacidade', { locale });
+  const layout = await getLayoutContent(locale);
 
   return {
     props: {

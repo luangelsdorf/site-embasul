@@ -16,13 +16,6 @@ export default function Highlights({ content, design }) {
                 <Reveal triggerOnce keyframes={slideUp} duration={500} fraction={0.5}>
                   <div className={styles.image}>
                     <Img {...item.icon} />
-                    {(
-                      i === 0 && design) && (
-                        <div className={styles.tag}>
-                          <div><span>+</span>40</div>
-                          <div>Anos de Experiência</div>
-                        </div>
-                      )}
                   </div>
                 </Reveal>
               </div>

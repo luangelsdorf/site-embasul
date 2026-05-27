@@ -41,19 +41,15 @@ export default function Post({ post, related }) {
 }
 
 export async function getStaticPaths() {
-  const posts = await fetchAPI('posts', { populate: false });
-
   return {
-    paths: posts.map(p => ({ params: { slug: p.attributes.slug } })),
+    paths: [],
     fallback: 'blocking',
   };
 }
 
-export async function getStaticProps({ params }) {
-  const matches = await fetchAPI('posts', {
-    'filters[slug][$eq]': params.slug,
-    populate: 'deep',
-  });
+export async function getStaticProps({ params, locale }) {
+  const matches = await fetchAPI('posts', { 'filters[slug][$eq]': params.slug,
+    populate: 'deep', locale });
 
   const postEntity = matches?.[0];
   const post = postEntity?.attributes ?? null;
@@ -66,27 +62,23 @@ export async function getStaticProps({ params }) {
   const categorySlug = post.category?.data?.attributes?.slug;
 
   if (categorySlug) {
-    const sameCategory = await fetchAPI('posts', {
-      'filters[category][slug][$eq]': categorySlug,
+    const sameCategory = await fetchAPI('posts', { 'filters[category][slug][$eq]': categorySlug,
       sort: 'publishedDate:desc',
       'pagination[limit]': 4,
-      populate: 'deep',
-    });
+      populate: 'deep', locale });
     related = (sameCategory || []).filter(p => p.attributes.slug !== params.slug).slice(0, 3);
   }
 
   if (related.length < 3) {
     const knownSlugs = new Set([params.slug, ...related.map(r => r.attributes.slug)]);
-    const latest = await fetchAPI('posts', {
-      sort: 'publishedDate:desc',
+    const latest = await fetchAPI('posts', { sort: 'publishedDate:desc',
       'pagination[limit]': 6,
-      populate: 'deep',
-    });
+      populate: 'deep', locale });
     const fillers = (latest || []).filter(p => !knownSlugs.has(p.attributes.slug)).slice(0, 3 - related.length);
     related = [...related, ...fillers];
   }
 
-  const layout = await getLayoutContent();
+  const layout = await getLayoutContent(locale);
 
   return {
     props: {

@@ -32,11 +32,11 @@ export default function Blog({ blogPage, posts, categories }) {
   );
 }
 
-export async function getStaticProps() {
-  const posts = await fetchAPI('posts', { populate: 'deep', sort: 'publishedDate:desc' });
-  const categories = await fetchAPI('post-categories', { populate: false });
-  const blogPage = await fetchAPI('blog-page', { populate: 'deep' });
-  const layout = await getLayoutContent();
+export async function getStaticProps({ locale }) {
+  const posts = await fetchAPI('posts', { populate: 'deep', sort: 'publishedDate:desc', locale });
+  const categories = await fetchAPI('post-categories', { populate: false, locale });
+  const blogPage = await fetchAPI('blog-page', { populate: 'deep', locale });
+  const layout = await getLayoutContent(locale);
 
   return {
     props: {

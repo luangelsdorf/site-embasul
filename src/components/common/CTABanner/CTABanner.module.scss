@@ -3,7 +3,10 @@
 .section {
   position: relative;
   color: white;
-  padding-top: 192px;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  padding: 140px 0 96px;
   overflow: hidden;
 
   & > img {
@@ -21,25 +24,41 @@
     background-image: linear-gradient(180deg, rgba(7, 7, 7, 0) 0%, rgb(7, 7, 7, 0.6) 100%);
     background-color: rgb(7, 7, 7, 0.6);
   }
+
+  & > :global(.container) {
+    width: 100%;
+  }
+
+  @include mixins.lg {
+    min-height: 480px;
+    padding: 120px 0 80px;
+  }
 }
 
 .mainContent {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  justify-content: space-between;
+  gap: 24px;
 
   h1 {
     color: white;
+    margin-bottom: 0;
   }
 
   p {
-    margin-bottom: 64px;
+    margin-bottom: 0;
+    max-width: 70%;
   }
 
   @include mixins.lg {
+    gap: 16px;
+
     h1 {
-      margin-bottom: 24px;
+      margin-bottom: 0;
+    }
+
+    p {
+      max-width: none;
     }
   }
 }

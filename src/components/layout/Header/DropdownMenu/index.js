@@ -13,7 +13,7 @@ export default function DropdownMenu({ children, extraLinks }) {
         }
       </ul>
       {
-        extraLinks && (
+        extraLinks?.length > 0 && (
           <div className={styles.extraLinks}>
             {
               extraLinks.map((link, i) => (

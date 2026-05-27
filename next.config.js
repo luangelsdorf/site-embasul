@@ -2,6 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  i18n: {
+    locales: ['pt-BR', 'en', 'es'],
+    defaultLocale: 'pt-BR',
+    localeDetection: true,
+  },
   images: {
     remotePatterns: [
       {
@@ -24,6 +29,11 @@ const nextConfig = {
         source: '/admin',
         destination: 'https://embasul.com/admin/',
         permanent: true,
+      },
+      {
+        source: '/contato',
+        destination: '/trabalhe-conosco',
+        permanent: false,
       },
     ]
   },

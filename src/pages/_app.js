@@ -66,9 +66,9 @@ export default function App({ Component, pageProps }) {
 
   return (
     <LayoutContext.Provider value={pageProps.layout}>
-      {router.pathname !== '/trabalhe-conosco' && <Header videoLink={pageProps.videoLink} />}
+      <Header videoLink={pageProps.videoLink} />
       <Component {...pageProps} />
-      {(pageProps.layout && router.pathname !== '/trabalhe-conosco') && <Footer />}
+      {pageProps.layout && <Footer />}
       <Cookies />
     </LayoutContext.Provider>
   )

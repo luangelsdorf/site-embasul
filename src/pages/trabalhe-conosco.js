@@ -1,9 +1,11 @@
-import ResumeForm from '@/components/contact/ResumeForm'
-import fetchAPI, { getLayoutContent } from '@/utils/fetch';
-import Head from 'next/head';
-import React from 'react'
+import CallToAction from '@/components/common/CallToAction'
+import Section from '@/components/common/Section'
+import Banner from '@/components/contact/Banner'
+import Form from '@/components/contact/Form'
+import fetchAPI, { getLayoutContent } from '@/utils/fetch'
+import Head from 'next/head'
 
-export default function WorkWithUs({ contact }) {
+export default function TrabalheConosco({ contact }) {
   return (
     <>
       <Head>
@@ -11,15 +13,25 @@ export default function WorkWithUs({ contact }) {
       </Head>
 
       <main>
-        <ResumeForm content={contact} contact={contact} />
+        <Section id="inicio">
+          <Banner />
+        </Section>
+
+        <Section id="form">
+          <Form resume showInfo content={contact} />
+        </Section>
+
+        <Section pt="120 0" pb="120 0">
+          <CallToAction content={contact.cta} contact />
+        </Section>
       </main>
     </>
   )
 }
 
-export async function getStaticProps() {
-  const contact = await fetchAPI('contact');
-  const layout = await getLayoutContent();
+export async function getStaticProps({ locale }) {
+  const contact = await fetchAPI('contact', { locale });
+  const layout = await getLayoutContent(locale);
 
   return {
     props: {

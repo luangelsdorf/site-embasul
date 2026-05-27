@@ -8,10 +8,8 @@ import { slideUp } from '@/utils/animation';
 
 export default function Details({ content }) {
 
-  const sizes = [
-    getSizesString('col-12 col-md-6'),
-    "(max-width: 768px) 75vw, 25vw"
-  ]
+  const sizes = getSizesString('col-12 col-md-6');
+  const [mainImage] = content.collage;
 
   return (
     <div className={styles.section}>
@@ -19,7 +17,7 @@ export default function Details({ content }) {
         <div className="row gy-5 gy-lg-0">
           <Reveal triggerOnce keyframes={slideUp} duration={500} fraction={0.5} className="col-12 col-lg-6">
             <div className={styles.collage}>
-              {content.collage.map((image, i) => <Img sizes={sizes[i]} key={image.id} {...image.image} alt="" />)}
+              {mainImage && <Img sizes={sizes} {...mainImage.image} alt="" />}
             </div>
           </Reveal>
           <Reveal triggerOnce keyframes={slideUp} duration={500} fraction={0.5} delay={300} className="col-12 col-lg-5 offset-lg-1">

@@ -31,9 +31,9 @@ export default function Company({ company }) {
   )
 }
 
-export async function getStaticProps() {
-  const company = await fetchAPI('company');
-  const layout = await getLayoutContent();
+export async function getStaticProps({ locale }) {
+  const company = await fetchAPI('company', { locale });
+  const layout = await getLayoutContent(locale);
 
   return {
     props: {

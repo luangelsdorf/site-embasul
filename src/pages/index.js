@@ -41,10 +41,10 @@ export default function Home({ home, portfolio, }) {
   )
 }
 
-export async function getStaticProps() {
-  const home = await fetchAPI('home');
-  const portfolio = await fetchAPI('portfolio', { populate: '*' });
-  const layout = await getLayoutContent();
+export async function getStaticProps({ locale }) {
+  const home = await fetchAPI('home', { locale });
+  const portfolio = await fetchAPI('portfolio', { populate: '*', locale });
+  const layout = await getLayoutContent(locale);
 
   return {
     props: {

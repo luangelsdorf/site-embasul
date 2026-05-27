@@ -5,10 +5,16 @@
   width: 100%;
   align-items: flex-end;
   overflow: hidden;
+  cursor: pointer;
 
   &:hover {
     img {
       transform: scale(1.08);
+    }
+
+    .playBadge {
+      background-color: var(--accent--primary-1);
+      transform: translate(-50%, -50%) scale(1.05);
     }
   }
 
@@ -38,29 +44,33 @@
     span {
       white-space: break-spaces;
     }
-
-    svg {
-      display: inline-block;
-      margin-left: 8px;
-    }
   }
+}
 
-  @include mixins.lg {
-    height: auto;
+.playBadge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.92);
+  color: var(--secondary--color-1);
+  transform: translate(-50%, -50%);
+  transition: background-color 350ms ease, color 350ms ease, transform 350ms ease;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
 
-    &::before {
-      content: none;
-    }
-
-    p {
-      color: var(--secondary--color-1);
-      font-size: 12px;
-      line-height: auto;
-      font-weight: 500;
-    }
-
-    img {
-      display: none;
-    }
+  svg {
+    width: 18px;
+    height: 18px;
+    margin-left: 2px;
   }
+}
+
+.highlight:hover .playBadge {
+  color: white;
 }

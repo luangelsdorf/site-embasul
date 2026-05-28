@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import X from 'public/images/icons/x.svg';
+import Arrow from 'public/images/icons/arrow-short.svg';
 import { apiURL } from '@/utils/env';
 import { getExcerpt } from '@/utils/helpers';
 import styles from './ProjectModal.module.scss';
@@ -15,23 +16,57 @@ export default function ProjectModal({ open, project, onClose }) {
   const mainImage = images[activeIndex];
   const categoryName = project?.categories?.data?.[0]?.attributes?.name;
   const description = getExcerpt(project?.text ?? '', 28);
+  const hasMultiple = images.length > 1;
 
   useEffect(() => {
     const dialog = dialogRef.current;
     if (!dialog) return;
-    if (open && !dialog.open) {
-      dialog.showModal();
+
+    function lock() {
+      const scrollbarComp = window.innerWidth - document.documentElement.clientWidth;
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+      if (scrollbarComp > 0) document.body.style.paddingRight = `${scrollbarComp}px`;
       document.documentElement.classList.add('no-scroll');
-    } else if (!open && dialog.open) {
-      dialog.close();
+    }
+
+    function unlock() {
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
       document.documentElement.classList.remove('no-scroll');
     }
-    return () => document.documentElement.classList.remove('no-scroll');
+
+    if (open && !dialog.open) {
+      dialog.showModal();
+      lock();
+    } else if (!open && dialog.open) {
+      dialog.close();
+      unlock();
+    }
+    return unlock;
   }, [open]);
 
   useEffect(() => {
     if (open) setActiveIndex(0);
   }, [open, project?.slug]);
+
+  useEffect(() => {
+    if (!open || !hasMultiple) return;
+    function handleKey(e) {
+      if (e.key === 'ArrowLeft') setActiveIndex(i => (i - 1 + images.length) % images.length);
+      if (e.key === 'ArrowRight') setActiveIndex(i => (i + 1) % images.length);
+    }
+    document.addEventListener('keydown', handleKey);
+    return () => document.removeEventListener('keydown', handleKey);
+  }, [open, hasMultiple, images.length]);
+
+  function prev() {
+    setActiveIndex(i => (i - 1 + images.length) % images.length);
+  }
+  function next() {
+    setActiveIndex(i => (i + 1) % images.length);
+  }
 
   function handleBackdropClick(e) {
     if (e.target === dialogRef.current) onClose?.();
@@ -58,37 +93,49 @@ export default function ProjectModal({ open, project, onClose }) {
 
         <div className={styles.body}>
           <div className={styles.imagery}>
-            <div className={styles.mainImage}>
-              {mainImage && (
-                <Image
-                  src={apiURL + mainImage.attributes.url}
-                  alt={mainImage.attributes.alternativeText ?? project.title}
-                  fill
-                  sizes="(max-width: 992px) 100vw, 50vw"
-                />
-              )}
-            </div>
+            {mainImage && (
+              <Image
+                key={mainImage.id}
+                src={apiURL + mainImage.attributes.url}
+                alt={mainImage.attributes.alternativeText ?? project.title}
+                fill
+                sizes="(max-width: 992px) 100vw, 70vw"
+                className={styles.mainImage}
+                priority
+              />
+            )}
 
-            {images.length > 1 && (
-              <ul className={styles.thumbnails}>
-                {images.map((img, i) => (
-                  <li key={img.id}>
+            {hasMultiple && (
+              <>
+                <button
+                  type="button"
+                  className={`${styles.nav} ${styles.prev}`}
+                  onClick={prev}
+                  aria-label="Imagem anterior"
+                >
+                  <Arrow />
+                </button>
+                <button
+                  type="button"
+                  className={`${styles.nav} ${styles.next}`}
+                  onClick={next}
+                  aria-label="Próxima imagem"
+                >
+                  <Arrow />
+                </button>
+
+                <div className={styles.indicator} aria-hidden>
+                  {images.map((img, i) => (
                     <button
+                      key={img.id}
                       type="button"
-                      className={`${styles.thumbnail} ${i === activeIndex ? styles.active : ''}`}
+                      className={`${styles.dot} ${i === activeIndex ? styles.activeDot : ''}`}
                       onClick={() => setActiveIndex(i)}
                       aria-label={`Imagem ${i + 1}`}
-                    >
-                      <Image
-                        src={apiURL + img.attributes.url}
-                        alt=""
-                        width={120}
-                        height={90}
-                      />
-                    </button>
-                  </li>
-                ))}
-              </ul>
+                    />
+                  ))}
+                </div>
+              </>
             )}
           </div>
 

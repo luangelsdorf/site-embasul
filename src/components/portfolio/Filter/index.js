@@ -4,14 +4,16 @@ import { useState } from 'react';
 import ProjectCard from '../ProjectCard';
 
 export default function Filter({ content, categories, portfolio }) {
+  const safePortfolio = portfolio ?? [];
+  const safeCategories = categories ?? [];
 
   const chunkSize = 4;
   const splitCategories = [];
-  for (let i = 0; i < categories.length; i += chunkSize) {
-    splitCategories.push(categories.slice(i, i + (i === 0 ? chunkSize - 1 : chunkSize)));
+  for (let i = 0; i < safeCategories.length; i += chunkSize) {
+    splitCategories.push(safeCategories.slice(i, i + (i === 0 ? chunkSize - 1 : chunkSize)));
   }
 
-  const [list, setList] = useState(portfolio);
+  const [list, setList] = useState(safePortfolio);
 
   function handleClick(e) {
     let { value } = e.currentTarget.dataset;
@@ -20,11 +22,11 @@ export default function Filter({ content, categories, portfolio }) {
     e.currentTarget.classList.add('active');
 
     if (value === 'all') {
-      setList(portfolio);
+      setList(safePortfolio);
       return;
     }
 
-    let newList = portfolio.filter(item => item.attributes.categories.data.some(cat => cat.attributes.slug === value));
+    let newList = safePortfolio.filter(item => item.attributes.categories.data.some(cat => cat.attributes.slug === value));
     setList(newList);
   }
 

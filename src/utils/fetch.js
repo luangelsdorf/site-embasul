@@ -22,7 +22,8 @@ function isEmpty(result) {
 }
 
 export default async function fetchAPI(endpoint = '', parameters = {}, dataOnly = true) {
-  if (parameters.populate === undefined) {
+  const hasPopulate = Object.keys(parameters).some(k => k === 'populate' || k.startsWith('populate['));
+  if (!hasPopulate) {
     parameters = { populate: 'deep', ...parameters };
   }
   if (parameters.populate === false || parameters.populate === null) delete parameters.populate;

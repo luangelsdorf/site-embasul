@@ -24,7 +24,7 @@ export default function Projects({ projects, portfolio, categories }) {
 
 export async function getStaticProps({ locale }) {
   const projects = await fetchAPI('project', { locale });
-  const portfolio = await fetchAPI('portfolio', { 'populate[1]': 'cover', 'populate[2]': 'categories', 'populate[3]': 'gallery', locale });
+  const portfolio = await fetchAPI('portfolio', { populate: 'deep', locale });
   const categories = await fetchAPI('project-categories', { populate: false, locale });
   const layout = await getLayoutContent(locale);
 

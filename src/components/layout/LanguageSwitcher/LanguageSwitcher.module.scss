@@ -37,8 +37,21 @@
 }
 
 .flag {
+  display: inline-block;
+  width: 24px;
   font-size: 20px;
   line-height: 1;
+  text-align: center;
+  font-family: 'Twemoji Country Flags', 'Apple Color Emoji', 'Segoe UI Emoji', system-ui, sans-serif;
+}
+
+.trigger .flag {
+  width: 24px;
+}
+
+.menu .flag,
+.expanded .flag {
+  width: 22px;
 }
 
 .menu {

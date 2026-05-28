@@ -15,10 +15,10 @@ export default function Banner({ content }) {
       <div className="container">
         <div className="row">
           <div className="col-12 col-lg-7 col-xl-6">
-            {content.cover.data.attributes.mime.includes('video') && (
+            {content.cover?.data?.attributes?.mime?.includes('video') && (
               <video onLoadedData={animateBanner} src={apiURL + content.cover.data.attributes.url} autoPlay muted loop controls={false} />
             )}
-            {content.cover.data.attributes.mime.includes('image') && (
+            {content.cover?.data?.attributes?.mime?.includes('image') && (
               <Img style={{ opacity: 0 }} onLoad={animateBanner} fill sizes={getSizesString('col-12 col-lg-12')} {...content.cover} />
             )}
             <Reveal triggerOnce keyframes={slideUp} duration={500} delay={300} cascade damping={0.2}>

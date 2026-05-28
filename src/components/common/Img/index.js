@@ -1,7 +1,10 @@
 import Image from 'next/image';
 import { apiURL } from 'src/utils/env';
 
-export default function Img({ data: { attributes: props }, fill, sizes, ...rest }) {
+export default function Img({ data, fill, sizes, ...rest }) {
+  if (!data?.attributes) return null;
+  const props = data.attributes;
+
   return (
     <Image
       src={apiURL + props.url}

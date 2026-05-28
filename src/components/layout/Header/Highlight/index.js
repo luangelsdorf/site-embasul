@@ -10,7 +10,9 @@ export default function Highlight({ url, cover, title }) {
   return (
     <LightGallery download={false} mode="lg-fade" plugins={[lgVideo]}>
       <a className={`${styles.highlight} wrapper`} href={url} data-src={url}>
-        <Image fill sizes={getSizesString('col-12 col-md-3')} alt="" src={apiURL + cover.data.attributes.url} />
+        {cover?.data?.attributes?.url && (
+          <Image fill sizes={getSizesString('col-12 col-md-3')} alt="" src={apiURL + cover.data.attributes.url} />
+        )}
         <span className={styles.playBadge} aria-hidden>
           <Play />
         </span>

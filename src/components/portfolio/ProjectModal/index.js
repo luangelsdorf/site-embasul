@@ -142,7 +142,7 @@ export default function ProjectModal({ open, project, onClose }) {
           <div className={styles.info}>
             {categoryName && <span className={styles.category}>{categoryName}</span>}
             <h2 className={`display-2 no-period ${styles.title}`}>{project.title}</h2>
-            {description && <p className={styles.description}>{description}</p>}
+            {description && <div className={styles.description} dangerouslySetInnerHTML={{ __html: description }} />}
           </div>
         </div>
       </div>

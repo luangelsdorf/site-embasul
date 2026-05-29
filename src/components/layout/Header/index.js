@@ -65,9 +65,9 @@ export default function Header() {
         <Button RightIcon={Caret} onClick={handleClick} href="/empresa" link>{t('nav.company', locale)}</Button>
         <div className={styles.dropdown}>
           <DropdownMenu extraLinks={header?.company?.map(item => <Highlight key={item.id} {...item} />)}>
+            <Button link href="/empresa#Primeira Planta">{t('company.structure', locale)}</Button>
             <Button link href="/empresa#historia">{t('company.history', locale)}</Button>
             <Button link href="/empresa#norteadores">{t('company.principles', locale)}</Button>
-            <Button link href="/empresa#Primeira Planta">{t('company.structure', locale)}</Button>
           </DropdownMenu>
         </div>
       </li>

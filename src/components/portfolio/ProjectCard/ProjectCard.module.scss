@@ -36,6 +36,7 @@
     img {
       z-index: -1;
       transition: 350ms;
+      object-fit: cover;
     }
     & > div {
       position: absolute;

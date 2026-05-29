@@ -28,7 +28,7 @@
 
   @include mixins.lg {
     flex-direction: column;
-    height: auto;
+    height: 100%;
     width: 100%;
     max-width: none;
     max-height: calc(100vh - 32px);
@@ -88,13 +88,18 @@
   @include mixins.lg {
     width: 100%;
     height: auto;
-    aspect-ratio: 4 / 3;
+    flex-grow: 1;
+    aspect-ratio: auto;
   }
 }
 
 .mainImage {
   object-fit: cover !important;
   object-position: center !important;
+
+  @include mixins.lg {
+    object-fit: contain !important;
+  }
 }
 
 .nav {
@@ -190,6 +195,8 @@
   @include mixins.lg {
     width: 100%;
     padding: 24px 20px;
+    align-items: center;
+    text-align: center;
   }
 }
 
@@ -204,6 +211,10 @@
   letter-spacing: 0.08em;
   color: var(--accent--primary-1);
   background-color: rgba(0, 108, 204, 0.08);
+
+  @include mixins.lg {
+    align-self: center;
+  }
 }
 
 .title {

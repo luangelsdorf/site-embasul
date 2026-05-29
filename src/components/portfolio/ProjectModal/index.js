@@ -3,7 +3,7 @@ import Image from 'next/image';
 import X from 'public/images/icons/x.svg';
 import Arrow from 'public/images/icons/arrow-short.svg';
 import { apiURL } from '@/utils/env';
-import { getExcerpt } from '@/utils/helpers';
+
 import styles from './ProjectModal.module.scss';
 
 export default function ProjectModal({ open, project, onClose }) {
@@ -15,7 +15,7 @@ export default function ProjectModal({ open, project, onClose }) {
   const images = cover ? [cover, ...galleryItems] : galleryItems;
   const mainImage = images[activeIndex];
   const categoryName = project?.categories?.data?.[0]?.attributes?.name;
-  const description = getExcerpt(project?.text ?? '', 28);
+  const description = project?.text;
   const hasMultiple = images.length > 1;
 
   useEffect(() => {

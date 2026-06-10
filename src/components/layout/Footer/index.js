@@ -34,7 +34,7 @@ export default function Footer() {
                       <Mail />
                     </div>
                     <div>
-                      <span>Envie pelo nosso</span>
+                      <span>Preencha nosso</span>
                       <Button link RightIcon={Arrow} href="/trabalhe-conosco">Formulário de Candidatura</Button>
                     </div>
                   </div>

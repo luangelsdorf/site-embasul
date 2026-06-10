@@ -12,7 +12,8 @@ export default function ProjectModal({ open, project, onClose }) {
 
   const cover = project?.cover?.data;
   const galleryItems = project?.gallery?.data ?? [];
-  const images = cover ? [cover, ...galleryItems] : galleryItems;
+  const filteredGallery = cover ? galleryItems.filter(img => img.id !== cover.id) : galleryItems;
+  const images = cover ? [cover, ...filteredGallery] : filteredGallery;
   const mainImage = images[activeIndex];
   const categoryName = project?.categories?.data?.[0]?.attributes?.name;
   const description = project?.text;
@@ -142,7 +143,7 @@ export default function ProjectModal({ open, project, onClose }) {
           <div className={styles.info}>
             {categoryName && <span className={styles.category}>{categoryName}</span>}
             <h2 className={`display-2 no-period ${styles.title}`}>{project.title}</h2>
-            {description && <div className={styles.description} dangerouslySetInnerHTML={{ __html: description }} />}
+            {/* {description && <div className={styles.description} dangerouslySetInnerHTML={{ __html: description }} />} */}
           </div>
         </div>
       </div>

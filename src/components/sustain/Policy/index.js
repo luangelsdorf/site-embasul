@@ -16,7 +16,7 @@ export default function Policy({ content }) {
     '#F36E24',
     '#CD8B2A',
   ];
-  
+
   return (
     <div className={styles.section}>
       <div className="container">
@@ -37,7 +37,7 @@ export default function Policy({ content }) {
           <Reveal triggerOnce keyframes={slideUp} duration={500} fraction={0.5} delay={400} className="col-12 col-lg-4">
             <div className={styles.download}>
               <p className="heading-h3-size">{content.cta}</p>
-              <Button className="btn-secondary" LeftIcon={DownloadIcon} href={content.downloadLink.url}>{content.downloadLink.text}</Button>
+              <Button className="btn-secondary" LeftIcon={DownloadIcon} href={content.downloadLink.url} target="_blank">{content.downloadLink.text}</Button>
             </div>
           </Reveal>
           <div className="col-12 col-lg-10">
@@ -45,7 +45,7 @@ export default function Policy({ content }) {
               <Reveal triggerOnce keyframes={slideUp} duration={500} fraction={0.5} cascade damping={0.15}>
                 {
                   content.items.map((item, i) => (
-                    <li key={item.id} style={{backgroundColor: colors[i]}}>
+                    <li key={item.id} style={{ backgroundColor: colors[i] }}>
                       <div className="heading-h3-size">{item.text}</div>
                       <Img {...item.icon} />
                     </li>

@@ -55,7 +55,44 @@ export async function getStaticProps({ params, locale }) {
   const post = postEntity?.attributes ?? null;
 
   if (!post) {
+    // Check if the slug belongs to another locale
+    const anyMatches = await fetchAPI('posts', { 'filters[slug][$eq]': params.slug,
+      populate: 'deep', locale: 'all' });
+    const anyPost = anyMatches?.[0]?.attributes;
+
+    if (anyPost) {
+      const loc = anyPost.localizations?.data?.find(l => l.attributes.locale === locale);
+      if (loc) {
+        return {
+          redirect: {
+            destination: `/${locale === 'pt-BR' ? '' : locale + '/'}blog/${loc.attributes.slug}`,
+            permanent: false,
+          }
+        };
+      } else {
+        return {
+          redirect: {
+            destination: `/${locale === 'pt-BR' ? '' : locale + '/'}blog`,
+            permanent: false,
+          }
+        };
+      }
+    }
+
     return { notFound: true, revalidate: 60 };
+  }
+
+  // If post was found via fallback and not in the requested locale
+  if (post && post.locale !== locale) {
+    const loc = post.localizations?.data?.find(l => l.attributes.locale === locale);
+    if (loc) {
+      return {
+        redirect: {
+          destination: `/${locale === 'pt-BR' ? '' : locale + '/'}blog/${loc.attributes.slug}`,
+          permanent: false,
+        }
+      };
+    }
   }
 
   let related = [];

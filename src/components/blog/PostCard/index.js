@@ -10,9 +10,11 @@ export default function PostCard({ title, slug, cover, publishedDate, category }
   return (
     <Link href={`/blog/${slug}`} className={`wrapper ${styles.card}`}>
       <article>
-        <div className={styles.cover}>
-          <Img fill sizes={getSizesString('col-sm-12 col-lg-6')} {...cover} />
-        </div>
+        {cover?.data && (
+          <div className={styles.cover}>
+            <Img fill sizes={getSizesString('col-sm-12 col-lg-6')} {...cover} />
+          </div>
+        )}
         <div className={styles.body}>
           <div className={styles.meta}>
             {categoryName && <span className={styles.category}>{categoryName}</span>}

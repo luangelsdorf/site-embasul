@@ -1,8 +1,10 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import styles from './Form.module.scss';
 import { LayoutContext } from '@/utils/contexts';
 import Button from '@/components/common/Button';
 import Arrow from 'public/images/icons/arrow-short.svg';
+import { useRouter } from 'next/router';
+import { t } from '@/utils/translations';
 import ArrowLong from 'public/images/icons/arrow-long.svg';
 import { useForm } from 'react-hook-form';
 import { toFormatted } from '@/utils/helpers';
@@ -11,7 +13,11 @@ import { slideUp } from '@/utils/animation';
 
 export default function Form({ content, resume, showInfo = true }) {
   const { footer } = useContext(LayoutContext);
-  const { register, handleSubmit } = useForm();
+  const router = useRouter();
+  const { locale } = router;
+  const { register, handleSubmit, reset } = useForm();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const email = content?.hrEmail || footer.email;
   const phone = content?.hrPhone || footer.phone;
@@ -28,7 +34,8 @@ export default function Form({ content, resume, showInfo = true }) {
   }
 
   async function onSubmit(data, e) {
-    e.target.parentElement.classList.add(styles.loading);
+    setIsSubmitting(true);
+    setIsSuccess(false);
 
     if (data.resume) {
       data.resume.filename = data.resume[0].name;
@@ -47,10 +54,17 @@ export default function Form({ content, resume, showInfo = true }) {
     })
       .then((res) => {
         if (res.status === 200) {
-          e.target.parentElement.classList.add(styles.loaded);
+          setIsSuccess(true);
+          reset();
+          if (e && e.target && e.target.resumeFile) {
+            e.target.resumeFile.value = '';
+            const textInput = e.target.querySelector('#resume');
+            if (textInput) textInput.value = '';
+          }
         }
       })
-      .catch(error => console.error(error));
+      .catch(error => console.error(error))
+      .finally(() => setIsSubmitting(false));
   }
 
   function onError(e) {
@@ -72,16 +86,16 @@ export default function Form({ content, resume, showInfo = true }) {
                 <address>
                   <div className={styles.contact}>
                     <div>
-                      <span className="d-block">Email</span>
+                      <span className="d-block">{t('contact.email', locale)}</span>
                       <a href={`mailto:${email}`}>{email}</a>
                     </div>
                     <div>
-                      <span className="d-block">Telefone</span>
+                      <span className="d-block">{t('contact.phone', locale)}</span>
                       <a href={`tel:${phone}`}>{phone}</a>
                     </div>
                   </div>
                   <div className={styles.addr}>
-                    <span className="d-block">Endereço</span>
+                    <span className="d-block">{t('contact.address', locale)}</span>
                     <p>{footer.address}</p>
                   </div>
                 </address>
@@ -92,23 +106,26 @@ export default function Form({ content, resume, showInfo = true }) {
             </div>
           )}
           <div className="col-12 col-lg-6" style={{ backgroundColor: 'var(--secondary--color-1)' }}>
-            <div className={`${styles.form}`}>
+            <div
+              className={`${styles.form} ${isSubmitting ? styles.loading : ''} ${isSuccess ? styles.loaded : ''}`}
+              data-status={isSubmitting ? t('form.sending', locale) : isSuccess ? t('form.success', locale) : ''}
+            >
               <form onSubmit={handleSubmit(onSubmit, onError)}>
                 <div>
-                  <label htmlFor="name" className="hidden">Nome</label>
-                  <input {...register('name', { required: true })} className="input light w-input" placeholder="Nome" type="text" id="name" />
+                  <label htmlFor="name" className="hidden">{t('form.name', locale)}</label>
+                  <input {...register('name', { required: true })} className="input light w-input" placeholder={t('form.name', locale)} type="text" id="name" />
                 </div>
                 <div>
-                  <label htmlFor="email" className="hidden">E-mail</label>
-                  <input {...register('email', { required: true })} className="input light w-input" placeholder="E-mail" type="email" id="email" />
+                  <label htmlFor="email" className="hidden">{t('form.email', locale)}</label>
+                  <input {...register('email', { required: true })} className="input light w-input" placeholder={t('form.email', locale)} type="email" id="email" />
                 </div>
                 <div>
-                  <label htmlFor="phone" className="hidden">Telefone</label>
-                  <input {...register('phone', { required: true })} className="input light w-input" placeholder="Telefone" type="text" id="phone" />
+                  <label htmlFor="phone" className="hidden">{t('form.phone', locale)}</label>
+                  <input {...register('phone', { required: true })} className="input light w-input" placeholder={t('form.phone', locale)} type="text" id="phone" />
                 </div>
                 {resume ? (
                   <div onClick={e => e.currentTarget.lastChild.click()}>
-                    <label htmlFor="resumeFile" className="hidden">Currículo</label>
+                    <label htmlFor="resumeFile" className="hidden">{t('form.resume', locale)}</label>
                     <input
                       style={{ pointerEvents: 'none' }}
                       onFocus={e => {
@@ -117,7 +134,7 @@ export default function Form({ content, resume, showInfo = true }) {
                         e.currentTarget.blur();
                       }}
                       className="input light w-input"
-                      placeholder="Anexar Currículo"
+                      placeholder={t('form.resume', locale)}
                       type="text"
                       id="resume" />
                     <input
@@ -129,20 +146,20 @@ export default function Form({ content, resume, showInfo = true }) {
                       })}
                       style={{ display: 'none' }}
                       className="input light w-input"
-                      placeholder="Anexar Currículo"
+                      placeholder={t('form.resume', locale)}
                       type="file"
                       accept=".pdf, .doc, .docx, .json"
                       id="resumeFile" />
                   </div>
                 ) : (
                   <div>
-                    <label htmlFor="company" className="hidden">Empresa</label>
-                    <input {...register('company', { required: !resume })} className="input light w-input" placeholder="Empresa" type="text" id="company" />
+                    <label htmlFor="company" className="hidden">{t('form.company', locale)}</label>
+                    <input {...register('company', { required: !resume })} className="input light w-input" placeholder={t('form.company', locale)} type="text" id="company" />
                   </div>
                 )}
                 <div>
-                  <label htmlFor="message" className="hidden">Mensagem</label>
-                  <textarea {...register('message', { required: true })} className="text-area light w-input" placeholder="Mensagem" id="message" />
+                  <label htmlFor="message" className="hidden">{t('form.message', locale)}</label>
+                  <textarea {...register('message', { required: true })} className="text-area light w-input" placeholder={t('form.message', locale)} id="message" />
                 </div>
                 <Button style={{ cursor: 'pointer' }} RightIcon={ArrowLong} className="btn-primary bg-white-hover" btnElement type="submit">{content.sendBtnLabel}</Button>
                 {content?.recipientEmail1 && <input type="hidden" value={content.recipientEmail1} {...register('recipients.0')} />}

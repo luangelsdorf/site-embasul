@@ -2,8 +2,12 @@ import { useState } from 'react';
 import FaqItem from '@/components/faq/FaqItem';
 import Caret from 'public/images/icons/caret-down.svg';
 import styles from './FaqList.module.scss';
+import { useRouter } from 'next/router';
+import { t } from '@/utils/translations';
 
 export default function FaqList({ items, categories }) {
+  const router = useRouter();
+  const { locale } = router;
   const [activeCategory, setActiveCategory] = useState('all');
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -12,8 +16,8 @@ export default function FaqList({ items, categories }) {
     : items.filter(it => it.attributes.category?.data?.attributes?.slug === activeCategory);
 
   const activeCategoryName = activeCategory === 'all'
-    ? 'Todas'
-    : categories.find(c => c.attributes.slug === activeCategory)?.attributes?.name ?? 'Todas';
+    ? t('faq.all', locale)
+    : categories.find(c => c.attributes.slug === activeCategory)?.attributes?.name ?? t('faq.all', locale);
 
   function handleSelect(value) {
     setActiveCategory(value);
@@ -32,11 +36,11 @@ export default function FaqList({ items, categories }) {
               aria-expanded={mobileOpen}
               aria-controls="faq-categories"
             >
-              <span>Categoria: {activeCategoryName}</span>
+              <span>{t('faq.dropdownLabel', locale)} {activeCategoryName}</span>
               <Caret />
             </button>
 
-            <h2 className={styles.sidebarTitle}>Categorias</h2>
+            <h2 className={styles.sidebarTitle}>{t('faq.categories', locale)}</h2>
 
             <ul id="faq-categories" className={styles.categories}>
               <li>
@@ -45,7 +49,7 @@ export default function FaqList({ items, categories }) {
                   onClick={() => handleSelect('all')}
                   className={activeCategory === 'all' ? styles.active : ''}
                 >
-                  Todas
+                  {t('faq.all', locale)}
                 </button>
               </li>
               {categories.map(cat => (
@@ -72,7 +76,7 @@ export default function FaqList({ items, categories }) {
                 ))}
               </ul>
             ) : (
-              <p className={styles.notFound}>Nenhuma pergunta encontrada nesta categoria.</p>
+              <p className={styles.notFound}>{t('faq.empty', locale)}</p>
             )}
           </div>
         </div>

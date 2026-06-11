@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import PostCard from '@/components/blog/PostCard';
 import styles from './PostList.module.scss';
+import { useRouter } from 'next/router';
+import { t } from '@/utils/translations';
 
 export default function PostList({ posts, categories }) {
+  const router = useRouter();
+  const { locale } = router;
   const [activeCategory, setActiveCategory] = useState('all');
 
   const list = activeCategory === 'all'
@@ -14,7 +18,7 @@ export default function PostList({ posts, categories }) {
       <div className="container">
         <div className={styles.layout}>
           <aside className={styles.sidebar}>
-            <h2 className={styles.sidebarTitle}>Categorias</h2>
+            <h2 className={styles.sidebarTitle}>{t('blog.categories', locale)}</h2>
             <ul className={styles.categories}>
               <li>
                 <button
@@ -22,7 +26,7 @@ export default function PostList({ posts, categories }) {
                   onClick={() => setActiveCategory('all')}
                   className={activeCategory === 'all' ? styles.active : ''}
                 >
-                  Todas
+                  {t('blog.all', locale)}
                 </button>
               </li>
               {categories.map(cat => (
@@ -43,7 +47,7 @@ export default function PostList({ posts, categories }) {
             {list.length > 0 ? (
               list.map(card => <PostCard key={card.id} {...card.attributes} />)
             ) : (
-              <p className={styles.notFound}>Nenhum post encontrado.</p>
+              <p className={styles.notFound}>{t('blog.empty', locale)}</p>
             )}
           </div>
         </div>

@@ -11,8 +11,12 @@ import Link from 'next/link';
 import Img from '@/components/common/Img';
 import Reveal from 'react-awesome-reveal';
 import { slideUp } from '@/utils/animation';
+import { useRouter } from 'next/router';
+import { t } from '@/utils/translations';
 
 export default function Footer() {
+  const router = useRouter();
+  const { locale } = router;
   const content = useContext(LayoutContext);
   const lastLink = content.footer.usefulLinks.at(-1);
   const split = lastLink.text.split(' ');
@@ -34,8 +38,8 @@ export default function Footer() {
                       <Mail />
                     </div>
                     <div>
-                      <span>Preencha nosso</span>
-                      <Button link RightIcon={Arrow} href="/trabalhe-conosco">Formulário de Candidatura</Button>
+                      <span>{t('footer.fillForm', locale)}</span>
+                      <Button link RightIcon={Arrow} href="/trabalhe-conosco">{t('footer.applicationForm', locale)}</Button>
                     </div>
                   </div>
                   <div className={styles.contactButton} onClick={e => e.currentTarget.querySelector('a').click()}>
@@ -43,7 +47,7 @@ export default function Footer() {
                       <Phone />
                     </div>
                     <div>
-                      <span>Fale com o RH</span>
+                      <span>{t('footer.talkToHR', locale)}</span>
                       <Button link RightIcon={Arrow} href={`tel:${content.footer.phone.replaceAll(' ', '')}`}>{content.footer.phone}</Button>
                     </div>
                   </div>
@@ -57,7 +61,7 @@ export default function Footer() {
             <div className="col-12 col-lg-3">
               <Reveal triggerOnce keyframes={slideUp} duration={500} fraction={0.5} delay={400}>
                 <div className={styles.getInTouch}>
-                  <h2 className="text-300 no-period">Nossas Redes</h2>
+                  <h2 className="text-300 no-period">{t('footer.network', locale)}</h2>
                   <ul>
                     {
                       content.footer.socials.map(link => (
@@ -70,7 +74,7 @@ export default function Footer() {
                       ))
                     }
                   </ul>
-                  <h2 className="text-300 no-period">Nos Visite</h2>
+                  <h2 className="text-300 no-period">{t('footer.visit', locale)}</h2>
                   <p>{content.footer.address}</p>
                 </div>
               </Reveal>
@@ -78,7 +82,7 @@ export default function Footer() {
             <div className="col-12 col-lg-3">
               <Reveal triggerOnce keyframes={slideUp} duration={500} fraction={0.5} delay={600}>
                 <div className={styles.usefulLinks}>
-                  <h2 className="text-300 no-period">Links Úteis</h2>
+                  <h2 className="text-300 no-period">{t('footer.usefulLinks', locale)}</h2>
                   <ul>
                     {
                       content.footer.usefulLinks.slice(0, -1).map(link => (
@@ -99,8 +103,8 @@ export default function Footer() {
       <div className={styles.copyright}>
         <div className="container">
           <div className={styles.copyInner}>
-            <Link href="/politica-de-privacidade">Política de Privacidade</Link>
-            <p>Todos os Direitos Reservados <span>©</span> {new Date().getFullYear()}</p>
+            <Link href="/politica-de-privacidade">{t('footer.privacy', locale)}</Link>
+            <p>{t('footer.copyright', locale)} <span>©</span> {new Date().getFullYear()}</p>
             <a href="https://abarca.net.br" target="_blank">
               <Abarca />
             </a>

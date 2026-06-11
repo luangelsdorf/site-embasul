@@ -121,14 +121,14 @@
     }
 
     &::after {
-      content: "Enviando...";
+      content: attr(data-status);
       color: var(--neutral--300);
     }
   }
 
   &.loaded {
     &::after {
-      content: "Mensagem enviada com sucesso!";
+      content: attr(data-status);
       color: limegreen;
     }
   }

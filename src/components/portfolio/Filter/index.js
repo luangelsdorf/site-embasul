@@ -2,8 +2,12 @@ import Button from '@/components/common/Button';
 import styles from './Filter.module.scss';
 import { useState } from 'react';
 import ProjectCard from '../ProjectCard';
+import { useRouter } from 'next/router';
+import { t } from '@/utils/translations';
 
 export default function Filter({ content, categories, portfolio }) {
+  const router = useRouter();
+  const { locale } = router;
   const safePortfolio = portfolio ?? [];
   const safeCategories = categories ?? [];
 
@@ -47,7 +51,7 @@ export default function Filter({ content, categories, portfolio }) {
                   <div key={i}>
                     {i === 0 &&
                       <>
-                        <Button btnElement onClick={handleClick} data-value={'all'}>Todos</Button>
+                        <Button btnElement onClick={handleClick} data-value={'all'}>{t('portfolio.all', locale)}</Button>
                         <span className={styles.separator} />
                       </>
                     }
@@ -75,7 +79,7 @@ export default function Filter({ content, categories, portfolio }) {
                 </div>
               ))
             ) : (
-              <p className={styles.notFound}>Nenhum projeto encontrado.</p>
+              <p className={styles.notFound}>{t('portfolio.empty', locale)}</p>
             )
           }
         </div>

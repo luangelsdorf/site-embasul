@@ -1,8 +1,12 @@
 import Button from '@/components/common/Button';
 import { getLayoutContent } from '@/utils/fetch';
 import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { t } from '@/utils/translations';
 
 export default function NotFound() {
+  const router = useRouter();
+  const { locale } = router;
 
   useEffect(() => {
     document.querySelector('header').classList.add('active');
@@ -20,10 +24,10 @@ export default function NotFound() {
     }}>
       <div>
         <p className="overline">404</p>
-        <h1>Esta página não pôde ser encontrada</h1>
+        <h1>{t('error.404.title', locale)}</h1>
       </div>
-      <h4>Clique no botão abaixo para voltar à página inicial:</h4>
-      <Button href="/">Página Inicial</Button>
+      <h4>{t('error.back', locale)}</h4>
+      <Button href="/">{t('error.home', locale)}</Button>
     </div>
   )
 }

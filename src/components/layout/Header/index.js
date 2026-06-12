@@ -135,7 +135,12 @@ export default function Header() {
 
         <Navigation data-desktop />
 
-        <Button href="/trabalhe-conosco" className="small d-none d-lg-inline-flex" RightIcon={ArrowLong}>{t('nav.workWithUs', locale)}</Button>
+        <Button href="/trabalhe-conosco" className="small d-none d-lg-inline-flex text-nowrap flex-shrink-0" RightIcon={ArrowLong}>{t('nav.workWithUs', locale)}</Button>
+        
+        <div className="d-none d-lg-flex flex-shrink-0">
+          <LanguageSwitcher />
+        </div>
+
         <Button href="/trabalhe-conosco" className="small d-inline-flex d-lg-none btn-circle-primary">
           <Box width="24" height="24" />
         </Button>
@@ -155,10 +160,6 @@ export default function Header() {
             <Navigation />
           </Collapse.Content>
         </Collapse>
-      </div>
-
-      <div className={`${styles.langWrap} d-none d-lg-flex`}>
-        <LanguageSwitcher />
       </div>
     </header>
   )

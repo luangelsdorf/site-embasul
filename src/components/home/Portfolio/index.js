@@ -7,8 +7,11 @@ import { useRef } from 'react';
 import Arrow from 'public/images/icons/arrow-short.svg';
 import Reveal from 'react-awesome-reveal';
 import { slideUp } from '@/utils/animation';
+import { useRouter } from 'next/router';
+import { t } from '@/utils/translations';
 
 export default function Portfolio({ content, projects }) {
+  const { locale } = useRouter();
   let sliderRef = useRef(null);
   const next = e => {
     e.preventDefault();
@@ -28,7 +31,7 @@ export default function Portfolio({ content, projects }) {
               <Title content={content.headline} />
             </div>
             <div className="col-auto d-flex align-items-center">
-              <Button className="btn-secondary d-none d-lg-inline-flex" href="/produtos/projetos" style={{ marginRight: '32px' }}>Navegue por Todos os Projetos</Button>
+              <Button className="btn-secondary d-none d-lg-inline-flex" href="/produtos/projetos" style={{ marginRight: '32px' }}>{t('home.allProjects', locale)}</Button>
               <div className={styles.controls}>
                 <Button link onClick={previous} className="wrapper btn-circle-secondary testimonial-arrow">
                   <Arrow />
@@ -58,7 +61,7 @@ export default function Portfolio({ content, projects }) {
           </div>
         </Reveal>
       </div>
-      <Button style={{ margin: '0 24px', width: 'auto' }} className="btn-secondary d-inline-flex d-lg-none" href="/produtos/projetos">Navegue por Todos os Projetos</Button>
+      <Button style={{ margin: '0 24px', width: 'auto' }} className="btn-secondary d-inline-flex d-lg-none" href="/produtos/projetos">{t('home.allProjects', locale)}</Button>
     </div>
   )
 }

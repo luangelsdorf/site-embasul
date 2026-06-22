@@ -4,14 +4,15 @@ import DesignHighlights from '@/components/design-ai/Highlights';
 import IsoBanner from '@/components/iso/Banner';
 import IsoHighlights from '@/components/iso/Highlights';
 import fetchAPI, { getLayoutContent } from '@/utils/fetch';
-import Head from 'next/head';
+import { t } from '@/utils/translations';
+import { useRouter } from 'next/router';
+import Seo from '@/components/common/Seo';
 
 export default function Inovacao({ designAI, iso }) {
+  const { locale } = useRouter();
   return (
     <>
-      <Head>
-        <title>Inovação - Embasul</title>
-      </Head>
+      <Seo title={t('title.innovation', locale)} description={t('desc.innovation', locale)} />
 
       <main>
         {/* Design com AI */}

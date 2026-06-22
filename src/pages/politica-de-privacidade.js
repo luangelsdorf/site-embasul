@@ -1,21 +1,22 @@
 import Section from '@/components/common/Section'
 import SimpleBanner from '@/components/common/SimpleBanner'
 import fetchAPI, { getLayoutContent } from '@/utils/fetch'
-import Head from 'next/head'
+import { t } from '@/utils/translations'
+import { useRouter } from 'next/router'
+import Seo from '@/components/common/Seo'
 import React from 'react'
 
 export default function PrivacyPolicy({ policy }) {
+  const { locale } = useRouter();
 
   return (
     <div>
-      <Head>
-        <title>Política de Privacidade - Embasul</title>
-      </Head>
+      <Seo title={t('title.privacy', locale)} description={t('desc.privacy', locale)} />
 
       <Section>
         <SimpleBanner height={400}>
-          <p className="overline">Nossos Termos</p>
-          <h1>Política de Privacidade</h1>
+          <p className="overline">{t('privacy.overline', locale)}</p>
+          <h1>{t('title.privacy', locale)}</h1>
         </SimpleBanner>
 
         <Section pt="120 80" pb="120 80">

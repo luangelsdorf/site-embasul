@@ -3,14 +3,15 @@ import Section from '@/components/common/Section'
 import Banner from '@/components/contact/Banner'
 import Form from '@/components/contact/Form'
 import fetchAPI, { getLayoutContent } from '@/utils/fetch'
-import Head from 'next/head'
+import { t } from '@/utils/translations'
+import { useRouter } from 'next/router'
+import Seo from '@/components/common/Seo'
 
 export default function TrabalheConosco({ contact }) {
+  const { locale } = useRouter();
   return (
     <>
-      <Head>
-        <title>Trabalhe Conosco - Embasul</title>
-      </Head>
+      <Seo title={t('title.workWithUs', locale)} description={t('desc.workWithUs', locale)} />
 
       <main>
         <Section id="inicio">

@@ -2,17 +2,17 @@ import Section from '@/components/common/Section';
 import SimpleBanner from '@/components/common/SimpleBanner';
 import FaqList from '@/components/faq/FaqList';
 import fetchAPI, { getLayoutContent } from '@/utils/fetch';
-import Head from 'next/head';
+import Seo from '@/components/common/Seo';
+import { t } from '@/utils/translations';
+import { useRouter } from 'next/router';
 
 const HEADLINE = { overline: 'Ajuda', title: 'Perguntas frequentes' };
 
 export default function Faq({ items, categories }) {
+  const { locale } = useRouter();
   return (
     <>
-      <Head>
-        <title>FAQ - Embasul</title>
-        <meta name="description" content="Tire suas dúvidas sobre nossas embalagens, processos, prazos e atendimento." />
-      </Head>
+      <Seo title="FAQ" description={t('desc.faq', locale)} />
 
       <main>
         <SimpleBanner height={440} marginTop={56}>

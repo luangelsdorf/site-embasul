@@ -2,11 +2,14 @@ import Section from '@/components/common/Section';
 import SimpleBanner from '@/components/common/SimpleBanner';
 import PostList from '@/components/blog/PostList';
 import fetchAPI, { getLayoutContent } from '@/utils/fetch';
-import Head from 'next/head';
+import Seo from '@/components/common/Seo';
+import { t } from '@/utils/translations';
+import { useRouter } from 'next/router';
 
 const DEFAULT_HEADLINE = { overline: 'Blog', title: 'Conteúdo, novidades e bastidores' };
 
 export default function Blog({ blogPage, posts, categories }) {
+  const { locale } = useRouter();
   const headline = {
     overline: blogPage?.overline ?? DEFAULT_HEADLINE.overline,
     title: blogPage?.title ?? DEFAULT_HEADLINE.title,
@@ -14,9 +17,7 @@ export default function Blog({ blogPage, posts, categories }) {
 
   return (
     <>
-      <Head>
-        <title>Blog - Embasul</title>
-      </Head>
+      <Seo title="Blog" description={t('desc.blog', locale)} />
 
       <main>
         <SimpleBanner height={440} marginTop={56}>

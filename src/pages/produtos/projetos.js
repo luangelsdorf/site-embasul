@@ -1,15 +1,16 @@
 import Section from '@/components/common/Section';
 import Filter from '@/components/portfolio/Filter';
 import fetchAPI, { getLayoutContent } from '@/utils/fetch';
-import Head from 'next/head';
+import { t } from '@/utils/translations';
+import { useRouter } from 'next/router';
+import Seo from '@/components/common/Seo';
 
 export default function Projects({ projects, portfolio, categories }) {
+  const { locale } = useRouter();
 
   return (
     <>
-      <Head>
-        <title>Projetos - Embasul</title>
-      </Head>
+      <Seo title={t('title.projects', locale)} description={t('desc.projects', locale)} />
 
       <main>
 

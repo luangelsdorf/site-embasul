@@ -10,8 +10,40 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import Cookies from '@/components/common/Cookies';
+import ErrorBoundary from '@/components/common/ErrorBoundary';
 import lightGallery from 'lightgallery';
+
+const ORGANIZATION_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Embasul',
+  alternateName: 'Embasul Embalagens',
+  url: 'https://embasul.com.br',
+  logo: 'https://embasul.com.br/images/svg/Logo.svg',
+  description: 'Fabricante de embalagens de papelão ondulado sob medida, com impressão de alta qualidade, agilidade na entrega e compromisso socioambiental.',
+  sameAs: [
+    'https://www.instagram.com/embasul.oficial',
+    'https://www.facebook.com/embasul.oficial/',
+    'https://br.linkedin.com/company/embasulembalagens',
+  ],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+55-51-3595-9696',
+    contactType: 'customer service',
+    areaServed: 'BR',
+    availableLanguage: ['Portuguese', 'English', 'Spanish'],
+  },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'R. Farroupilha, 233, São José',
+    addressLocality: 'Novo Hamburgo',
+    addressRegion: 'RS',
+    postalCode: '93530-500',
+    addressCountry: 'BR',
+  },
+};
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -66,8 +98,17 @@ export default function App({ Component, pageProps }) {
 
   return (
     <LayoutContext.Provider value={pageProps.layout}>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION_SCHEMA) }}
+        />
+      </Head>
       <Header videoLink={pageProps.videoLink} />
-      <Component {...pageProps} />
+      <ErrorBoundary locale={router.locale} resetKey={router.asPath}>
+        <Component {...pageProps} />
+      </ErrorBoundary>
       {pageProps.layout && <Footer />}
       <Cookies />
     </LayoutContext.Provider>

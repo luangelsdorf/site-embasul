@@ -6,14 +6,15 @@ import Benefits from '@/components/digital/Benefits';
 import Highlights from '@/components/flexo/Highlights';
 import CustomDetails from '@/components/custom/Details';
 import fetchAPI, { getLayoutContent } from '@/utils/fetch';
-import Head from 'next/head';
+import { t } from '@/utils/translations';
+import { useRouter } from 'next/router';
+import Seo from '@/components/common/Seo';
 
 export default function Produtos({ digital, flexo, custom, support, design }) {
+  const { locale } = useRouter();
   return (
     <>
-      <Head>
-        <title>Produtos - Embasul</title>
-      </Head>
+      <Seo title={t('title.products', locale)} description={t('desc.products', locale)} />
 
       <main>
         {/* Impressão Digital */}

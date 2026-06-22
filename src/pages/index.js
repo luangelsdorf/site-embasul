@@ -6,15 +6,16 @@ import ServiceHighlights from '@/components/home/ServiceHighlights';
 import Sustainability from '@/components/home/Sustainability';
 import Footer from '@/components/layout/Footer';
 import fetchAPI, { getLayoutContent } from '@/utils/fetch';
-import Head from 'next/head';
+import Seo from '@/components/common/Seo';
+import { t } from '@/utils/translations';
+import { useRouter } from 'next/router';
 
 export default function Home({ home, portfolio, }) {
+  const { locale } = useRouter();
 
   return (
     <>
-      <Head>
-        <title>Embasul</title>
-      </Head>
+      <Seo description={t('desc.home', locale)} />
 
       <main>
         <Section id="home">

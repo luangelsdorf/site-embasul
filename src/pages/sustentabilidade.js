@@ -3,15 +3,16 @@ import Banner from '@/components/sustain/Banner';
 import Highlights from '@/components/sustain/Highlights';
 import Policy from '@/components/sustain/Policy';
 import fetchAPI, { getLayoutContent } from '@/utils/fetch';
-import Head from 'next/head';
+import { t } from '@/utils/translations';
+import { useRouter } from 'next/router';
+import Seo from '@/components/common/Seo';
 
 export default function Sustainability({ sustain }) {
+  const { locale } = useRouter();
 
   return (
     <>
-      <Head>
-        <title>Sustentabilidade - Embasul</title>
-      </Head>
+      <Seo title={t('title.sustainability', locale)} description={t('desc.sustainability', locale)} />
 
       <main>
         <Section id="inicio">

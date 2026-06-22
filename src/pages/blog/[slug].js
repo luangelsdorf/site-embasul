@@ -4,19 +4,19 @@ import PostContent from '@/components/blog/PostContent';
 import RelatedPosts from '@/components/blog/RelatedPosts';
 import fetchAPI, { getLayoutContent } from '@/utils/fetch';
 import { getExcerpt } from '@/utils/helpers';
-import Head from 'next/head';
+import { apiURL } from '@/utils/env';
+import Seo from '@/components/common/Seo';
 
 export default function Post({ post, related }) {
   if (!post) return null;
 
   const metaDescription = getExcerpt(post.content ?? '', 30);
+  const coverUrl = post.cover?.data?.attributes?.url;
+  const ogImage = coverUrl ? `${apiURL}${coverUrl}` : undefined;
 
   return (
     <>
-      <Head>
-        <title>{`${post.title} - Embasul`}</title>
-        {metaDescription && <meta name="description" content={metaDescription} />}
-      </Head>
+      <Seo title={post.title} description={metaDescription} image={ogImage} type="article" />
 
       <main>
         <Section id="post" pt="176" pb="64">

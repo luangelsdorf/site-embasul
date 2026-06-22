@@ -4,15 +4,16 @@ import CodeOfConduct from '@/components/people/CodeOfConduct';
 import EthicsChannel from '@/components/people/EthicsChannel';
 import PeopleSection from '@/components/people/PeopleSection';
 import fetchAPI, { getLayoutContent } from '@/utils/fetch';
-import Head from 'next/head';
+import { t } from '@/utils/translations';
+import { useRouter } from 'next/router';
+import Seo from '@/components/common/Seo';
 
 export default function People({ people }) {
+  const { locale } = useRouter();
 
   return (
     <>
-      <Head>
-        <title>Pessoas - Embasul</title>
-      </Head>
+      <Seo title={t('title.people', locale)} description={t('desc.people', locale)} />
 
       <main>
         <Section id="trabalhe-conosco">

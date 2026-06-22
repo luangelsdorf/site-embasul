@@ -4,15 +4,16 @@ import History from '@/components/company/History';
 import Principles from '@/components/company/Principles';
 import Structure from '@/components/company/Structure';
 import fetchAPI, { getLayoutContent } from '@/utils/fetch';
-import Head from 'next/head';
+import { t } from '@/utils/translations';
+import { useRouter } from 'next/router';
+import Seo from '@/components/common/Seo';
 
 export default function Company({ company }) {
+  const { locale } = useRouter();
 
   return (
     <>
-      <Head>
-        <title>A Empresa - Embasul</title>
-      </Head>
+      <Seo title={t('title.company', locale)} description={t('desc.company', locale)} />
 
       <main>
         <Section id="estrutura" pt="176" pb="0">

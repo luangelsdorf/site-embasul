@@ -1,12 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import X from 'public/images/icons/x.svg';
 import Arrow from 'public/images/icons/arrow-short.svg';
 import { apiURL } from '@/utils/env';
+import { t } from '@/utils/translations';
 
 import styles from './ProjectModal.module.scss';
 
 export default function ProjectModal({ open, project, onClose }) {
+  const { locale } = useRouter();
   const dialogRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -87,7 +90,7 @@ export default function ProjectModal({ open, project, onClose }) {
           type="button"
           className={styles.close}
           onClick={() => onClose?.()}
-          aria-label="Fechar"
+          aria-label={t('modal.close', locale)}
         >
           <X />
         </button>
@@ -112,7 +115,7 @@ export default function ProjectModal({ open, project, onClose }) {
                   type="button"
                   className={`${styles.nav} ${styles.prev}`}
                   onClick={prev}
-                  aria-label="Imagem anterior"
+                  aria-label={t('modal.prevImage', locale)}
                 >
                   <Arrow />
                 </button>
@@ -120,7 +123,7 @@ export default function ProjectModal({ open, project, onClose }) {
                   type="button"
                   className={`${styles.nav} ${styles.next}`}
                   onClick={next}
-                  aria-label="Próxima imagem"
+                  aria-label={t('modal.nextImage', locale)}
                 >
                   <Arrow />
                 </button>
@@ -132,7 +135,7 @@ export default function ProjectModal({ open, project, onClose }) {
                       type="button"
                       className={`${styles.dot} ${i === activeIndex ? styles.activeDot : ''}`}
                       onClick={() => setActiveIndex(i)}
-                      aria-label={`Imagem ${i + 1}`}
+                      aria-label={`${t('modal.image', locale)} ${i + 1}`}
                     />
                   ))}
                 </div>

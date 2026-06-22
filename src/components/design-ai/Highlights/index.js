@@ -3,8 +3,11 @@ import styles from './Highlights.module.scss';
 import Img from '@/components/common/Img';
 import { getSizesString } from '@/utils/images';
 import { toFormatted } from '@/utils/helpers';
+import { useRouter } from 'next/router';
+import { t } from '@/utils/translations';
 
 export default function Highlights({ content, note }) {
+  const { locale } = useRouter();
   return (
     <div className={styles.section}>
       <div className={styles.highlights}>
@@ -15,7 +18,7 @@ export default function Highlights({ content, note }) {
               <div style={styles.tag}>{note}</div>
             </>
             <div className={styles.textContent}>
-              <p className="overline">Design com AI</p>
+              <p className="overline">{t('innovation.ai', locale)}</p>
               <h2 className="display-2">{item.title}</h2>
               <p>{toFormatted(item.text)}</p>
             </div>

@@ -147,7 +147,7 @@ export default function Header() {
 
         <Collapse className="d-block d-lg-none">
           <Collapse.Title>
-            <Button onClick={e => e.currentTarget.classList.toggle(styles.active)} btnElement title="Menu">
+            <Button onClick={e => e.currentTarget.classList.toggle(styles.active)} btnElement title={t('nav.menu', locale)}>
               <div>
                 <Bars />
               </div>

@@ -6,13 +6,11 @@ import Seo from '@/components/common/Seo';
 import { t } from '@/utils/translations';
 import { useRouter } from 'next/router';
 
-const DEFAULT_HEADLINE = { overline: 'Blog', title: 'Conteúdo, novidades e bastidores' };
-
 export default function Blog({ blogPage, posts, categories }) {
   const { locale } = useRouter();
   const headline = {
-    overline: blogPage?.overline ?? DEFAULT_HEADLINE.overline,
-    title: blogPage?.title ?? DEFAULT_HEADLINE.title,
+    overline: blogPage?.overline ?? 'Blog',
+    title: blogPage?.title ?? t('blog.defaultTitle', locale),
   };
 
   return (

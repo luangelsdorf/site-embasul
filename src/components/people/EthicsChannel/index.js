@@ -9,8 +9,11 @@ import { toFormatted } from '@/utils/helpers';
 import Reveal, { Fade } from 'react-awesome-reveal';
 import { slideUp } from '@/utils/animation';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import { t } from '@/utils/translations';
 
 export default function EthicsChannel({ content }) {
+  const { locale } = useRouter();
   const [os, setOs] = useState('ssr');
 
   useEffect(() => {
@@ -37,8 +40,8 @@ export default function EthicsChannel({ content }) {
   const appItemIndex = enrichedItems.findIndex(item => item.title?.includes('WhatsApp'));
   if (appItemIndex !== -1) {
     const [appItem] = enrichedItems.splice(appItemIndex, 1);
-    appItem.title = 'Baixe o APP';
-    appItem.text = 'Acesse nossa plataforma de ética através do aplicativo Contato Seguro, disponível para Android e iOS.';
+    appItem.title = t('ethics.appTitle', locale);
+    appItem.text = t('ethics.appText', locale);
     appItem.isApp = true;
     appItem.icon = Phone;
     enrichedItems.push(appItem);

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Caret from 'public/images/icons/caret-down.svg';
-import { LOCALES, LOCALE_LABELS, DEFAULT_LOCALE } from '@/utils/translations';
+import { LOCALES, LOCALE_LABELS, DEFAULT_LOCALE, t } from '@/utils/translations';
 import styles from './LanguageSwitcher.module.scss';
 
 export default function LanguageSwitcher({ expanded = false }) {
@@ -31,7 +31,7 @@ export default function LanguageSwitcher({ expanded = false }) {
 
   if (expanded) {
     return (
-      <ul className={styles.expanded} aria-label="Idioma">
+      <ul className={styles.expanded} aria-label={t('lang.menuLabel', currentLocale)}>
         {LOCALES.map(loc => {
           const label = LOCALE_LABELS[loc];
           const isActive = loc === currentLocale;
@@ -62,7 +62,7 @@ export default function LanguageSwitcher({ expanded = false }) {
         onClick={() => setOpen(v => !v)}
         aria-expanded={open}
         aria-haspopup="listbox"
-        aria-label={`Idioma atual: ${active.name}`}
+        aria-label={`${t('lang.current', currentLocale)}: ${active.name}`}
       >
         <span className={styles.flag} aria-hidden>{active.flag}</span>
         <Caret className={styles.caret} />
